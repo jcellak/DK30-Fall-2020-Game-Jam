@@ -2,7 +2,7 @@
 switch (state) {
 	#region Idle State
 	case boss.idle:
-		var _distance = point_distance(x, y, o_player.x, o_player.y);
+		var _distance = point_distance(x, y, o_player1.x, o_player1.y);
 		if (_distance <= sight) {
 			state = boss.lift;
 		}
@@ -21,14 +21,14 @@ switch (state) {
 	#endregion
 	#region Chase State
 	case boss.chase:
-		var _distance = point_distance(x, y, o_player.x, y);
+		var _distance = point_distance(x, y, o_player1.x, y);
 		// If we're above the player, come smashing down
 		if (_distance < (sprite_width / 2 - 16) || place_meeting(x - 1, y, o_solid) or place_meeting(x + 1, y, o_solid)) {
 		    state = boss.smash;
 		    audio_play_sound(a_jump, 6, false);
 		    xspeed = 0;
 		} else {
-		    xspeed = (o_player.x - x) * 0.015;   
+		    xspeed = (o_player1.x - x) * 0.015;   
 		}
 		direction_move_bounce(o_solid, false);
 	break;
