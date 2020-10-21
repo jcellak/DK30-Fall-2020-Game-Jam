@@ -14,13 +14,18 @@ if (room == r_title) {
 }
 
 if (room != r_title) {
-	// Draw Health
-	for (var _i = 1; _i <= hp; _i++) {
-		draw_sprite_ext(s_heart, 0, (_i * 25) - 10, 15, 1, 1, 0, c_white, 1);
-	}
-	
-	// Draw score
+	// Draw Player 1 Stats
 	draw_set_font(f_main);
 	draw_set_halign(fa_left);
-	draw_text(5, 25, "Score: " + string(sapphires));
+	draw_text(5, 5, "Player 1");
+	draw_text(5, 25, "HP: " + string(player_hp[0]));
+	draw_text(5, 45, "Charge: " + string(player_charge[0]));
+	
+	// Camera width doesn't always match room width
+	var camWidth = camera_get_view_width(view_camera[0]);
+	// Draw Player 2 Stats
+	draw_set_halign(fa_right);
+	draw_text(camWidth - 5, 5, "Player 2");
+	draw_text(camWidth - 5, 25, "HP: " + string(player_hp[1]));
+	draw_text(camWidth - 5, 45, "Charge: " + string(player_charge[1]));
 }

@@ -1,4 +1,4 @@
-/// @description Controlling the Player's state
+/// @description Control the player
 
 #region Set up controls for the Player
 right = keyboard_check(ord("D"));

@@ -4,13 +4,13 @@ function handle_player_state_moving()
 {
 	// Set Player Sprite on x movement
 	if (xspeed == 0) {
-		if (player_num == 1) {
+		if (player_num == 0) {
 			sprite_index = s_player_idle;
 		} else {
 			sprite_index = s_player_idle_2;
 		}
 	} else {
-		if (player_num == 1) {
+		if (player_num == 0) {
 			sprite_index = s_player_walk;
 		} else {
 			sprite_index = s_player_walk_2;
@@ -22,7 +22,7 @@ function handle_player_state_moving()
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
-		if (player_num == 1) {
+		if (player_num == 0) {
 			sprite_index = s_player_jump;
 		} else {
 			sprite_index = s_player_jump_2;
@@ -84,12 +84,12 @@ function handle_player_state_moving()
 		}
 		
 		// Change sprite and state
-		if (player_num == 1) {
+		if (player_num == 0) {
 			sprite_index = s_player_ledge_grab;
 		} else {
 			sprite_index = s_player_ledge_grab_2;
 		}
-		state = player.ledge_grab;
+		state = PlayerState.ledge_grab;
 		
 		audio_play_sound(a_step, 6, false);
 	}
@@ -100,11 +100,11 @@ function handle_player_state_moving()
 function handle_player_state_ledge_grab()
 {
 	if (down) {
-		state = player.moving;
+		state = PlayerState.moving;
 	}
 	
 	if (up) {
-		state = player.moving;
+		state = PlayerState.moving;
 		yspeed = jump_height;
 	}
 }
@@ -113,7 +113,7 @@ function handle_player_state_ledge_grab()
 /// @description 
 function handle_player_state_door()
 {
-	if (player_num == 1) {
+	if (player_num == 0) {
 		sprite_index = s_player_exit;
 	} else {
 		sprite_index = s_player_exit_2;
@@ -122,6 +122,16 @@ function handle_player_state_door()
 	if (image_alpha > 0) { // Fade out
 		image_alpha -= .05;
 	} else {
+		// Temporary measure in order to continue the game if a player is "dead", for playtesting.
+		with (o_main_controller) {
+			for (var i = 0; i < 1; i++) {
+				if (player_hp[i] <= 0) {
+					player_hp[i] = max_hp;
+					player_charge[i] = 0;
+				}
+			}
+		}
+		
 		room_goto_next();
 	}
 }
@@ -131,12 +141,12 @@ function handle_player_state_door()
 function handle_player_state_hurt()
 {
 	// Check health first for death
-	if (o_main_controller.hp <= 0) {
-		state = player.death;
+	if (o_main_controller.player_hp[player_num] <= 0) {
+		state = PlayerState.death;
 		return;
 	}
 	
-	if (player_num == 1) {
+	if (player_num == 0) {
 		sprite_index = s_player_hurt;
 	} else {
 		sprite_index = s_player_hurt_2;
@@ -159,7 +169,7 @@ function handle_player_state_hurt()
 	// Change back to the default state once they stop moving
 	if (xspeed == 0 && yspeed == 0) {
 		image_blend = c_white;
-		state = player.moving;
+		state = PlayerState.moving;
 	}
 }
 
@@ -167,20 +177,29 @@ function handle_player_state_hurt()
 /// @description 
 function handle_player_state_death()
 {
-	with (o_main_controller) {
-		hp = max_hp;
-		sapphires = 0;
-	}
+	visible = false;
+	instance_deactivate_object(self);
+	var playerNum = player_num;
+	with(o_main_controller) {
+		player_hp[playerNum] = 0;
+		player_charge[playerNum] = 0;
 		
-	room_restart();
+		var bothPlayersDead = player_hp[0] <= 0 and player_hp[1] <= 0;
+		
+		if (bothPlayersDead) {
+			player_hp[0] = max_hp;
+			player_hp[1] = max_hp;
+			room_restart();
+		}
+	}
 }
 
-/// @function handle_player_take_damage();
+/// @function handle_player_take_damage(damage);
 /// @description 
-function handle_player_take_damage()
+function handle_player_take_damage(damage)
 {
-	if (state != player.hurt) {
-		state = player.hurt;
+	if (state != PlayerState.hurt) {
+		state = PlayerState.hurt;
 		
 		audio_play_sound(a_ouch, 5, false);
 		
@@ -191,8 +210,10 @@ function handle_player_take_damage()
 		
 		direction_move_bounce(o_solid, false);
 		
-		if (instance_exists(o_main_controller)) {
-			o_main_controller.hp -= 1;
+		var playerNum = player_num;
+		with (o_main_controller) {
+			player_hp[playerNum] -= damage;
+			if (player_hp[playerNum] < 0) player_hp[playerNum] = 0;
 		}
 	}
 }
