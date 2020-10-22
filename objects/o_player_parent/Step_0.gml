@@ -2,19 +2,19 @@
 
 #region State Machine
 switch (state) {
-	case player.moving:
+	case PlayerState.moving:
 		handle_player_state_moving();
 		break;
-	case player.ledge_grab:
+	case PlayerState.ledge_grab:
 		handle_player_state_ledge_grab();
 		break;
-	case player.door:
+	case PlayerState.door:
 		handle_player_state_door();
 		break;
-	case player.hurt:
+	case PlayerState.hurt:
 		handle_player_state_hurt();
 		break;
-	case player.death:
+	case PlayerState.death:
 		handle_player_state_death();
 		break;
 }

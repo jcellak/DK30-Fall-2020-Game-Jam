@@ -1,8 +1,9 @@
 /// @description Initialize some variables
 
-hp = 3;
-max_hp = 3;
-sapphires = 0;
+max_hp = 100;
+max_charge = 100;
+player_hp = [max_hp, max_hp];
+player_charge = [0, 0];
 
 display_set_gui_size(camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]));
 

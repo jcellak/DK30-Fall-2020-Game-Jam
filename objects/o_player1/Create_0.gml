@@ -2,4 +2,5 @@
 
 event_inherited();
 
-player_num = 1;
+// Since this is used for array indexing, player 1 is "0" and player 2 is "1".
+player_num = 0;
