@@ -20,12 +20,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_door_exit","path":"objects/o_door_exit/o_door_exit.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_sapphire","path":"objects/o_sapphire/o_sapphire.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_lava","path":"objects/o_lava/o_lava.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_enemy_parent","path":"objects/o_enemy_parent/o_enemy_parent.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_boss","path":"objects/o_boss/o_boss.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

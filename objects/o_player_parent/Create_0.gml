@@ -1,13 +1,5 @@
 /// @description Initialize Player Variables
 
-enum PlayerState {
-	moving,
-	ledge_grab,
-	door,
-	hurt,
-	death
-}
-
 state = PlayerState.moving;
 max_speed = 4;
 xspeed = 0;

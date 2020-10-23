@@ -1,19 +1,28 @@
+
+enum PlayerState {
+	moving,
+	ledge_grab,
+	door,
+	hurt,
+	death
+}
+
 /// @function handle_player_state_moving()
 /// @description 
 function handle_player_state_moving()
 {
 	// Set Player Sprite on x movement
 	if (xspeed == 0) {
-		if (player_num == 0) {
-			sprite_index = s_player_idle;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_idle_2;
+		} else {
+			sprite_index = s_player_idle;
 		}
 	} else {
-		if (player_num == 0) {
-			sprite_index = s_player_walk;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_walk_2;
+		} else {
+			sprite_index = s_player_walk;
 		}
 	}
 	
@@ -22,10 +31,10 @@ function handle_player_state_moving()
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
-		if (player_num == 0) {
-			sprite_index = s_player_jump;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_jump_2;
+		} else {
+			sprite_index = s_player_jump;
 		}
 		image_index = (yspeed > 0);
 		
@@ -84,10 +93,10 @@ function handle_player_state_moving()
 		}
 		
 		// Change sprite and state
-		if (player_num == 0) {
-			sprite_index = s_player_ledge_grab;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_ledge_grab_2;
+		} else {
+			sprite_index = s_player_ledge_grab;
 		}
 		state = PlayerState.ledge_grab;
 		
@@ -113,10 +122,10 @@ function handle_player_state_ledge_grab()
 /// @description 
 function handle_player_state_door()
 {
-	if (player_num == 0) {
-		sprite_index = s_player_exit;
-	} else {
+	if (is_opponent) {
 		sprite_index = s_player_exit_2;
+	} else {
+		sprite_index = s_player_exit;
 	}
 	
 	if (image_alpha > 0) { // Fade out
@@ -141,15 +150,15 @@ function handle_player_state_door()
 function handle_player_state_hurt()
 {
 	// Check health first for death
-	if (o_main_controller.player_hp[player_num] <= 0) {
+	if (o_main_controller.player_hp[is_opponent ? 1 : 0] <= 0) {
 		state = PlayerState.death;
 		return;
 	}
 	
-	if (player_num == 0) {
-		sprite_index = s_player_hurt;
-	} else {
+	if (is_opponent) {
 		sprite_index = s_player_hurt_2;
+	} else {
+		sprite_index = s_player_hurt;
 	}
 	
 	// Change direction as we fly around
@@ -179,7 +188,7 @@ function handle_player_state_death()
 {
 	visible = false;
 	instance_deactivate_object(self);
-	var playerNum = player_num;
+	var playerNum = is_opponent ? 1 : 0;
 	with(o_main_controller) {
 		player_hp[playerNum] = 0;
 		player_charge[playerNum] = 0;
@@ -212,8 +221,7 @@ function handle_player_take_damage(damage)
 		
 		var playerNum = player_num;
 		with (o_main_controller) {
-			player_hp[playerNum] -= damage;
-			if (player_hp[playerNum] < 0) player_hp[playerNum] = 0;
+			player_hp[playerNum] = clamp(player_hp[playerNum] - damage, 0, max_hp);
 		}
 	}
 }

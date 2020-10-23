@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "s_player_idle_2",
-    "path": "sprites/s_player_idle_2/s_player_idle_2.yy",
+    "name": "s_snake",
+    "path": "sprites/s_snake/s_snake.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_player_parent",
-    "path": "objects/o_player_parent/o_player_parent.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,17 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_player2","path":"objects/o_player2/o_player2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Network",
+    "path": "folders/Objects/Network.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_player2",
+  "name": "o_click_dummy",
   "tags": [],
   "resourceType": "GMObject",
 }

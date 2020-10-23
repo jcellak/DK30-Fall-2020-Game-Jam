@@ -1,7 +1,17 @@
 /// @description Draw GUI based on the room
 if (room == r_title) {
 	var _title_text = "CaveBoy";
-	var _start_text = "Press space to play";
+	
+	var _start_text = "2 players required";
+	if (global.player_num != -1 && global.is_server) {
+		if (global.all_players_connected) {
+			_start_text = "Press space to play";
+		} else {
+			_start_text = "Waiting for a client";
+		}
+	} else if (global.player_num != -1 && !global.is_server) {
+		_start_text = "Waiting for server";
+	}
 	
 	draw_set_halign(fa_center);
 	draw_set_font(f_title);

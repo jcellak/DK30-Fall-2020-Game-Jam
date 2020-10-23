@@ -4,7 +4,7 @@
 var _above_enemy = y < other.y + yspeed;
 var _falling = yspeed > 0;
 
-if (_above_enemy && (_falling || state == player.ledge_grab)) {
+if (_above_enemy && (_falling || state == PlayerState.ledge_grab)) {
 	// Keep player above the enemy
 	if (!place_meeting(x, yprevious, o_solid)) {
 		y = yprevious;
@@ -16,6 +16,7 @@ if (_above_enemy && (_falling || state == player.ledge_grab)) {
 	}
 	
 	with (other) {
+		send_event_instance_destroyed();
 		instance_destroy();
 	}
 	
@@ -23,5 +24,6 @@ if (_above_enemy && (_falling || state == player.ledge_grab)) {
 	yspeed = -(16 / 3)
 	audio_play_sound(a_step, 6, false);
 } else {
-	handle_player_take_damage();
+	handle_player_take_damage(20);
+	send_event_player_damaged(20);
 }
