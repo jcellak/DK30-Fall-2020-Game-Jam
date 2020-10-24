@@ -43,7 +43,7 @@ function network_received_packet(buffer) {
 			var pUpRelease = buffer_read(buffer, buffer_bool);
 			
 			if (pNum != global.player_num) {
-				with (o_player2) {
+				with (o_opponent) {
 					state = pState;
 					x = pX;
 					y = pY;
@@ -65,7 +65,7 @@ function network_received_packet(buffer) {
 			var pNum = buffer_read(buffer, buffer_u8);
 			var damage = buffer_read(buffer, buffer_s16);
 			
-			with(pNum == 0 ? o_player1 : o_player2) {
+			with(pNum == 0 ? o_player : o_opponent) {
 				handle_player_take_damage(damage);
 			}
 			
@@ -94,7 +94,7 @@ function network_received_packet(buffer) {
 		case EventType.player_death:
 			var pNum = buffer_read(buffer, buffer_u8);
 			
-			with(pNum == 0 ? o_player1 : o_player2) {
+			with(pNum == 0 ? o_player : o_opponent) {
 				handle_player_state_death();
 			}
 			
