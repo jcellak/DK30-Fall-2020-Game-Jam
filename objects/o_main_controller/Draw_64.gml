@@ -1,6 +1,6 @@
 /// @description Draw GUI based on the room
 if (room == r_title) {
-	var _title_text = "CaveBoy";
+	var _title_text = "WorkingTitle";
 	var _start_text = "Press space to play";
 	
 	draw_set_halign(fa_center);

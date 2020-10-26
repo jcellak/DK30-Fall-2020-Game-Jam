@@ -4,9 +4,9 @@ function handle_player_state_moving()
 {
 	// Set Player Sprite on x movement
 	if (xspeed == 0) {
-		sprite_index = s_player_idle;
+		sprite_index = sprite_idle;
 	} else {
-		sprite_index = s_player_walk;
+		sprite_index = sprite_walk;
 	}
 	
 	// Check if Player is on the ground
@@ -14,7 +14,7 @@ function handle_player_state_moving()
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
-		sprite_index = s_player_jump;
+		sprite_index = sprite_jump;
 		image_index = (yspeed > 0);
 		
 		// Control the jump height
@@ -72,7 +72,7 @@ function handle_player_state_moving()
 		}
 		
 		// Change sprite and state
-		sprite_index = s_player_ledge_grab;
+		sprite_index = sprite_ledge_grab;
 		state = player.ledge_grab;
 		
 		audio_play_sound(a_step, 6, false);
@@ -97,7 +97,7 @@ function handle_player_state_ledge_grab()
 /// @description 
 function handle_player_state_door()
 {
-	sprite_index = s_player_exit;
+	//sprite_index = s_player_exit;
 	
 	if (image_alpha > 0) { // Fade out
 		image_alpha -= .05;
@@ -116,7 +116,7 @@ function handle_player_state_hurt()
 		return;
 	}
 	
-	sprite_index = s_player_hurt;
+	//sprite_index = s_player_hurt;
 	// Change direction as we fly around
 	if (xspeed != 0) {
 		image_xscale = sign(xspeed);

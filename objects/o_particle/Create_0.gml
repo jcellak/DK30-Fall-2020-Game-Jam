@@ -1,5 +1,5 @@
 /// @description Initialize the particle
-image_speed = random_range(0.05, 0.2);
-speed = random_range(2, 4);
+image_speed = random_range(animation_speed_min, animation_speed_max);
+speed = random_range(movement_speed_min, movement_speed_max);
 direction = random(360);
-gravity = 0.4;
+gravity = initial_gravity;

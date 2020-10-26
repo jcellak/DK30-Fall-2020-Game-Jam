@@ -22,19 +22,26 @@ Hit F5 to run it and test it out. Start poking at it! TODO: More details here.
 
 ## 2. Development
 More In-depth details about development tools and how we can use it to contribute to the project.
-Target Aspect Ratio: 16:9
-Target Camera Resolution: 480x270
-Default Viewport: 1280x7
 
-### 2.1. Software
+### 2.1. Aspect Ratio and Pixel Size
+Target Aspect Ratio: `16:9`
+Default Viewport: `1440x810`
+Room Sizes Tested (i.e. Camera Resolution): `480x270`, `720x405`
 
-#### 2.1.1. Game Maker Studio 2
+If you want a different sized room but still want to be PIXEL PERFECT, use this handy chart:
+https://pacoup.com/2011/06/12/list-of-true-169-resolutions/
+
+If you use pixel sizes other than these (it will still work) the pixels will be distorted due to floating point calculations.
+
+### 2.2. Software
+
+#### 2.2.1. Game Maker Studio 2
 TODO: Details
 
-#### 2.1.2. GitKraken
+#### 2.2.2. GitKraken
 GitKraken is pretty cool. TODO: How to use for people who don't use Git often.
 
-### 2.2. Other Resources
+### 2.3. Other Resources
 If you want to contribute in other ways besides programming, here are some suggestions:
 - Playtesting
 - Sound effects and Music
