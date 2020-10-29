@@ -9,5 +9,3 @@ up_release = keyboard_check_released(vk_up) or keyboard_check_released(ord("W"))
 #endregion
 
 event_inherited();
-
-send_event_player_state();

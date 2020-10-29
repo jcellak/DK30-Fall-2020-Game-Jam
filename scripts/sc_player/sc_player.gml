@@ -11,6 +11,8 @@ enum PlayerState {
 /// @description 
 function handle_player_state_moving()
 {
+	var otherPlayerObjId = is_opponent ? o_player : o_opponent;
+	
 	// Set Player Sprite on x movement
 	if (xspeed == 0) {
 		if (is_opponent) {
@@ -26,8 +28,8 @@ function handle_player_state_moving()
 		}
 	}
 	
-	// Check if Player is on the ground
-	if (!place_meeting(x, y + 1, o_solid)) {
+	// Check if Player is in the air
+	if (!place_meeting(x, y + 1, o_solid) && !place_meeting(x, y + 1, otherPlayerObjId)) {
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
@@ -59,15 +61,49 @@ function handle_player_state_moving()
 	
 	// Check for moving left or right
 	if (right or left) {
-		xspeed += (right - left) * acceleration;
-		xspeed = clamp(xspeed, -max_speed, max_speed);
+		// Check if we are about to collide with opponent
+		if (place_meeting(x + xspeed + (right - left) * acceleration, y - 1, otherPlayerObjId)) {
+			xspeed += (right - left) * acceleration;
+			xspeed = clamp(xspeed, -max_speed, max_speed);
+		} else {
+			xspeed += (right - left) * acceleration;
+			xspeed = clamp(xspeed, -max_speed, max_speed);
+		}
 	} else {
 		apply_friction(acceleration);
 	}
 	
 	// Check if we are about to land on a solid collision Object
-	if (place_meeting(x, y + yspeed + 1, o_solid) && yspeed > 0) {
+	if ((place_meeting(x, y + yspeed + 1, o_solid) || place_meeting(x, y + yspeed + 1, otherPlayerObjId)) && yspeed > 0) {
 		audio_play_sound(a_step, 6, false);
+	}
+	
+	// Check for collision with opponent.  Because o_opponent's state is set during the Begin Step,
+	// we know that the opponent will move into us first, and we can respond.
+	if (!is_opponent && place_meeting(x, y, o_opponent)) {
+		// Shove the player out of the opponent's collision box.
+		var xDirection = sign(x - o_opponent.x);
+		var xShift = abs(sprite_width) - abs(x - o_opponent.x);
+		
+		var yDirection = sign(y - o_opponent.y);
+		var yShift = abs(sprite_height) - abs(y - o_opponent.y);
+		
+		if (abs(xShift) <= abs(yShift)) {
+			// Shift them both apart
+			while (place_meeting(x, y, o_opponent)) {
+				x += xDirection;
+				o_opponent.x -= xDirection;
+			}
+		} else {
+			// Move the one on top upwards
+			while (place_meeting(x, y, o_opponent)) {
+				if (yDirection <= 0) {
+					y -= 1;
+				} else {
+					o_opponent.y -= 1;
+				}
+			}
+		}
 	}
 	
 	direction_move_bounce(o_solid, false);

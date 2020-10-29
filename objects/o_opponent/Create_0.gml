@@ -16,3 +16,6 @@ left = false;
 up = false;
 down = false;
 up_release = false;
+
+// This is just a struct that contains all the same variables as o_opponent
+network_update = undefined;

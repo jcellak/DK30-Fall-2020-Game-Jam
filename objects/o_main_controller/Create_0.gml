@@ -3,6 +3,7 @@
 global.all_players_connected = false;
 global.player_num = -1;
 global.is_server = false;
+global.local_play = true;
 
 max_hp = 100;
 max_charge = 100;

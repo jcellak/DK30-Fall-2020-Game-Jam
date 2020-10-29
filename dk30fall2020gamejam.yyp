@@ -67,7 +67,6 @@
     {"id":{"name":"o_bat","path":"objects/o_bat/o_bat.yy",},"order":1,},
     {"id":{"name":"r_downscroll_1","path":"rooms/r_downscroll_1/r_downscroll_1.yy",},"order":7,},
     {"id":{"name":"sc_moveable","path":"scripts/sc_moveable/sc_moveable.yy",},"order":1,},
-    {"id":{"name":"o_click_dummy","path":"objects/o_click_dummy/o_click_dummy.yy",},"order":2,},
     {"id":{"name":"o_door_entrance","path":"objects/o_door_entrance/o_door_entrance.yy",},"order":2,},
     {"id":{"name":"s_spider","path":"sprites/s_spider/s_spider.yy",},"order":8,},
     {"id":{"name":"s_player_ledge_grab_2","path":"sprites/s_player_ledge_grab_2/s_player_ledge_grab_2.yy",},"order":10,},

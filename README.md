@@ -60,4 +60,4 @@ Put the zip file somewhere and extract it.  The .exe to run the game will be in 
 ### 4.2. Connecting two players
 For this step, whoever is acting as the "server" player will need to a) forward port 25653 on their router, and b) send their IP address to the "client" player
 Port forwarding will vary based on your internet provider or router, there should be an easy guide if you google it.  You need to forward port 25653 (as of this edit - it's in o_server's create event).
-There are a couple of ways to obtain your IP.  I just run ipconfig from my command line and look for the IPv4 Address line.  
+There are a couple of ways to obtain your IP.  For local testing, you can run `ipconfig` from a command line and copy the IPv4 from there.  For actual online play, I just go to whatismyip.com and grab the public IPv4.

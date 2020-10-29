@@ -3,7 +3,6 @@
 
 enum EventType {
 	goto_room,
-	left_click,
 	player_update,
 	player_damaged,
 	player_pickup,
@@ -20,12 +19,6 @@ function network_received_packet(buffer) {
 			var roomId = buffer_read(buffer, buffer_u32);
 			room_goto(roomId);
 			break;
-	    case EventType.left_click:
-	        var mx = buffer_read(buffer, buffer_u16); //Reads our unsigned 16 Bit Integer from our buffer and assigns it to the variable mx. [Buffer equals: mouse_y] -We deleted our mouse_x from the buffer upon reading it
-	        var my = buffer_read(buffer, buffer_u16); //Reads our unsigned 16 Bit Integer from our buffer and assigns it to the variable my. [Buffer equals:] -We deleted out mouse_y from the buffer upon reading it.
-	        //Create the click instance on our server
-	        instance_create_layer(mx, my, "Instances", o_click_dummy);
-	        break;
 		case EventType.player_update:
 			var pNum = buffer_read(buffer, buffer_u8);
 			var pState = buffer_read(buffer, buffer_u8);
@@ -41,25 +34,29 @@ function network_received_packet(buffer) {
 			var pUp = buffer_read(buffer, buffer_bool);
 			var pDown = buffer_read(buffer, buffer_bool);
 			var pUpRelease = buffer_read(buffer, buffer_bool);
+			var pPushed = buffer_read(buffer, buffer_bool);
 			
 			if (pNum != global.player_num) {
 				with (o_opponent) {
-					state = pState;
-					x = pX;
-					y = pY;
-					xspeed = pXSpeed;
-					yspeed = pYSpeed;
-					acceleration = pAcceleration;
-					right = pRight;
-					left = pLeft;
-					up = pUp;
-					down = pDown;
-					up_release = pUpRelease;
+					network_update = {
+						state: pState,
+						x: pX,
+						y: pY,
+						xspeed: pXSpeed,
+						yspeed: pYSpeed,
+						acceleration: pAcceleration,
+						right: pRight,
+						left: pLeft,
+						up: pUp,
+						down: pDown,
+						up_release: pUpRelease,
+						pushed: pPushed,
+						hp: pHp,
+						charge: pCharge
+					};
 				}
 			}
-			
-			o_main_controller.player_hp[pNum] = pHp;
-			o_main_controller.player_charge[pNum] = pCharge;
+		
 			break;
 		case EventType.player_damaged:
 			var pNum = buffer_read(buffer, buffer_u8);
@@ -129,6 +126,7 @@ function send_event_player_state() {
 	buffer_write(global.buffer, buffer_bool, up);
 	buffer_write(global.buffer, buffer_bool, down);
 	buffer_write(global.buffer, buffer_bool, up_release);
+	buffer_write(global.buffer, buffer_bool, pushed);
 
 	//Send the buffer to the server
 	//We need to tell it which socket to connect to, which buffer to use, and what buffer size we are using.
