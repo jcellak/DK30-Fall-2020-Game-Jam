@@ -100,6 +100,10 @@ function network_received_packet(buffer) {
 }
 
 function send_event_goto_room(roomId) {
+	if (global.local_play) {
+		return;
+	}
+	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.goto_room); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u32, roomId);
@@ -109,6 +113,10 @@ function send_event_goto_room(roomId) {
 
 // Only call this from a player context.
 function send_event_player_state() {
+	if (global.local_play) {
+		return;
+	}
+	
 	// Send a player update to the other player.
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_update); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
@@ -134,6 +142,10 @@ function send_event_player_state() {
 }
 
 function send_event_player_damaged(damage) {
+	if (global.local_play) {
+		return;
+	}
+	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_damaged); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u8, global.player_num);
@@ -143,6 +155,10 @@ function send_event_player_damaged(damage) {
 }
 
 function send_event_player_pickup(objectIndex) {
+	if (global.local_play) {
+		return;
+	}
+	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_pickup); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u8, global.player_num);
@@ -152,6 +168,10 @@ function send_event_player_pickup(objectIndex) {
 }
 
 function send_event_instance_destroyed() {
+	if (global.local_play) {
+		return;
+	}
+	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.instance_destroyed); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u32, id);
@@ -160,6 +180,10 @@ function send_event_instance_destroyed() {
 }
 
 function send_event_player_death() {
+	if (global.local_play) {
+		return;
+	}
+	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_death); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u8, global.player_num);

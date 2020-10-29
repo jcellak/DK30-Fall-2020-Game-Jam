@@ -19,8 +19,8 @@ if (room == r_title) {
 	draw_text_colour(room_width / 2, 24, _title_text, c_white, c_white, c_white, c_white, 1);
 	
 	draw_set_font(f_main);
-	draw_text_colour(room_width / 2 + 1, room_height - 48 + 1, _start_text, c_black, c_black, c_black, c_black, 0.7);
-	draw_text_colour(room_width / 2, room_height - 48, _start_text, c_white, c_white, c_white, c_white, 1);
+	draw_text_colour(room_width / 2 + 1, room_height - 68 + 1, _start_text, c_black, c_black, c_black, c_black, 0.7);
+	draw_text_colour(room_width / 2, room_height - 68, _start_text, c_white, c_white, c_white, c_white, 1);
 }
 
 if (room != r_title) {

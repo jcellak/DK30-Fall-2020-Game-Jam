@@ -1,8 +1,5 @@
-/// @description Go up in score
-o_main_controller.sapphires++;
+/// @description Inherit if local play
 
-audio_play_sound(a_item_pickup, 5, false);
-
-with (other) {
-	instance_destroy();	
+if (global.local_play) {
+	event_inherited();
 }

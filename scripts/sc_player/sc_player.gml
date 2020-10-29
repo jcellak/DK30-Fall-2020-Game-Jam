@@ -13,21 +13,7 @@ function handle_player_state_moving()
 {
 	var otherPlayerObjId = is_opponent ? o_player : o_opponent;
 	
-	// Set Player Sprite on x movement
-	if (xspeed == 0) {
-		if (is_opponent) {
-			sprite_index = s_player_idle_2;
-		} else {
-			sprite_index = s_player_idle;
-		}
-	} else {
-		if (is_opponent) {
-			sprite_index = s_player_walk_2;
-		} else {
-			sprite_index = s_player_walk;
-		}
-	}
-	
+	#region Vertical movement
 	// Check if Player is in the air
 	if (!place_meeting(x, y + 1, o_solid) && !place_meeting(x, y + 1, otherPlayerObjId)) {
 		yspeed += gravity_acceleration;
@@ -54,30 +40,23 @@ function handle_player_state_moving()
 		}
 	}
 	
-	// Change direction of Sprite
-	if (xspeed != 0) {
-		image_xscale = sign(xspeed);	
-	}
-	
-	// Check for moving left or right
-	if (right or left) {
-		// Check if we are about to collide with opponent
-		if (place_meeting(x + xspeed + (right - left) * acceleration, y - 1, otherPlayerObjId)) {
-			xspeed += (right - left) * acceleration;
-			xspeed = clamp(xspeed, -max_speed, max_speed);
-		} else {
-			xspeed += (right - left) * acceleration;
-			xspeed = clamp(xspeed, -max_speed, max_speed);
-		}
-	} else {
-		apply_friction(acceleration);
-	}
-	
 	// Check if we are about to land on a solid collision Object
 	if ((place_meeting(x, y + yspeed + 1, o_solid) || place_meeting(x, y + yspeed + 1, otherPlayerObjId)) && yspeed > 0) {
 		audio_play_sound(a_step, 6, false);
 	}
+	#endregion
 	
+	#region Horizontal movement
+	// Check for moving left or right
+	if (right or left) {
+		xspeed += (right - left) * acceleration;
+		xspeed = clamp(xspeed, -max_speed, max_speed);
+	} else {
+		apply_friction(acceleration);
+	}
+	#endregion
+	
+	#region Player collision
 	// Check for collision with opponent.  Because o_opponent's state is set during the Begin Step,
 	// we know that the opponent will move into us first, and we can respond.
 	if (!is_opponent && place_meeting(x, y, o_opponent)) {
@@ -105,9 +84,32 @@ function handle_player_state_moving()
 			}
 		}
 	}
+	#endregion
+	
+	#region Set Player Sprite on x movement
+	if (xspeed == 0) {
+		if (is_opponent) {
+			sprite_index = s_player_idle_2;
+		} else {
+			sprite_index = s_player_idle;
+		}
+	} else {
+		if (is_opponent) {
+			sprite_index = s_player_walk_2;
+		} else {
+			sprite_index = s_player_walk;
+		}
+	}
+	
+	// Change direction of Sprite
+	if (xspeed != 0) {
+		image_xscale = sign(xspeed);	
+	}
+	#endregion
 	
 	direction_move_bounce(o_solid, false);
 	
+	#region Ledge grabbing
 	// Check for ledge grab state
 	var _falling = y - yprevious > 0;
 	var _wasnt_wall = !position_meeting(x + grab_width * image_xscale, yprevious, o_solid);
@@ -138,6 +140,7 @@ function handle_player_state_moving()
 		
 		audio_play_sound(a_step, 6, false);
 	}
+	#endregion
 }
 
 /// @function handle_player_state_ledge_grab()
@@ -224,7 +227,11 @@ function handle_player_state_death()
 {
 	visible = false;
 	instance_deactivate_object(self);
-	var playerNum = is_opponent ? 1 : 0;
+	var playerNum = global.player_num;
+	if (global.local_play) {
+		playerNum = is_opponent ? 1 : 0;
+	}
+	
 	with(o_main_controller) {
 		player_hp[playerNum] = 0;
 		player_charge[playerNum] = 0;
@@ -255,7 +262,10 @@ function handle_player_take_damage(damage)
 		
 		direction_move_bounce(o_solid, false);
 		
-		var playerNum = player_num;
+		var playerNum = global.player_num;
+		if (global.local_play) {
+			playerNum = is_opponent ? 1 : 0;
+		}
 		with (o_main_controller) {
 			player_hp[playerNum] = clamp(player_hp[playerNum] - damage, 0, max_hp);
 		}
