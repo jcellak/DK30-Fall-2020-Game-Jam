@@ -16,6 +16,7 @@ if (_above_enemy && (_falling || state == PlayerState.ledge_grab)) {
 	}
 	
 	with (other) {
+		send_event_instance_destroyed();
 		instance_destroy();
 	}
 	
@@ -24,4 +25,5 @@ if (_above_enemy && (_falling || state == PlayerState.ledge_grab)) {
 	audio_play_sound(a_step, 6, false);
 } else {
 	handle_player_take_damage(20);
+	send_event_player_damaged(20);
 }
