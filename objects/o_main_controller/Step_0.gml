@@ -18,5 +18,5 @@ if (keyboard_check_pressed(vk_enter) && room == r_title && global.player_num != 
 
 // Change music if on the main screen for too long
 if (!audio_is_playing(a_title) && !audio_is_playing(a_cave_loop)) {
-	//audio_play_sound(a_cave_loop, 10, true);
+	audio_play_sound(a_cave_loop, 10, true);
 }

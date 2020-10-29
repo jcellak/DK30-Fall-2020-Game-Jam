@@ -23,7 +23,6 @@ switch (type_event){
         //Handle the data.
         var buffer = async_load[? "buffer"]; //Create a temporary buffer.
         buffer_seek(buffer,buffer_seek_start,0) //Looks at the beginning of the buffer.
-        audio_play_sound(a_jump, 6, false);
 		network_received_packet(buffer); //Executes our script scr_recieved_packet, and pass the buffer to our script.
         break;
 }
