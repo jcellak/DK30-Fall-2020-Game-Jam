@@ -16,3 +16,4 @@ acceleration = 0.5;
 gravity_acceleration = 0.25;
 jump_height = -3.5;
 grab_width = 8; // Distance (in pixels) from sprite origin to grabbable ledge
+modules = {};

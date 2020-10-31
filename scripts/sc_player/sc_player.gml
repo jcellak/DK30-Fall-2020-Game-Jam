@@ -25,7 +25,7 @@ function handle_player_state_moving()
 		yspeed = 0;
 		
 		// Jumping code
-		if (up) {
+		if (modules.jump && up) {
 			yspeed = jump_height;
 			audio_play_sound(a_jump, 5, false);
 		}
@@ -57,7 +57,7 @@ function handle_player_state_moving()
 	var _is_wall = position_meeting(x + grab_width * image_xscale, y, o_solid);
 	
 	// If the Player is falling AND y previous was NOT a wall AND current y IS a wall
-	if (_falling && _wasnt_wall && _is_wall) {
+	if (modules.hang && _falling && _wasnt_wall && _is_wall) {
 		xspeed = 0;
 		yspeed = 0;
 		
@@ -102,7 +102,19 @@ function handle_player_state_door()
 	if (image_alpha > 0) { // Fade out
 		image_alpha -= .05;
 	} else {
-		room_goto_next();
+		/*var _transition = instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
+		_transition.origin_x = room_width / 2;
+		_transition.origin_y = room_height / 2;*/
+		
+		instance_destroy();
+		
+		if (instance_number(o_player_parent) == 0) {
+			if (room_exists(room_next(room))) {
+				room_goto_next();
+			} else {
+				room_goto(r_title);
+			}
+		}
 	}
 }
 
@@ -111,10 +123,10 @@ function handle_player_state_door()
 function handle_player_state_hurt()
 {
 	// Check health first for death
-	if (o_main_controller.hp <= 0) {
+	/*if (o_main_controller.hp <= 0) {
 		state = player.death;
 		return;
-	}
+	}*/
 	
 	//sprite_index = s_player_hurt;
 	// Change direction as we fly around
@@ -142,12 +154,12 @@ function handle_player_state_hurt()
 /// @description 
 function handle_player_state_death()
 {
-	with (o_main_controller) {
+	/*with (o_main_controller) {
 		hp = max_hp;
 		sapphires = 0;
 	}
 		
-	room_restart();
+	room_restart();*/
 }
 
 /// @function handle_player_take_damage();
@@ -166,8 +178,8 @@ function handle_player_take_damage()
 		
 		direction_move_bounce(o_solid, false);
 		
-		if (instance_exists(o_main_controller)) {
+		/*if (instance_exists(o_main_controller)) {
 			o_main_controller.hp -= 1;
-		}
+		}*/
 	}
 }

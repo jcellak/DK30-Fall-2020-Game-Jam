@@ -1594,7 +1594,7 @@
     "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "f_main",
+  "name": "f_primary",
   "tags": [],
   "resourceType": "GMFont",
 }
