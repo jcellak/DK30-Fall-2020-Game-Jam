@@ -9,3 +9,5 @@ if (keyboard_check_pressed(vk_space) && room == r_title) {
 if (!audio_is_playing(a_title) && !audio_is_playing(a_cave_loop)) {
 	audio_play_sound(a_cave_loop, 10, true);
 }
+
+if audio_is_playing(a_title) audio_sound_gain(a_title,vol[0]*vol[2],0)
