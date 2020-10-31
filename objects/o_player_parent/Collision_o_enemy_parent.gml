@@ -24,6 +24,6 @@ if (_above_enemy && (_falling || state == PlayerState.ledge_grab)) {
 	yspeed = -(16 / 3)
 	audio_play_sound(a_step, 6, false);
 } else {
-	handle_player_take_damage(20);
-	send_event_player_damaged(20);
+	handle_player_take_damage();
+	send_event_player_damaged();
 }
