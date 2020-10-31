@@ -3,13 +3,13 @@
 switch (state) {
 	#region Idle State
 	case spider.idle:
-		if (instance_exists(o_player1)) {
-			var _distance = distance_to_object(o_player1);
+		if (instance_exists(o_player)) {
+			var _distance = distance_to_object(o_player);
 			if (_distance < sight and alarm[0] <= 0) {
 				image_speed = .5;
 				
-				if (o_player1.x != x) {
-					image_xscale = sign(o_player1.x - x);
+				if (o_player.x != x) {
+					image_xscale = sign(o_player.x - x);
 				}
 			}
 		}

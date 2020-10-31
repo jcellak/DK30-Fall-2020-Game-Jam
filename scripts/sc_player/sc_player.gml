@@ -1,31 +1,28 @@
+
+enum PlayerState {
+	moving,
+	ledge_grab,
+	door,
+	hurt,
+	death
+}
+
 /// @function handle_player_state_moving()
 /// @description 
 function handle_player_state_moving()
 {
-	// Set Player Sprite on x movement
-	if (xspeed == 0) {
-		if (player_num == 0) {
-			sprite_index = s_player_idle;
-		} else {
-			sprite_index = s_player_idle_2;
-		}
-	} else {
-		if (player_num == 0) {
-			sprite_index = s_player_walk;
-		} else {
-			sprite_index = s_player_walk_2;
-		}
-	}
+	var otherPlayerObjId = is_opponent ? o_player : o_opponent;
 	
-	// Check if Player is on the ground
-	if (!place_meeting(x, y + 1, o_solid)) {
+	#region Vertical movement
+	// Check if Player is in the air
+	if (!place_meeting(x, y + 1, o_solid) && !place_meeting(x, y + 1, otherPlayerObjId)) {
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
-		if (player_num == 0) {
-			sprite_index = s_player_jump;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_jump_2;
+		} else {
+			sprite_index = s_player_jump;
 		}
 		image_index = (yspeed > 0);
 		
@@ -43,11 +40,13 @@ function handle_player_state_moving()
 		}
 	}
 	
-	// Change direction of Sprite
-	if (xspeed != 0) {
-		image_xscale = sign(xspeed);	
+	// Check if we are about to land on a solid collision Object
+	if ((place_meeting(x, y + yspeed + 1, o_solid) || place_meeting(x, y + yspeed + 1, otherPlayerObjId)) && yspeed > 0) {
+		audio_play_sound(a_step, 6, false);
 	}
+	#endregion
 	
+	#region Horizontal movement
 	// Check for moving left or right
 	if (right or left) {
 		xspeed += (right - left) * acceleration;
@@ -55,14 +54,62 @@ function handle_player_state_moving()
 	} else {
 		apply_friction(acceleration);
 	}
+	#endregion
 	
-	// Check if we are about to land on a solid collision Object
-	if (place_meeting(x, y + yspeed + 1, o_solid) && yspeed > 0) {
-		audio_play_sound(a_step, 6, false);
+	#region Player collision
+	// Check for collision with opponent.  Because o_opponent's state is set during the Begin Step,
+	// we know that the opponent will move into us first, and we can respond.
+	if (!is_opponent && place_meeting(x, y, o_opponent)) {
+		// Shove the player out of the opponent's collision box.
+		var xDirection = sign(x - o_opponent.x);
+		var xShift = abs(sprite_width) - abs(x - o_opponent.x);
+		
+		var yDirection = sign(y - o_opponent.y);
+		var yShift = abs(sprite_height) - abs(y - o_opponent.y);
+		
+		if (abs(xShift) <= abs(yShift)) {
+			// Shift them both apart
+			while (place_meeting(x, y, o_opponent)) {
+				x += xDirection;
+				o_opponent.x -= xDirection;
+			}
+		} else {
+			// Move the one on top upwards
+			while (place_meeting(x, y, o_opponent)) {
+				if (yDirection <= 0) {
+					y -= 1;
+				} else {
+					o_opponent.y -= 1;
+				}
+			}
+		}
 	}
+	#endregion
+	
+	#region Set Player Sprite on x movement
+	if (xspeed == 0) {
+		if (is_opponent) {
+			sprite_index = s_player_idle_2;
+		} else {
+			sprite_index = s_player_idle;
+		}
+	} else {
+		if (is_opponent) {
+			sprite_index = s_player_walk_2;
+		} else {
+			sprite_index = s_player_walk;
+		}
+	}
+	
+	// Change direction of Sprite
+	if (xspeed != 0) {
+		image_xscale = sign(xspeed);	
+	}
+	#endregion
 	
 	direction_move_bounce(o_solid, false);
 	
+	#region Ledge grabbing
 	// Check for ledge grab state
 	var _falling = y - yprevious > 0;
 	var _wasnt_wall = !position_meeting(x + grab_width * image_xscale, yprevious, o_solid);
@@ -84,15 +131,16 @@ function handle_player_state_moving()
 		}
 		
 		// Change sprite and state
-		if (player_num == 0) {
-			sprite_index = s_player_ledge_grab;
-		} else {
+		if (is_opponent) {
 			sprite_index = s_player_ledge_grab_2;
+		} else {
+			sprite_index = s_player_ledge_grab;
 		}
 		state = PlayerState.ledge_grab;
 		
 		audio_play_sound(a_step, 6, false);
 	}
+	#endregion
 }
 
 /// @function handle_player_state_ledge_grab()
@@ -113,10 +161,10 @@ function handle_player_state_ledge_grab()
 /// @description 
 function handle_player_state_door()
 {
-	if (player_num == 0) {
-		sprite_index = s_player_exit;
-	} else {
+	if (is_opponent) {
 		sprite_index = s_player_exit_2;
+	} else {
+		sprite_index = s_player_exit;
 	}
 	
 	if (image_alpha > 0) { // Fade out
@@ -141,15 +189,15 @@ function handle_player_state_door()
 function handle_player_state_hurt()
 {
 	// Check health first for death
-	if (o_main_controller.player_hp[player_num] <= 0) {
+	if (o_main_controller.player_hp[is_opponent ? 1 : 0] <= 0) {
 		state = PlayerState.death;
 		return;
 	}
 	
-	if (player_num == 0) {
-		sprite_index = s_player_hurt;
-	} else {
+	if (is_opponent) {
 		sprite_index = s_player_hurt_2;
+	} else {
+		sprite_index = s_player_hurt;
 	}
 	
 	// Change direction as we fly around
@@ -179,7 +227,11 @@ function handle_player_state_death()
 {
 	visible = false;
 	instance_deactivate_object(self);
-	var playerNum = player_num;
+	var playerNum = global.player_num;
+	if (global.local_play) {
+		playerNum = is_opponent ? 1 : 0;
+	}
+	
 	with(o_main_controller) {
 		player_hp[playerNum] = 0;
 		player_charge[playerNum] = 0;
@@ -210,10 +262,12 @@ function handle_player_take_damage(damage)
 		
 		direction_move_bounce(o_solid, false);
 		
-		var playerNum = player_num;
+		var playerNum = global.player_num;
+		if (global.local_play) {
+			playerNum = is_opponent ? 1 : 0;
+		}
 		with (o_main_controller) {
-			player_hp[playerNum] -= damage;
-			if (player_hp[playerNum] < 0) player_hp[playerNum] = 0;
+			player_hp[playerNum] = clamp(player_hp[playerNum] - damage, 0, max_hp);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 /// @description Jump
 if (state == spider.idle) {
-	if (instance_exists(o_player1)) {
-		xspeed = sign(o_player1.x - x) * max_speed;
+	if (instance_exists(o_player)) {
+		xspeed = sign(o_player.x - x) * max_speed;
 		yspeed = -abs(xspeed * 2);
 	}
 	
