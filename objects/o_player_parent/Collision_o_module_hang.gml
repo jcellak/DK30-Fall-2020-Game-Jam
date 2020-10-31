@@ -1,10 +1,13 @@
 /// @description Enable Ledge Hang
-event_inherited();
+if (!is_opponent or global.local_play) {
+	
+	if (modules.hang == false) {
+		modules.hang = true;
 
-if (modules.hang == false) {
-	modules.hang = true;
-
-	with (other) {
-		instance_destroy();	
+		with (other) {
+			instance_destroy();	
+			send_event_instance_destroyed();
+		}
 	}
+
 }

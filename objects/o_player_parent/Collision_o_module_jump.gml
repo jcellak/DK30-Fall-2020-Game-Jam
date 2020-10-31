@@ -1,10 +1,13 @@
 /// @description Enable Jump
-event_inherited();
+if (!is_opponent or global.local_play) {
+	
+	if (modules.jump == false) {
+		modules.jump = true;
 
-if (modules.jump == false) {
-	modules.jump = true;
-
-	with (other) {
-		instance_destroy();	
+		with (other) {
+			instance_destroy();	
+			send_event_instance_destroyed();
+		}
 	}
+
 }

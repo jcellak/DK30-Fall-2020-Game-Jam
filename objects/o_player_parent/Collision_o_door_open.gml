@@ -1,20 +1,11 @@
-<<<<<<< HEAD:objects/o_player/Collision_o_door_exit.gml
 /// @description Move to the next level
-if (up and other.visible == true) {
-	y = yprevious;
-	state = PlayerState.door;
-	audio_play_sound(a_exit, 4, false);
-	audio_stop_sound(a_jump);
+if (!is_opponent or global.local_play) {
 	
-	if (room == r_stage_three) {
-		game_restart();
+	if (up and other.visible == true) {
+		y = yprevious;
+		state = PlayerState.door;
+		audio_play_sound(a_exit, 4, false);
+		audio_stop_sound(a_jump);
 	}
-=======
-/// @description Move to the next level
-if (up and other.visible == true) {
-	y = yprevious;
-	state = player.door;
-	audio_play_sound(a_exit, 4, false);
-	audio_stop_sound(a_jump);
->>>>>>> new_tileset:objects/o_player_parent/Collision_o_door_open.gml
+
 }

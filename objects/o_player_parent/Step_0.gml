@@ -1,11 +1,13 @@
 /// @description Controlling the Player's state
 
 #region Set up controls for the Player
-right = keyboard_check(controls_right);
-left = keyboard_check(controls_left);
-up = keyboard_check(controls_up);
-down = keyboard_check(controls_down);
-up_release = keyboard_check_released(controls_up_release);
+if (!is_opponent or global.local_play) {
+	right = keyboard_check(controls_right);
+	left = keyboard_check(controls_left);
+	up = keyboard_check(controls_up);
+	down = keyboard_check(controls_down);
+	up_release = keyboard_check_released(controls_up_release);
+}
 #endregion
 
 #region State Machine

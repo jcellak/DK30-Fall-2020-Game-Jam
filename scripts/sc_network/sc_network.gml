@@ -12,6 +12,7 @@ enum EventType {
 
 function network_received_packet(buffer) {
 	var message_id = buffer_read(buffer, buffer_u8); //Reads our Unsigned 8Bit Integer from our buffer. [What our buffer will look like: mouse_x,mouse_y] We remove the 1 because when a buffer reads information, it removes that id from the buffer.
+	var otherPlayerObjectId = global.my_player_num == 0 ? o_player_2 : o_player_1;
 
 	//You set which buffer ID you want to send information with. Maybe buffer id 1 sends mouse_x and mouse_y, id 2 sends Damage, id 3 sends health, etc.
 	switch(message_id) {
@@ -36,8 +37,8 @@ function network_received_packet(buffer) {
 			var pUpRelease = buffer_read(buffer, buffer_bool);
 			var pPushed = buffer_read(buffer, buffer_bool);
 			
-			if (pNum != global.player_num) {
-				with (o_opponent) {
+			if (pNum != global.my_player_num) {
+				with (otherPlayerObjectId) {
 					network_update = {
 						state: pState,
 						x: pX,
@@ -62,7 +63,7 @@ function network_received_packet(buffer) {
 			var pNum = buffer_read(buffer, buffer_u8);
 			var damage = buffer_read(buffer, buffer_s16);
 			
-			with(pNum == 0 ? o_player : o_opponent) {
+			with(pNum == 0 ? o_player_1 : o_player_2) {
 				handle_player_take_damage(damage);
 			}
 			
@@ -72,8 +73,8 @@ function network_received_packet(buffer) {
 			var objectIndex = buffer_read(buffer, buffer_u32);
 			
 			switch(objectIndex) {
-				case o_sapphire.object_index:
-					o_main_controller.player_charge[pNum] += 20;
+				case o_battery.object_index:
+					global.player_charge[pNum] += 20;
 					break;
 			}
 			
@@ -91,7 +92,7 @@ function network_received_packet(buffer) {
 		case EventType.player_death:
 			var pNum = buffer_read(buffer, buffer_u8);
 			
-			with(pNum == 0 ? o_player : o_opponent) {
+			with(pNum == 0 ? o_player_1 : o_player_2) {
 				handle_player_state_death();
 			}
 			
@@ -120,15 +121,15 @@ function send_event_player_state() {
 	// Send a player update to the other player.
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_update); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
-	buffer_write(global.buffer, buffer_u8, global.player_num);
+	buffer_write(global.buffer, buffer_u8, global.my_player_num);
 	buffer_write(global.buffer, buffer_u8, state);
 	buffer_write(global.buffer, buffer_s16, x);
 	buffer_write(global.buffer, buffer_s16, y);
 	buffer_write(global.buffer, buffer_s16, xspeed);
 	buffer_write(global.buffer, buffer_s16, yspeed);
 	buffer_write(global.buffer, buffer_s16, acceleration);
-	buffer_write(global.buffer, buffer_u8, o_main_controller.player_hp[0]);
-	buffer_write(global.buffer, buffer_u8, o_main_controller.player_charge[0]);
+	buffer_write(global.buffer, buffer_u8, global.player_hp[global.my_player_num]);
+	buffer_write(global.buffer, buffer_u8, global.player_charge[global.my_player_num]);
 	buffer_write(global.buffer, buffer_bool, right);
 	buffer_write(global.buffer, buffer_bool, left);
 	buffer_write(global.buffer, buffer_bool, up);
@@ -148,7 +149,7 @@ function send_event_player_damaged(damage) {
 	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_damaged); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
-	buffer_write(global.buffer, buffer_u8, global.player_num);
+	buffer_write(global.buffer, buffer_u8, global.my_player_num);
 	buffer_write(global.buffer, buffer_s16, damage);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
@@ -161,7 +162,7 @@ function send_event_player_pickup(objectIndex) {
 	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_pickup); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
-	buffer_write(global.buffer, buffer_u8, global.player_num);
+	buffer_write(global.buffer, buffer_u8, global.my_player_num);
 	buffer_write(global.buffer, buffer_u32, objectIndex);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
@@ -186,7 +187,7 @@ function send_event_player_death() {
 	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_death); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
-	buffer_write(global.buffer, buffer_u8, global.player_num);
+	buffer_write(global.buffer, buffer_u8, global.my_player_num);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
 }

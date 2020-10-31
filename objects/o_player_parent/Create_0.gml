@@ -11,3 +11,12 @@ grab_width = 8; // Distance (in pixels) from sprite origin to grabbable ledge
 modules = {};
 is_opponent = false;
 pushed = false;
+right = false;
+left = false;
+up = false;
+down = false;
+up_release = false;
+this_player_num = 0;
+
+// This is just a struct that contains all the same variables as o_player_parent
+network_update = undefined;

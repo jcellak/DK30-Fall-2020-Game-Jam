@@ -13,10 +13,16 @@ PlayerModules = function() constructor
 global.player_1_modules = new PlayerModules();
 global.player_2_modules = new PlayerModules();
 
+global.max_hp = 100;
+global.max_charge = 100;
+global.player_hp = [global.max_hp, global.max_hp];
+global.player_charge = [0,0];
+
 //global.player_1_modules.hang = true;
 //global.player_2_modules.hang = true;
 
 // Start the music
+audio_master_gain(0.05);
 if (!audio_is_playing(a_cave_loop)) {
 	audio_play_sound(a_cave_loop, 10, true);
 }

@@ -11,7 +11,7 @@ enum PlayerState {
 /// @description 
 function handle_player_state_moving()
 {
-	var otherPlayerObjId = is_opponent ? o_player : o_opponent;
+	var otherPlayerObjId = this_player_num == 0 ? o_player_2 : o_player_1;
 	
 	#region Vertical movement
 	// Check if Player is in the air
@@ -55,27 +55,27 @@ function handle_player_state_moving()
 	#region Player collision
 	// Check for collision with opponent.  Because o_opponent's state is set during the Begin Step,
 	// we know that the opponent will move into us first, and we can respond.
-	if (!is_opponent && place_meeting(x, y, o_opponent)) {
+	if (!is_opponent && place_meeting(x, y, otherPlayerObjId)) {
 		// Shove the player out of the opponent's collision box.
-		var xDirection = sign(x - o_opponent.x);
-		var xShift = abs(sprite_width) - abs(x - o_opponent.x);
+		var xDirection = sign(x - otherPlayerObjId.x);
+		var xShift = abs(sprite_width) - abs(x - otherPlayerObjId.x);
 		
-		var yDirection = sign(y - o_opponent.y);
-		var yShift = abs(sprite_height) - abs(y - o_opponent.y);
+		var yDirection = sign(y - otherPlayerObjId.y);
+		var yShift = abs(sprite_height) - abs(y - otherPlayerObjId.y);
 		
 		if (abs(xShift) <= abs(yShift)) {
 			// Shift them both apart
-			while (place_meeting(x, y, o_opponent)) {
+			while (place_meeting(x, y, otherPlayerObjId)) {
 				x += xDirection;
-				o_opponent.x -= xDirection;
+				otherPlayerObjId.x -= xDirection;
 			}
 		} else {
 			// Move the one on top upwards
-			while (place_meeting(x, y, o_opponent)) {
+			while (place_meeting(x, y, otherPlayerObjId)) {
 				if (yDirection <= 0) {
 					y -= 1;
 				} else {
-					o_opponent.y -= 1;
+					otherPlayerObjId.y -= 1;
 				}
 			}
 		}
@@ -84,17 +84,9 @@ function handle_player_state_moving()
 	
 	#region Set Player Sprite on x movement
 	if (xspeed == 0) {
-		if (is_opponent) {
-			sprite_index = s_player_idle_2;
-		} else {
-			sprite_index = s_player_idle;
-		}
+		sprite_index = sprite_idle;
 	} else {
-		if (is_opponent) {
-			sprite_index = s_player_walk_2;
-		} else {
-			sprite_index = s_player_walk;
-		}
+		sprite_index = sprite_walk;
 	}
 	
 	// Change direction of Sprite
@@ -161,12 +153,15 @@ function handle_player_state_door()
 		_transition.origin_y = room_height / 2;*/
 		
 		instance_destroy();
+		send_event_instance_destroyed();
 		
 		if (instance_number(o_player_parent) == 0) {
 			if (room_exists(room_next(room))) {
 				room_goto_next();
+				send_event_goto_room(room_next(room));
 			} else {
 				room_goto(r_title);
+				send_event_goto_room(r_title);
 			}
 		}
 	}
@@ -177,15 +172,12 @@ function handle_player_state_door()
 function handle_player_state_hurt()
 {
 	// Check health first for death
-	/*if (o_main_controller.hp <= 0) {
+	/*
+	if (global.player_hp[player_num] <= 0) {
 		state = PlayerState.death;
 		return;
-	}*/
-	
-	//sprite_index = s_player_hurt;
-		sprite_index = s_player_hurt_2;
-	} else {
 	}
+	*/
 	
 	// Change direction as we fly around
 	if (xspeed != 0) {
@@ -233,7 +225,6 @@ function handle_player_take_damage(damage)
 		
 		direction_move_bounce(o_solid, false);
 		
-		/*if (instance_exists(o_main_controller)) {
-		}*/
+		global.player_hp[this_player_num] -= damage;
 	}
 }
