@@ -15,7 +15,8 @@ function handle_player_state_moving()
 	
 	#region Vertical movement
 	// Check if Player is in the air
-	if (!place_meeting(x, y + 1, o_solid) && !place_meeting(x, y + 1, otherPlayerObjId)) {
+	var onOtherPlayer = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top;
+	if (!place_meeting(x, y + 1, o_solid) && !onOtherPlayer) {
 		yspeed += gravity_acceleration;
 		
 		// Player is in the air
@@ -66,16 +67,24 @@ function handle_player_state_moving()
 		if (abs(xShift) <= abs(yShift)) {
 			// Shift them both apart
 			while (place_meeting(x, y, otherPlayerObjId)) {
-				x += xDirection;
-				otherPlayerObjId.x -= xDirection;
+				if (!place_meeting(x + xDirection, y, o_solid)) {
+					x += xDirection;
+				}
+				with (otherPlayerObjId) {
+					if (!place_meeting(x - xDirection, y, o_solid)) {
+						x -= xDirection;
+					}
+				}
 			}
 		} else {
-			// Move the one on top upwards
 			while (place_meeting(x, y, otherPlayerObjId)) {
-				if (yDirection <= 0) {
-					y -= 1;
-				} else {
-					otherPlayerObjId.y -= 1;
+				if (!place_meeting(x, y + yDirection, o_solid)) {
+					y += yDirection;
+				}
+				with (otherPlayerObjId) {
+					if (!place_meeting(x, y - yDirection, o_solid)) {
+						y -= yDirection;
+					}
 				}
 			}
 		}
