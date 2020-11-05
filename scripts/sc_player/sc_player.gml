@@ -15,7 +15,7 @@ function handle_player_state_moving()
 	
 	#region Vertical movement
 	// Check if Player is in the air
-	var onOtherPlayer = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top;
+	var onOtherPlayer = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top + 2;
 	if (!place_meeting(x, y + 1, o_solid) && !onOtherPlayer) {
 		yspeed += gravity_acceleration;
 		
@@ -85,6 +85,14 @@ function handle_player_state_moving()
 					if (!place_meeting(x, y - yDirection, o_solid)) {
 						y -= yDirection;
 					}
+				}
+				
+				// Make sure that the player on top stops falling, or they will just fall back into
+				// the other player on the next frame.
+				if (y <= otherPlayerObjId.y) {
+					yspeed = 0;
+				} else {
+					otherPlayerObjId.yspeed = 0;
 				}
 			}
 		}

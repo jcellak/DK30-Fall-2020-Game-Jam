@@ -41,8 +41,8 @@ function network_received_packet(buffer) {
 				with (otherPlayerObjectId) {
 					network_update = {
 						state: pState,
-						x: pX,
-						y: pY,
+						x: round(pX),
+						y: round(pY),
 						xspeed: pXSpeed,
 						yspeed: pYSpeed,
 						acceleration: pAcceleration,
