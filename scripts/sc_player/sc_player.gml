@@ -13,6 +13,18 @@ function handle_player_state_moving()
 {
 	var otherPlayerObjId = this_player_num == 0 ? o_player_2 : o_player_1;
 	
+	#region Using Shove
+	if (shove_released && shove_charge > 0) {
+		xspeed -= image_xscale * shove_charge / 10;
+		var myShove = instance_create_layer(x + sprite_width, y, "Particles", o_shove_hitbox);
+		myShove.owner_num = this_player_num;
+		myShove.image_xscale = image_xscale;
+		myShove.shove_value = shove_charge;
+		shove_charge = 0;
+		send_event_shove_created(myShove);
+	}
+	#endregion
+	
 	#region Vertical movement
 	// Check if Player is in the air
 	var onOtherPlayer = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top + 2;
@@ -48,8 +60,12 @@ function handle_player_state_moving()
 	if (right or left) {
 		xspeed += (right - left) * acceleration;
 		xspeed = clamp(xspeed, -max_speed, max_speed);
+		sprite_index = sprite_walk;
+		// Change direction of Sprite
+		image_xscale = right ? 1 : -1;	
 	} else {
 		apply_friction(acceleration);
+		sprite_index = sprite_idle;
 	}
 	#endregion
 	
@@ -99,16 +115,16 @@ function handle_player_state_moving()
 	}
 	#endregion
 	
-	#region Set Player Sprite on x movement
-	if (xspeed == 0) {
-		sprite_index = sprite_idle;
-	} else {
-		sprite_index = sprite_walk;
-	}
-	
-	// Change direction of Sprite
-	if (xspeed != 0) {
-		image_xscale = sign(xspeed);	
+	#region Hit By Shove
+	var enemyShove = instance_place(x, y, o_shove_hitbox);
+	if (enemyShove != noone and enemyShove.owner_num != this_player_num and ds_list_find_index(enemyShove.struck_targets, self) == -1) {
+		ds_list_add(enemyShove.struck_targets, self);
+		var shoveAngle = point_direction(enemyShove.x, enemyShove.y, x, y);
+		// The following code guarantees that there is at least 30% x movement, and at *most* 30% y movement.
+		var xPortion = clamp(abs(cos(shoveAngle)), 0.3, 1);
+		var yPortion = clamp(sin(shoveAngle), -0.3, 0.3);
+		xspeed += xPortion * enemyShove.image_xscale * enemyShove.shove_value / 5;
+		yspeed += yPortion * enemyShove.shove_value / 5;
 	}
 	#endregion
 	

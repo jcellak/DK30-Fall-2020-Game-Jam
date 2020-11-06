@@ -7,6 +7,14 @@ if (!is_opponent or global.local_play) {
 	up = keyboard_check(controls_up);
 	down = keyboard_check(controls_down);
 	up_release = keyboard_check_released(controls_up_release);
+	shove_held = keyboard_check(controls_shove);
+	shove_released = keyboard_check_released(controls_shove);
+}
+#endregion
+
+#region Charging shove
+if (shove_held && modules.shove) {
+	shove_charge = clamp(shove_charge + 1, 0, global.player_charge[this_player_num]);
 }
 #endregion
 

@@ -78,7 +78,7 @@ function apply_friction(_amount)
 	// First check to see if we're moving
 	if (xspeed != 0) {
 		if (abs(xspeed) - _amount > 0) {
-			xspeed -= _amount * image_xscale;
+			xspeed -= _amount * sign(xspeed);
 		} else {
 			xspeed = 0;
 		}

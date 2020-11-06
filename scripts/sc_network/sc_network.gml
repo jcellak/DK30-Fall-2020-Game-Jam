@@ -7,7 +7,8 @@ enum EventType {
 	player_damaged,
 	player_pickup,
 	instance_destroyed,
-	player_death
+	player_death,
+	shove_created
 }
 
 function network_received_packet(buffer) {
@@ -36,6 +37,9 @@ function network_received_packet(buffer) {
 			var pDown = buffer_read(buffer, buffer_bool);
 			var pUpRelease = buffer_read(buffer, buffer_bool);
 			var pPushed = buffer_read(buffer, buffer_bool);
+			var pShoveHeld = buffer_read(buffer, buffer_bool);
+			var pShoveReleased = buffer_read(buffer, buffer_bool);
+			var pShoveCharge = buffer_read(buffer, buffer_s16);
 			
 			if (pNum != global.my_player_num) {
 				with (otherPlayerObjectId) {
@@ -53,7 +57,10 @@ function network_received_packet(buffer) {
 						up_release: pUpRelease,
 						pushed: pPushed,
 						hp: pHp,
-						charge: pCharge
+						charge: pCharge,
+						shove_held: pShoveHeld,
+						shove_released: pShoveReleased,
+						shove_charge: pShoveCharge
 					};
 				}
 			}
@@ -97,6 +104,18 @@ function network_received_packet(buffer) {
 			}
 			
 			break;
+		case EventType.shove_created:
+			var oNum = buffer_read(buffer, buffer_u8);
+			var shoveX = buffer_read(buffer, buffer_s16);
+			var shoveY = buffer_read(buffer, buffer_s16);
+			var shoveVal = buffer_read(buffer, buffer_s16);
+			var shoveXScale = buffer_read(buffer, buffer_s8);
+			
+			var newShove = instance_create_layer(shoveX, shoveY, "Particles", o_shove_hitbox);
+			newShove.owner_num = oNum;
+			newShove.shove_value = shoveVal;
+			newShove.image_xscale = shoveXScale;
+			break;
 	}
 }
 
@@ -136,6 +155,9 @@ function send_event_player_state() {
 	buffer_write(global.buffer, buffer_bool, down);
 	buffer_write(global.buffer, buffer_bool, up_release);
 	buffer_write(global.buffer, buffer_bool, pushed);
+	buffer_write(global.buffer, buffer_bool, shove_held);
+	buffer_write(global.buffer, buffer_bool, shove_released);
+	buffer_write(global.buffer, buffer_s16, shove_charge);
 
 	//Send the buffer to the server
 	//We need to tell it which socket to connect to, which buffer to use, and what buffer size we are using.
@@ -188,6 +210,22 @@ function send_event_player_death() {
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
 	buffer_write(global.buffer, buffer_u8, EventType.player_death); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u8, global.my_player_num);
+	
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
+}
+
+function send_event_shove_created(instanceId) {
+	if (global.local_play) {
+		return;
+	}
+	
+	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
+	buffer_write(global.buffer, buffer_u8, EventType.shove_created); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
+	buffer_write(global.buffer, buffer_u8, instanceId.owner_num);
+	buffer_write(global.buffer, buffer_s16, instanceId.x);
+	buffer_write(global.buffer, buffer_s16, instanceId.y);
+	buffer_write(global.buffer, buffer_s16, instanceId.shove_value);
+	buffer_write(global.buffer, buffer_s8, instanceId.image_xscale);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
 }

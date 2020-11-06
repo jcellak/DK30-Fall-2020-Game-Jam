@@ -8,15 +8,16 @@ PlayerModules = function() constructor
 	crouch = false;
 	double = false;
 	jetpack = false;
+	shove = true;
 }
 
 global.player_1_modules = new PlayerModules();
 global.player_2_modules = new PlayerModules();
 
 global.max_hp = 100;
-global.max_charge = 100;
+global.max_charge = 180;
 global.player_hp = [global.max_hp, global.max_hp];
-global.player_charge = [0,0];
+global.player_charge = [60,60];
 
 //global.player_1_modules.hang = true;
 //global.player_2_modules.hang = true;
