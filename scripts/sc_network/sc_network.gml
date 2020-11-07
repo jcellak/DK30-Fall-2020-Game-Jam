@@ -8,7 +8,7 @@ enum EventType {
 	player_pickup,
 	instance_destroyed,
 	player_death,
-	shove_created
+	blast_created
 }
 
 function network_received_packet(buffer) {
@@ -104,19 +104,19 @@ function network_received_packet(buffer) {
 			}
 			
 			break;
-		case EventType.shove_created:
+		case EventType.blast_created:
 			var oNum = buffer_read(buffer, buffer_u8);
-			var shoveX = buffer_read(buffer, buffer_s16);
-			var shoveY = buffer_read(buffer, buffer_s16);
-			var shoveVal = buffer_read(buffer, buffer_s16);
-			var shoveXScale = buffer_read(buffer, buffer_s8);
+			var blastX = buffer_read(buffer, buffer_s16);
+			var blastY = buffer_read(buffer, buffer_s16);
+			var blastVal = buffer_read(buffer, buffer_s16);
+			var blastXScale = buffer_read(buffer, buffer_s8);
 			var pX = buffer_read(buffer, buffer_s16);
 			var pY = buffer_read(buffer, buffer_s16);
 			
-			var newShove = instance_create_layer(shoveX, shoveY, "Particles", o_shove_hitbox);
+			var newShove = instance_create_layer(blastX, blastY, "Particles", o_blast_hitbox);
 			newShove.owner_num = oNum;
-			newShove.shove_value = shoveVal;
-			newShove.image_xscale = shoveXScale;
+			newShove.blast_value = blastVal;
+			newShove.image_xscale = blastXScale;
 			newShove.playerX = pX;
 			newShove.playerY = pY;
 			break;
@@ -159,9 +159,9 @@ function send_event_player_state() {
 	buffer_write(global.buffer, buffer_bool, down);
 	buffer_write(global.buffer, buffer_bool, up_release);
 	buffer_write(global.buffer, buffer_bool, pushed);
-	buffer_write(global.buffer, buffer_bool, shove_held);
-	buffer_write(global.buffer, buffer_bool, shove_released);
-	buffer_write(global.buffer, buffer_s16, shove_charge);
+	buffer_write(global.buffer, buffer_bool, blast_held);
+	buffer_write(global.buffer, buffer_bool, blast_released);
+	buffer_write(global.buffer, buffer_s16, blast_charge);
 
 	//Send the buffer to the server
 	//We need to tell it which socket to connect to, which buffer to use, and what buffer size we are using.
@@ -224,7 +224,7 @@ function send_event_blast_created(instanceId) {
 	}
 	
 	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
-	buffer_write(global.buffer, buffer_u8, EventType.shove_created); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
+	buffer_write(global.buffer, buffer_u8, EventType.blast_created); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
 	buffer_write(global.buffer, buffer_u8, instanceId.owner_num);
 	buffer_write(global.buffer, buffer_s16, instanceId.x);
 	buffer_write(global.buffer, buffer_s16, instanceId.y);

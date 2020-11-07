@@ -12,7 +12,7 @@ if (!is_opponent or global.local_play) {
 }
 #endregion
 
-#region Charging shove
+#region Charging blast
 if (blast_held && modules.blast) {
 	blast_charge = clamp(blast_charge + 1, 0, global.player_charge[this_player_num]);
 }
