@@ -16,9 +16,9 @@ if (!global.local_play and is_opponent and network_update != undefined) {
 	down = network_update.down;
 	up_release = network_update.up_release;
 	pushed = network_update.pushed;
-	shove_held = network_update.shove_held;
-	shove_released = network_update.shove_released;
-	shove_charge = network_update.shove_charge;
+	blast_held = network_update.blast_held;
+	blast_released = network_update.blast_released;
+	blast_charge = network_update.blast_charge;
 	
 	global.player_hp[this_player_num] = network_update.hp;
 	global.player_charge[this_player_num] = network_update.charge;

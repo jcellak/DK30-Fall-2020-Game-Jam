@@ -13,15 +13,17 @@ function handle_player_state_moving()
 {
 	var otherPlayerObjId = this_player_num == 0 ? o_player_2 : o_player_1;
 	
-	#region Using Shove
-	if (shove_released && shove_charge > 0) {
-		xspeed -= image_xscale * shove_charge / 10;
-		var myShove = instance_create_layer(x + sprite_width, y, "Particles", o_shove_hitbox);
-		myShove.owner_num = this_player_num;
-		myShove.image_xscale = image_xscale;
-		myShove.shove_value = shove_charge;
-		shove_charge = 0;
-		send_event_shove_created(myShove);
+	#region Using Blast
+	if (blast_released && blast_charge > 0) {
+		xspeed -= image_xscale * blast_charge / 10;
+		var myBlast = instance_create_layer(x + sprite_width, y, "Particles", o_blast_hitbox);
+		myBlast.owner_num = this_player_num;
+		myBlast.image_xscale = image_xscale;
+		myBlast.blast_value = blast_charge;
+		myBlast.playerX = x;
+		myBlast.playerY = y;
+		blast_charge = 0;
+		send_event_blast_created(myBlast);
 	}
 	#endregion
 	
@@ -115,16 +117,16 @@ function handle_player_state_moving()
 	}
 	#endregion
 	
-	#region Hit By Shove
-	var enemyShove = instance_place(x, y, o_shove_hitbox);
-	if (enemyShove != noone and enemyShove.owner_num != this_player_num and ds_list_find_index(enemyShove.struck_targets, self) == -1) {
-		ds_list_add(enemyShove.struck_targets, self);
-		var shoveAngle = point_direction(enemyShove.x, enemyShove.y, x, y);
+	#region Hit By Blast
+	var enemyBlast = instance_place(x, y, o_blast_hitbox);
+	if (enemyBlast != noone and enemyBlast.owner_num != this_player_num and ds_list_find_index(enemyBlast.struck_targets, self) == -1) {
+		ds_list_add(enemyBlast.struck_targets, self);
+		var shoveAngle = point_direction(enemyBlast.playerX, enemyBlast.playerY, x, y);
 		// The following code guarantees that there is at least 30% x movement, and at *most* 30% y movement.
 		var xPortion = clamp(abs(cos(shoveAngle)), 0.3, 1);
 		var yPortion = clamp(sin(shoveAngle), -0.3, 0.3);
-		xspeed += xPortion * enemyShove.image_xscale * enemyShove.shove_value / 5;
-		yspeed += yPortion * enemyShove.shove_value / 5;
+		xspeed += xPortion * enemyBlast.image_xscale * enemyBlast.blast_value / 5;
+		yspeed += yPortion * enemyBlast.blast_value / 5;
 	}
 	#endregion
 	

@@ -14,5 +14,5 @@ if (global.local_play) {
 	controls_up = vk_up;
 	controls_down = vk_down;
 	controls_up_release = vk_up;
-	controls_shove = vk_numpad0;
+	controls_blast = vk_numpad0;
 }

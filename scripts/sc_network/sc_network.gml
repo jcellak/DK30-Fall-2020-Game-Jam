@@ -37,9 +37,9 @@ function network_received_packet(buffer) {
 			var pDown = buffer_read(buffer, buffer_bool);
 			var pUpRelease = buffer_read(buffer, buffer_bool);
 			var pPushed = buffer_read(buffer, buffer_bool);
-			var pShoveHeld = buffer_read(buffer, buffer_bool);
-			var pShoveReleased = buffer_read(buffer, buffer_bool);
-			var pShoveCharge = buffer_read(buffer, buffer_s16);
+			var pBlastHeld = buffer_read(buffer, buffer_bool);
+			var pBlastReleased = buffer_read(buffer, buffer_bool);
+			var pBlastCharge = buffer_read(buffer, buffer_s16);
 			
 			if (pNum != global.my_player_num) {
 				with (otherPlayerObjectId) {
@@ -58,9 +58,9 @@ function network_received_packet(buffer) {
 						pushed: pPushed,
 						hp: pHp,
 						charge: pCharge,
-						shove_held: pShoveHeld,
-						shove_released: pShoveReleased,
-						shove_charge: pShoveCharge
+						blast_held: pBlastHeld,
+						blast_released: pBlastReleased,
+						blast_charge: pBlastCharge
 					};
 				}
 			}
@@ -110,11 +110,15 @@ function network_received_packet(buffer) {
 			var shoveY = buffer_read(buffer, buffer_s16);
 			var shoveVal = buffer_read(buffer, buffer_s16);
 			var shoveXScale = buffer_read(buffer, buffer_s8);
+			var pX = buffer_read(buffer, buffer_s16);
+			var pY = buffer_read(buffer, buffer_s16);
 			
 			var newShove = instance_create_layer(shoveX, shoveY, "Particles", o_shove_hitbox);
 			newShove.owner_num = oNum;
 			newShove.shove_value = shoveVal;
 			newShove.image_xscale = shoveXScale;
+			newShove.playerX = pX;
+			newShove.playerY = pY;
 			break;
 	}
 }
@@ -214,7 +218,7 @@ function send_event_player_death() {
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
 }
 
-function send_event_shove_created(instanceId) {
+function send_event_blast_created(instanceId) {
 	if (global.local_play) {
 		return;
 	}
@@ -224,8 +228,10 @@ function send_event_shove_created(instanceId) {
 	buffer_write(global.buffer, buffer_u8, instanceId.owner_num);
 	buffer_write(global.buffer, buffer_s16, instanceId.x);
 	buffer_write(global.buffer, buffer_s16, instanceId.y);
-	buffer_write(global.buffer, buffer_s16, instanceId.shove_value);
+	buffer_write(global.buffer, buffer_s16, instanceId.blast_value);
 	buffer_write(global.buffer, buffer_s8, instanceId.image_xscale);
+	buffer_write(global.buffer, buffer_s16, instanceId.playerX);
+	buffer_write(global.buffer, buffer_s16, instanceId.playerY);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
 }

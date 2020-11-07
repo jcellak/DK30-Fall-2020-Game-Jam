@@ -8,7 +8,7 @@ PlayerModules = function() constructor
 	crouch = false;
 	double = false;
 	jetpack = false;
-	shove = true;
+	blast = true;
 }
 
 global.player_1_modules = new PlayerModules();
