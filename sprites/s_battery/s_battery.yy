@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"951b9202-9738-420b-b1ba-d5c0d2441f6b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Level",
-    "path": "folders/Sprites/Level.yy",
+    "name": "Collectables",
+    "path": "folders/Sprites/Level/Collectables.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_battery",

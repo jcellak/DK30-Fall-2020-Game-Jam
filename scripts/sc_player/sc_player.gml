@@ -9,11 +9,46 @@ function handle_player_state_moving()
 		sprite_index = sprite_walk;
 	}
 	
+	// Track Timers for Double Tap input
+	if (right_released) {
+		alarm[0] = double_tap_timer;
+	} else if (left_released) {
+		alarm[1] = double_tap_timer;
+	}
+
+	// Double Tap Triggered in any one specific direction
+	if (modules.dash && !(alarm[3] > 0) && (alarm[0] > 0 && right_pressed || alarm[1] > 0 && left_pressed)) {
+		alarm[2] = dash_duration;
+		alarm[3] = dash_cooldown;
+	}
+	
 	// Check if Player is on the ground
-	if (!place_meeting(x, y + 1, o_solid)) {
+	var _on_solid = place_meeting(x, y + 1, o_solid);
+	var _on_cube  = place_meeting(x, y + 1, o_cube);
+	var _on_platform = false;
+	with (o_platform) {
+		if (place_meeting(x, y - 1, other) && !place_meeting(x, y, other)) {
+			_on_platform = true;	
+		}
+	}
+	
+	if (_on_solid || _on_cube || _on_platform) { // Player is on a type of solid ground
+		yspeed = 0;
+		jump_disabled = false;
+		
+		// Jumping off of solid ground
+		if (modules.jump && up) {
+			yspeed = jump_height;
+			audio_play_sound(a_jump, 5, false);
+		}
+		
+		// Dropping down from platform ONLY (no solid ground overlap)
+		if (down && _on_platform && !_on_solid) {
+			y += 1;
+		}
+	} else { // Player is in the air
 		yspeed += gravity_acceleration;
 		
-		// Player is in the air
 		sprite_index = sprite_jump;
 		image_index = (yspeed > 0);
 		
@@ -21,14 +56,23 @@ function handle_player_state_moving()
 		if (up_release and yspeed < -6) {
 			yspeed = -3;
 		}
-	} else {
-		yspeed = 0;
 		
-		// Jumping code
-		if (modules.jump && up) {
+		if (modules.double && up_pressed && !jump_disabled) {
 			yspeed = jump_height;
 			audio_play_sound(a_jump, 5, false);
+			jump_disabled = true;
+			var _double_particle_l = instance_create_layer(x - 4, y + sprite_height / 2, "Particles", o_particle);
+			var _double_particle_r = instance_create_layer(x + 4, y + sprite_height / 2, "Particles", o_particle);
+			_double_particle_l.direction = random_range(-90, -180);
+			_double_particle_r.direction = random_range(0, -90);
 		}
+		
+		alarm[2] = 0; // No dashing in the air (for now)
+		
+		// TESTING: If Dash into Jump, delay deceleration until Player lands
+		/*if (alarm[2] > 0) {
+			alarm[2] += 1;
+		}*/
 	}
 	
 	// Change direction of Sprite
@@ -36,18 +80,39 @@ function handle_player_state_moving()
 		image_xscale = sign(xspeed);	
 	}
 	
-	// Check for moving left or right
-	if (right or left) {
-		xspeed += (right - left) * acceleration;
-		xspeed = clamp(xspeed, -max_speed, max_speed);
-	} else {
-		apply_friction(acceleration);
+	if (alarm[2] > 0) { // Actively Dashing - Player can't stop moving until ended
+		if (alarm[2] <= 5) {
+			apply_friction(dash_acceleration);
+		} else {
+			xspeed += (right - left) * dash_acceleration;
+			xspeed = clamp(xspeed, -dash_speed, dash_speed);
+			//xspeed = (right - left) * dash_speed;
+			
+			// Dash Particles
+			if (alarm[2] % 2 == 0) {
+				with (instance_create_layer(x, y + sprite_height / 2, "Particles", o_particle)) {
+					image_blend = c_white;
+					direction = (other.image_xscale > 0) ? random_range(90, 180) : random_range(0, 90);
+				}
+			}
+		}
+	} else { // Normal Walking Speed
+		if (right or left) { // Check for moving left or right
+			xspeed += (right - left) * acceleration;
+			xspeed = clamp(xspeed, -max_speed, max_speed);
+		} else {
+			apply_friction(acceleration);
+		}
 	}
 	
 	// Check if we are about to land on a solid collision Object
-	if (place_meeting(x, y + yspeed + 1, o_solid) && yspeed > 0) {
+	/*if (place_meeting(x, y + yspeed + 1, o_solid) && yspeed > 0) {
 		audio_play_sound(a_step, 6, false);
-	}
+	}*/
+	
+	jump_through_platform(o_platform);
+	
+	handle_push_object(o_cube);
 	
 	direction_move_bounce(o_solid, false);
 	
@@ -77,6 +142,9 @@ function handle_player_state_moving()
 		
 		audio_play_sound(a_step, 6, false);
 	}
+	
+	// Round to avoid sub-pixel calculations (avoid floating point values)
+	y = round(y);
 }
 
 /// @function handle_player_state_ledge_grab()

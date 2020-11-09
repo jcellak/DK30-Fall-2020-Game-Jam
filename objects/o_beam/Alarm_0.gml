@@ -10,4 +10,4 @@ with (instance_create_layer(_x, _y, "Particles", o_particle)) {
 	//image_blend = make_color_hsv(188, 51, 90);
 }
 
-alarm[0] = random_range(120, 240);
+alarm[0] = particle_spawn_interval;

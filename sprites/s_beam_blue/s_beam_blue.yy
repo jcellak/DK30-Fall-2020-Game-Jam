@@ -76,8 +76,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c52b12ab-0622-494a-8d7b-852dda49c10c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Level",
-    "path": "folders/Sprites/Level.yy",
+    "name": "Obstacles",
+    "path": "folders/Sprites/Level/Obstacles.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_beam_blue",

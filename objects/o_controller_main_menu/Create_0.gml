@@ -4,10 +4,11 @@ PlayerModules = function() constructor
 {
 	jump = false;
 	hang = false;
-	push = false;
-	crouch = false;
+	dash = false;
+	slide = false;
+	pickup = false;
 	double = false;
-	jetpack = false;
+	rocket = false;
 }
 
 global.player_1_modules = new PlayerModules();
@@ -17,8 +18,8 @@ global.player_2_modules = new PlayerModules();
 //global.player_2_modules.hang = true;
 
 // Start the music
-if (!audio_is_playing(a_cave_loop)) {
-	audio_play_sound(a_cave_loop, 10, true);
+if (!audio_is_playing(a_music_loop)) {
+	///audio_play_sound(a_music_loop, 10, true);
 }
 
 // Get rid of Cursor

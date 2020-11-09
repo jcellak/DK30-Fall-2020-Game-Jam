@@ -10,12 +10,12 @@
 /// @param outline_color
 function draw_sprite_outlined(sprite, subimg, x, y, xscale, yscale, angle, color, outline_color)
 {
-	d3d_set_fog(true, outline_color, 0, 1);
+	gpu_set_fog(true, outline_color, 0, 1);
 	draw_sprite_ext(sprite, subimg, x - xscale, y, xscale, yscale, angle, c_white, 1);
 	draw_sprite_ext(sprite, subimg, x + xscale, y, xscale, yscale, angle, c_white, 1);
 	draw_sprite_ext(sprite, subimg, x, y - yscale, xscale, yscale, angle, c_white, 1);
 	draw_sprite_ext(sprite, subimg, x, y + yscale, xscale, yscale, angle, c_white, 1);
-	d3d_set_fog(0, 0, 0, 0);
+	gpu_set_fog(0, 0, 0, 0);
 	draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, angle, color, 1);
 }
 
@@ -23,23 +23,28 @@ function draw_sprite_outlined(sprite, subimg, x, y, xscale, yscale, angle, color
 /// @function draw_sprite_shadow
 /// @param direction
 /// @param distance
-/// @param scale
+/// @param xscale
+/// @param yscale
 /// @param color
 /// @param alpha
 /// @description Draws the shadow of a sprite
 /// Using the calling object's x, y, image_angle, sprite_index & image_index
-function draw_sprite_shadow(direction, distance, scale, color, alpha)
+/// Example use: draw_sprite_shadow(270, 3, 1, c_black, 0.5); draw_self();
+function draw_sprite_shadow(_direction, _distance, _xscale, _yscale, _color, _alpha)
 {
-	/*
-	 * Example use:
-	 * draw_sprite_shadow(270, 3, 1, c_black, 0.5);
-	 * draw_self();
-	 */
-	var _xx = x + lengthdir_x(distance, direction);
-	var _yy = y + lengthdir_y(distance, direction);
-	d3d_set_fog(true, color, 0, 1);
-	draw_sprite_ext(sprite_index, image_index, _xx, _yy, scale, scale, image_angle, c_white, alpha);
-	d3d_set_fog(0, 0, 0, 0);
+	_direction = _direction || 45;
+	_distance = _distance || 2;
+	_xscale = _xscale || image_xscale;
+	_yscale = _yscale || 1;
+	_color = _color || c_black;
+	_alpha = _alpha || 0.75;
+	
+	
+	var _xx = x + lengthdir_x(_distance, _direction);
+	var _yy = y + lengthdir_y(_distance, _direction);
+	gpu_set_fog(true, _color, 0, 1);
+	draw_sprite_ext(sprite_index, image_index, _xx, _yy, _xscale, _yscale, image_angle, c_white, _alpha);
+	gpu_set_fog(0, 0, 0, 0);
 }
 
 /// @function draw_text_outlined

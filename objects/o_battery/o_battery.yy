@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Level",
-    "path": "folders/Objects/Level.yy",
+    "name": "Collectables",
+    "path": "folders/Objects/Level/Collectables.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_battery",

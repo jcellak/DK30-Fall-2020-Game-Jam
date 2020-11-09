@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Modules",
-    "path": "folders/Objects/Modules.yy",
+    "path": "folders/Objects/Level/Collectables/Modules.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_module_jump",
