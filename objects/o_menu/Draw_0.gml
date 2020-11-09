@@ -18,7 +18,7 @@ for (var i = 0; i < array_length(current_menu); i ++)
 		draw_text(l_screen+(margin*4),t_screen+(margin*2),"PLAYER 1");
 		draw_text(l_screen+(margin*7),t_screen+(margin*2),"PLAYER 2");
 		draw_line(l_screen+(margin*4),t_screen+(margin*2)+(margin*i),r_screen-5,t_screen+(margin*2)+(margin*i));
-		draw_line(l_screen+(margin*7),t_screen+(margin*2),l_screen+(margin*7),t_screen+(margin*6));
+		draw_line(l_screen+(margin*7),t_screen+(margin*2),l_screen+(margin*7),t_screen+(margin*2)+(margin*(i+1)));
 		if i == cursor{
 			draw_set_color(c_lime);
 			draw_rectangle(l_screen+(margin*4),t_screen+(margin*2)+(margin*i)+5,l_screen+(margin*7)-5,t_screen+(margin*3)+(margin*i)-5,false);
