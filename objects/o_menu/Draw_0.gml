@@ -16,7 +16,7 @@ for (var i = 0; i < array_length(current_menu); i ++)
 	if current_menu == key{
 		draw_text(l_screen+margin,t_screen+(margin*3)+(margin*i),key[i]);
 		draw_text(l_screen+(margin*4),t_screen+(margin*2),"PLAYER 1");
-		draw_text(r_screen-(margin*2),t_screen+(margin*2),"PLAYER 2");
+		draw_text(l_screen+(margin*7),t_screen+(margin*2),"PLAYER 2");
 		draw_line(l_screen+(margin*4),t_screen+(margin*2)+(margin*i),r_screen-5,t_screen+(margin*2)+(margin*i));
 		draw_line(l_screen+(margin*7),t_screen+(margin*2),l_screen+(margin*7),t_screen+(margin*6));
 		if i == cursor{
@@ -51,17 +51,37 @@ for (var i = 0; i < array_length(current_menu); i ++)
 		draw_text(l_screen+margin,t_screen+(margin*2)+(margin*i),_txt);
 	}
 }
+
+if current_menu == key {
+	if cursor == restore_def{
+		var _def = _col;
+		var _defchk = false;
+	}
+	else {
+		var _def = c_lime;
+		var _defchk = true;
+	}
+	draw_set_color(c_lime);
+	draw_rectangle(r_screen,t_screen+(screen_h*0.5)-item_height-10,r_screen+(item_height*3),t_screen+(item_height*7)+(screen_h*0.5)-10,_defchk);
+	draw_set_color(_def);
+	for (var k = 0; k < 7;k++){
+		draw_text(r_screen+5,t_screen+(screen_h*0.5)+(item_height*k),string_char_at(def_key,k+1));
+		draw_text(r_screen+20,t_screen+(screen_h*0.5)+(item_height*k),string_char_at(def_key,k+9));
+	}
+	draw_set_color(c_lime);
+}
+
 for (var j = 0; j < array_length(con); j++)
 {
 	var _con = cursor == j+menu_items? string_insert(_flk,con[j],1) : con[j];
 	if exempt == menu_items + 1 and j == 1 {
-		draw_rectangle(l_screen+margin + (screen_split*j)-5,t_screen+5,l_screen+margin + (screen_split*j)+string_width(con[j])+5,t_screen+11+string_height(con[j]),false);
+		draw_rectangle(l_screen+margin + (screen_split*j)-5,t_screen+10,l_screen+margin + (screen_split*j)+string_width(con[j])+5,t_screen+11+string_height(con[j])+1,false);
 		draw_set_color(_col);
 	}
 	else draw_set_color(c_lime);
 	if exempt != menu_items or j != 0 draw_text(l_screen+margin + (screen_split*j),t_screen+margin,_con);
 }
-
+draw_sprite(s_screen_crack,0,40,5);
 
 draw_sprite_ext(s_robot1,0,x_one,170,dir_one*0.7,0.7,1,c_white,1);
 draw_sprite_ext(s_robot2,0,x_two,170,dir_two*0.7,0.7,1,c_white,1);
