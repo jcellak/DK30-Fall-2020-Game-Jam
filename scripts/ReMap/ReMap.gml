@@ -11,11 +11,11 @@ function ReMap(argument0) {
 		{
 			if new_map >= array_length(key) 
 			{
-				o_main_controller.key_one[new_map-array_length(key)] = _last_key
+				o_main_controller.key_two[new_map-array_length(key)] = _last_key
 			}
 			else if new_map >= 0 and new_map < array_length(key) 
 			{
-				o_main_controller.key_two[new_map] = _last_key;	
+				o_main_controller.key_one[new_map] = _last_key;	
 			}
 			
 			//check for other maps
@@ -25,13 +25,13 @@ function ReMap(argument0) {
 				{
 					if new_map < array_length(key)  
 					{
-						if o_main_controller.key_two[new_map] == o_main_controller.key_two[w] and w != new_map o_main_controller.key_two[w] = noone;
-						if o_main_controller.key_two[new_map] == o_main_controller.key_one[w] o_main_controller.key_one[w] = noone;
+						if o_main_controller.key_one[new_map] == o_main_controller.key_one[w] and w != new_map o_main_controller.key_one[w] = noone;
+						if o_main_controller.key_one[new_map] == o_main_controller.key_two[w] o_main_controller.key_two[w] = noone;
 					}
 					else  
 					{
-						if o_main_controller.key_one[new_map - array_length(key)] == o_main_controller.key_one[w] and w != new_map - array_length(key) o_main_controller.key_one[w] = noone;
-						if o_main_controller.key_one[new_map - array_length(key)] == o_main_controller.key_two[w] o_main_controller.key_two[w] = noone;
+						if o_main_controller.key_two[new_map - array_length(key)] == o_main_controller.key_two[w] and w != new_map  - array_length(key) o_main_controller.key_two[w] = noone;
+						if o_main_controller.key_two[new_map - array_length(key)] == o_main_controller.key_one[w] o_main_controller.key_one[w] = noone;
 					}
 				}
 			}

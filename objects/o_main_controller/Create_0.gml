@@ -5,7 +5,7 @@ max_hp = 3;
 sapphires = 0;
 
 event_user(0);
-vol[0] = 0.5; //main
+vol[0] = 0; //main
 vol[1] = 0.5; //sfx
 vol[2] = 0.5; //music
 

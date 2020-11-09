@@ -6,6 +6,8 @@ dir_one = 1;
 dir_two = -1;
 left_one = false;
 left_two = true;
+flikr = true;
+flikr_time = 0;
 
 main[0] = "SINGLE PLAYER";
 main[1] = "MULTIPLAYER";
@@ -30,19 +32,15 @@ key[0] = "LEFT";
 key[1] = "RIGHT";
 key[2] = "UP";
 key[3] = "DOWN";
-
-//step[0] = main;
-//step[1] = multiplayer;
-//step[2] = play;
+key[4] = "USE";
 
 l_screen = 70;
 r_screen = 375;
-b_screen = 182;
-t_screen = 15;
+t_screen = 10;
 margin = 30;
 screen_w = r_screen-l_screen;
-screen_h = b_screen-t_screen;
 screen_split = (screen_w - (margin*2) - string_width(con[2]))*0.5;
+v_dist = screen_w*0.35;
 
 cursor = 0;
 cur_null = noone;
@@ -51,6 +49,8 @@ current_menu = main;
 prev_menu = main
 menu_items = array_length(current_menu)
 exempt = menu_items;
+key_input = true;
+sliding = cur_null;
 
 menu_control = true;
 new_key = false;
