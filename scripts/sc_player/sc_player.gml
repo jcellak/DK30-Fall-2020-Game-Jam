@@ -27,6 +27,7 @@ function handle_player_state_moving()
 	}
 	#endregion
 	
+	#region Dash
 	// Track Timers for Double Tap input
 	if (right_released) {
 		alarm[0] = double_tap_timer;
@@ -39,19 +40,21 @@ function handle_player_state_moving()
 		alarm[2] = dash_duration;
 		alarm[3] = dash_cooldown;
 	}
+	#endregion
 	
+	#region Vertical Movement
 	// Check if Player is on the ground
 	var _on_solid = place_meeting(x, y + 1, o_solid);
 	var _on_cube  = place_meeting(x, y + 1, o_cube);
 	var _on_platform = false;
-	var onOtherPlayer = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top + 2;
+	var _on_other_player = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top + 2;
 	with (o_platform) {
 		if (place_meeting(x, y - 1, other) && !place_meeting(x, y, other)) {
 			_on_platform = true;	
 		}
 	}
 	
-	if (_on_solid || _on_cube || _on_platform) { // Player is on a type of solid ground
+	if (_on_solid || _on_cube || _on_platform || _on_other_player) { // Player is on a type of solid ground
 		yspeed = 0;
 		jump_disabled = false;
 		
@@ -100,6 +103,7 @@ function handle_player_state_moving()
 	}
 	#endregion
 	
+	#region Horizontal Movement
 	if (alarm[2] > 0) { // Actively Dashing - Player can't stop moving until ended
 		if (alarm[2] <= 5) {
 			apply_friction(dash_acceleration);
@@ -117,16 +121,18 @@ function handle_player_state_moving()
 			}
 		}
 	} else { // Normal Walking Speed
-	// Check for moving left or right
-	if (right or left) {
-		xspeed += (right - left) * acceleration;
-		xspeed = clamp(xspeed, -max_speed, max_speed);
-		sprite_index = sprite_walk;
-		// Change direction of Sprite
-		image_xscale = right ? 1 : -1;	
-	} else {
-		apply_friction(acceleration);
-		sprite_index = sprite_idle;
+		// Check for moving left or right
+		if (right xor left) {
+			if ((left and xspeed > -1 * max_speed) or right and xspeed < max_speed) {
+				xspeed += (right - left) * acceleration;
+			}
+			//xspeed = clamp(xspeed, -max_speed, max_speed);
+			sprite_index = sprite_walk;
+			// Change direction of Sprite
+			image_xscale = right ? 1 : -1;	
+		} else {
+			apply_friction(acceleration);
+			sprite_index = sprite_idle;
 		}
 	}
 	#endregion
@@ -191,6 +197,18 @@ function handle_player_state_moving()
 		var yPortion = clamp(sin(blastAngle), -0.3, 0.3);
 		xspeed += xPortion * enemyBlast.image_xscale * enemyBlast.blast_value / 5;
 		yspeed += yPortion * enemyBlast.blast_value / 5;
+	}
+	#endregion
+	
+	#region Bumpers
+	var hitYBumper = instance_place(x, y, o_y_bumper);
+	if (hitYBumper != noone && (y - hitYBumper.y) * hitYBumper.image_yscale <= 0) {
+		yspeed = -1 * (yspeed + sign(yspeed) * hitYBumper.bumper_strength);
+	}
+	
+	var hitXBumper = instance_place(x, y, o_x_bumper);
+	if (hitXBumper != noone && (x - hitXBumper.x) * hitXBumper.image_xscale >= 0) {
+		xspeed = -1 * (xspeed + sign(xspeed) * hitXBumper.bumper_strength);
 	}
 	#endregion
 	
