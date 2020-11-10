@@ -36,7 +36,7 @@ key[2] = "UP";
 key[3] = "DOWN";
 key[4] = "USE";
 
-m_font = f_Menu;
+m_font = f_menu;
 def_key = "RESTORE DEFAULT";
 item_height = font_get_size(m_font)+2;
 

@@ -27,7 +27,6 @@ blast_released = false;
 // This is just a struct that contains all the same variables as o_player_parent
 network_update = undefined;
 
-
 double_tap_timer = 10; // Timer (in milliseconds) until considered a "double tap" press
 
 // Jump-specific Variables
