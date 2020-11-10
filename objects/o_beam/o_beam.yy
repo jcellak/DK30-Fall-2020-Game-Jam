@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_beam_blue",
-    "path": "sprites/s_beam_blue/s_beam_blue.yy",
+    "name": "s_beam_orange",
+    "path": "sprites/s_beam_orange/s_beam_orange.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,7 +29,7 @@
   "properties": [
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"is_toggled","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"is_toggled_previous","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":4,"value":"s_beam_blue","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"beam_sprite_index","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":4,"value":"sprite_index","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"beam_sprite_index","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"random_range(120, 240)","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"particle_spawn_interval","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"60","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"intermittent_interval","tags":[],"resourceType":"GMObjectProperty",},
   ],

@@ -19,7 +19,6 @@ function draw_sprite_outlined(sprite, subimg, x, y, xscale, yscale, angle, color
 	draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, angle, color, 1);
 }
 
-
 /// @function draw_sprite_shadow
 /// @param direction
 /// @param distance
@@ -64,7 +63,6 @@ function draw_text_outlined(x, y, string, color, outline_color)
 	draw_text(x, y, string_hash_to_newline(string));
 	draw_set_color(c_white);
 }
-
 
 /// @function draw_text_shadow
 /// @param x

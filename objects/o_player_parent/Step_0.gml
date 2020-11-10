@@ -1,6 +1,7 @@
 /// @description Controlling the Player's state
 
 #region Set up controls for the Player
+if (!is_opponent or global.local_play) {
 right = keyboard_check(controls_right);
 right_pressed = keyboard_check_pressed(controls_right);
 right_released = keyboard_check_released(controls_right);
@@ -12,23 +13,32 @@ up_pressed = keyboard_check_pressed(controls_up);
 up_release = keyboard_check_released(controls_up_release);
 down = keyboard_check(controls_down);
 down_pressed = keyboard_check_pressed(controls_down);
+	blast_held = keyboard_check(controls_blast);
+	blast_released = keyboard_check_released(controls_blast);
+}
+#endregion
+
+#region Charging blast
+if (blast_held && modules.blast) {
+	blast_charge = clamp(blast_charge + 1, 0, global.player_charge[this_player_num]);
+}
 #endregion
 
 #region State Machine
 switch (state) {
-	case player.moving:
+	case PlayerState.moving:
 		handle_player_state_moving();
 		break;
-	case player.ledge_grab:
+	case PlayerState.ledge_grab:
 		handle_player_state_ledge_grab();
 		break;
-	case player.door:
+	case PlayerState.door:
 		handle_player_state_door();
 		break;
-	case player.hurt:
+	case PlayerState.hurt:
 		handle_player_state_hurt();
 		break;
-	case player.death:
+	case PlayerState.death:
 		handle_player_state_death();
 		break;
 }

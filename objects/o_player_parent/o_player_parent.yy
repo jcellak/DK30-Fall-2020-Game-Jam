@@ -36,6 +36,9 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_module_double","path":"objects/o_module_double/o_module_double.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_button","path":"objects/o_button/o_button.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":1,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":4,"value":"ord(\"D\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"controls_right","tags":[],"resourceType":"GMObjectProperty",},
@@ -43,6 +46,7 @@
     {"varType":4,"value":"ord(\"W\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"controls_up","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"ord(\"S\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"controls_down","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"controls_up","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"controls_up_release","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":4,"value":"vk_space","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"controls_blast","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"s_player_catbot_idle","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_idle","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"s_player_catbot_jump","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_jump","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"s_player_catbot_ledge_grab","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_ledge_grab","tags":[],"resourceType":"GMObjectProperty",},

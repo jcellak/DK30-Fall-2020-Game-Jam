@@ -57,3 +57,14 @@ If you want to contribute in other ways besides programming, here are some sugge
 Try to match existing structures and naming conventions if possible (i.e. if an object is named `oPlayer` then use `oEnemy`, if `o_player` then use `o_enemy`.)
 
 Denote local variables starting with an underscore (i.e. `var _distance = 10;`)
+
+## 4. Running the game
+
+### 4.1. Obtain the .exe
+Load up the project in GameMaker and hit Create Executable (ctrl+F8).  You can create an installer or a .zip file - personally, I find the zip file quicker and easier.
+Put the zip file somewhere and extract it.  The .exe to run the game will be in there.
+
+### 4.2. Connecting two players
+For this step, whoever is acting as the "server" player will need to a) forward port 25653 on their router, and b) send their IP address to the "client" player
+Port forwarding will vary based on your internet provider or router, there should be an easy guide if you google it.  You need to forward port 25653 (as of this edit - it's in o_server's create event).
+There are a couple of ways to obtain your IP.  For local testing, you can run `ipconfig` from a command line and copy the IPv4 from there.  For actual online play, I just go to whatismyip.com and grab the public IPv4.

@@ -8,18 +8,34 @@ PlayerModules = function() constructor
 	slide = false;
 	pickup = false;
 	double = false;
-	rocket = false;
+	jetpack = false;
+	blast = true;
 }
+
+event_user(0);
+vol[0] = 0; //main
+vol[1] = 0.5; //sfx
+vol[2] = 0.5; //music
+
+multiplayer = false;
+
+pause_menu = false;
 
 global.player_1_modules = new PlayerModules();
 global.player_2_modules = new PlayerModules();
+
+global.max_hp = 100;
+global.max_charge = 180;
+global.player_hp = [global.max_hp, global.max_hp];
+global.player_charge = [60,60];
 
 //global.player_1_modules.hang = true;
 //global.player_2_modules.hang = true;
 
 // Start the music
-if (!audio_is_playing(a_music_loop)) {
-	///audio_play_sound(a_music_loop, 10, true);
+audio_master_gain(0.05);
+if (!audio_is_playing(a_cave_loop)) {
+	audio_play_sound(a_cave_loop, 10, true);
 }
 
 // Get rid of Cursor
