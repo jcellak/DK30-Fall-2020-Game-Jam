@@ -11,6 +11,15 @@ PlayerModules = function() constructor
 	blast = true;
 }
 
+event_user(0);
+vol[0] = 0; //main
+vol[1] = 0.5; //sfx
+vol[2] = 0.5; //music
+
+multiplayer = false;
+
+pause_menu = false;
+
 global.player_1_modules = new PlayerModules();
 global.player_2_modules = new PlayerModules();
 

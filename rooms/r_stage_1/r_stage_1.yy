@@ -14,9 +14,7 @@
   ],
   "layers": [
     {"instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[
-        {"instances":[
-            {"properties":[],"isDnd":false,"objectId":{"name":"o_controller_stage","path":"objects/o_controller_stage/o_controller_stage.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_52DEE2B1","tags":[],"resourceType":"GMRInstance",},
-          ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
+        {"instances":[],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Transitions","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":48.0,"y":67.0,"resourceVersion":"1.0","name":"inst_29E9D704","tags":[],"resourceType":"GMRInstance",},
@@ -134,7 +132,6 @@
     {"name":"inst_3E2CB7BE","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"inst_30E2EA5B","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"inst_3151C4B","path":"rooms/r_stage_1/r_stage_1.yy",},
-    {"name":"inst_52DEE2B1","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"inst_18FB774D","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"inst_593A9189","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"inst_710A578E","path":"rooms/r_stage_1/r_stage_1.yy",},

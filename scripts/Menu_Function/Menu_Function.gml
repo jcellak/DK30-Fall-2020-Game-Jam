@@ -134,21 +134,55 @@ function Menu_Function(pause){
 
 			switch current_menu{
 				case main: {
-					o_main_controller.multiplayer = cur_committed == 1? true : false; 
-					var _multi = cur_committed == 1? multiplayer : play;
-					Menu_to(_multi)
+					if cur_committed == 0{
+						global.my_player_num = 2;
+						global.is_server = true;
+						global.local_play = true;
+						global.all_players_connected = true;
+						
+						global.multiplayer = false;
+						Menu_to(play);
+					}
+					else {
+						global.multiplayer = true;
+						Menu_to(multiplayer);
+					}
 				}break;
 				case multiplayer: {
 					switch cur_committed{
-						case 0: break; //local
-						case 1: Menu_to(play); break; //join
-						case 2: break; //host
+						case 0: {
+							global.my_player_num = 2;
+							global.is_server = true;
+							global.local_play = true;
+							global.all_players_connected = true;
+							
+							Menu_to(play);
+						}break; //local
+						case 1: {
+							instance_create_layer(0, 0, "Instances", o_client);
+							global.my_player_num = 1;
+							global.is_server = false;
+							global.local_play = false;
+
+							//Menu_to(play); 
+						}break; //join
+						case 2: {
+							instance_create_layer(0, 0, "Instances", o_server);
+							global.my_player_num = 0;
+							global.is_server = true;
+							global.local_play = false;	
+							
+							Menu_to(play)
+						}break; //host
 						case back: Menu_to(main); break;
 					}
 				}break;
 				case play:{
 					switch cur_committed{
-						case 0: break; //story mode
+						case 0: {
+							instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
+							room_goto_next();
+						}break; //story mode
 						case 1: break; //arcade mode
 						case back:{
 							var _multi = o_main_controller.multiplayer? multiplayer : main; 

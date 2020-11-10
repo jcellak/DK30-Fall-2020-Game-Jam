@@ -14,9 +14,7 @@
   ],
   "layers": [
     {"instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[
-        {"instances":[
-            {"properties":[],"isDnd":false,"objectId":{"name":"o_controller_stage","path":"objects/o_controller_stage/o_controller_stage.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_3E1551CA","tags":[],"resourceType":"GMRInstance",},
-          ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
+        {"instances":[],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Transitions","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":69.0,"y":147.0,"resourceVersion":"1.0","name":"inst_29E9D704","tags":[],"resourceType":"GMRInstance",},
@@ -126,7 +124,6 @@
     {"name":"inst_2E0D94D","path":"rooms/r_stage_2/r_stage_2.yy",},
     {"name":"inst_551D0405","path":"rooms/r_stage_2/r_stage_2.yy",},
     {"name":"inst_2B033E78","path":"rooms/r_stage_2/r_stage_2.yy",},
-    {"name":"inst_3E1551CA","path":"rooms/r_stage_2/r_stage_2.yy",},
     {"name":"inst_3903FBC5","path":"rooms/r_stage_2/r_stage_2.yy",},
     {"name":"inst_565C0625","path":"rooms/r_stage_2/r_stage_2.yy",},
   ],

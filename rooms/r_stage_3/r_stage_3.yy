@@ -14,9 +14,7 @@
   ],
   "layers": [
     {"instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[
-        {"instances":[
-            {"properties":[],"isDnd":false,"objectId":{"name":"o_controller_stage","path":"objects/o_controller_stage/o_controller_stage.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_A0346A4","tags":[],"resourceType":"GMRInstance",},
-          ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
+        {"instances":[],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Transitions","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":68.0,"y":147.0,"resourceVersion":"1.0","name":"inst_F53ED67","tags":[],"resourceType":"GMRInstance",},
@@ -158,7 +156,6 @@
     {"name":"inst_18068315","path":"rooms/r_stage_3/r_stage_3.yy",},
     {"name":"inst_F53ED67","path":"rooms/r_stage_3/r_stage_3.yy",},
     {"name":"inst_2558F707","path":"rooms/r_stage_3/r_stage_3.yy",},
-    {"name":"inst_A0346A4","path":"rooms/r_stage_3/r_stage_3.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
