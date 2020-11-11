@@ -44,6 +44,7 @@
             {"properties":[],"isDnd":false,"objectId":{"name":"o_x_bumper","path":"objects/o_x_bumper/o_x_bumper.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":368.0,"y":200.0,"resourceVersion":"1.0","name":"inst_6EF6CFFF","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_x_bumper","path":"objects/o_x_bumper/o_x_bumper.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":368.0,"y":216.0,"resourceVersion":"1.0","name":"inst_4885461E","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_x_bumper","path":"objects/o_x_bumper/o_x_bumper.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":368.0,"y":232.0,"resourceVersion":"1.0","name":"inst_7E2FCC35","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_cube","path":"objects/o_cube/o_cube.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":112.0,"resourceVersion":"1.0","name":"inst_2902B9F8","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Obstacles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":48.0,"y":112.0,"resourceVersion":"1.0","name":"inst_29E9D704","tags":[],"resourceType":"GMRInstance",},
@@ -156,6 +157,7 @@
     {"name":"inst_7E2FCC35","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"inst_45AAE1B7","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"inst_29BF60A6","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
+    {"name":"inst_2902B9F8","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

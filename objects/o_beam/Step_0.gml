@@ -11,3 +11,9 @@ if (is_toggled && !is_toggled_previous) {
 	alarm[0] = particle_spawn_interval; // Reset Alarm
 	is_toggled_previous = is_toggled;
 }
+
+x += xspeed;
+
+if (x > room_width + 16) {
+	instance_destroy();
+}

@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Level",
-    "path": "folders/Objects/Level.yy",
+    "name": "Obstacles",
+    "path": "folders/Objects/Level/Obstacles.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_y_bumper",

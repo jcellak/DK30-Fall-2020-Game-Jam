@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_x_bumper",
-    "path": "sprites/s_x_bumper/s_x_bumper.yy",
+    "name": "s_beam_blue",
+    "path": "sprites/s_beam_blue/s_beam_blue.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,7 +21,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_x_bumper","path":"objects/o_x_bumper/o_x_bumper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"parent":{"name":"o_reactor_beam","path":"objects/o_reactor_beam/o_reactor_beam.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,7 +30,7 @@
     "path": "folders/Objects/Level/Obstacles.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_x_bumper",
+  "name": "o_reactor_beam",
   "tags": [],
   "resourceType": "GMObject",
 }
