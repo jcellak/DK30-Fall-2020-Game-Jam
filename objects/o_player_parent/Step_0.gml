@@ -43,3 +43,8 @@ switch (state) {
 		break;
 }
 #endregion
+
+#region Dedupers
+if (dedupe_step_sound > 0) dedupe_step_sound--;
+if (dedupe_hurt_sound > 0) dedupe_hurt_sound--;
+#endregion

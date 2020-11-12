@@ -117,7 +117,7 @@ if menu_control{
 	if keyboard_check_pressed(vk_backspace) and current_menu != main cur_committed = back;
 }
 
-// runs script for recieving new key map
+// runs script for receiving new key map
 if new_key {
 	cursor = new_map;
 	ReMap(new_map);

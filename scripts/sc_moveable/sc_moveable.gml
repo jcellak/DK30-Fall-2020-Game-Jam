@@ -1,71 +1,98 @@
+enum Direction {
+	horizontal,
+	vertical,
+	omnidirectional
+}
+
 /// @function direction_move_bounce(_collision_objects, _bounce)
 /// @description Handles movement, preventing self from moving inside collidables
 /// @param {real|array} _collision_objects the object indices of collidable objects
 /// @param {boolean} _bounce whether the collision should be bouncy
 function direction_move_bounce(_collision_objects, _bounce)
 {
-	direction_move_bounce_specific(_collision_objects, _collision_objects, _bounce);
+	var _col_objects = typeof(_collision_objects) == "array" ? _collision_objects : [_collision_objects];
+	var _converted_objects = array_create(array_length(_col_objects));
+	
+	for (var i = 0; i < array_length(_col_objects); i++) {
+		var _col_obj = _col_objects[i];
+		var _conv_obj = {
+			object_index: _col_obj,
+			collision_direction: Direction.omnidirectional,
+			elasticity: _bounce ? 0.25 : 0,
+			one_way: false
+		};
+		
+		_converted_objects[i] = _conv_obj;
+	}
+	
+	direction_move_bounce_specific(_converted_objects);
 }
 
 /// @function direction_move_bounce_specific(_horizontal_collision_objects, _vertical_collision_objects, _bounce)
 /// @description Handles movement, preventing self from moving inside collidables.  Separates x-collidables and y-collidables.
-/// @param {real|array} _horizontal_collision_objects the object indices of x-direction collidable objects
-/// @param {real|array} _vertical_collision_objects the object indices of y-direction collidable objects
-/// @param {boolean} _bounce whether the collision should be bouncy
-function direction_move_bounce_specific(_horizontal_collision_objects, _vertical_collision_objects, _bounce)
+/// @param {real|array} _collision_objects a collection of structs that represent the collision properties of objects:
+/*
+example_collision_object = {
+	/// The object index of the collision object
+	object_index: real,
+	/// Which direction the collision should occur in
+	collision_direction: Direction,
+	/// How bouncy the object is, from 0-1, 0 is not bouncy and 1 will reflect all speed with no energy loss.
+	elasticity: number [0-1],
+	/// Whether the object should only collide in the direction it is facing.
+	one_way: boolean,
+};
+*/
+function direction_move_bounce_specific(_collision_objects)
 {
-	var hCollisionObjects = typeof(_horizontal_collision_objects) == "array" ? _horizontal_collision_objects : [_horizontal_collision_objects];
-	var vCollisionObjects = typeof(_vertical_collision_objects) == "array" ? _vertical_collision_objects : [_vertical_collision_objects];
+	var _col_objects = typeof(_collision_objects) == "array" ? _collision_objects : [_collision_objects];
 	
-	// Horizontal Collisions
-	for (var i = 0; i < array_length(hCollisionObjects); i++) {
-		var collisionObject = hCollisionObjects[i];
-		if (place_meeting(x + xspeed, y, collisionObject)) {
-			while (!place_meeting(x + sign(xspeed), y, collisionObject)) {
-				x += sign(xspeed);
-				
-				// Check if we are past the other object already, to avoid infinite loops
-				if (sign(x - collisionObject.x) == sign(xspeed)) {
-					break;
-				}
-			}
+	for (var i = 0; i < array_length(_col_objects); i++) {
+		var _col_object = _col_objects[i];
+		var _id = _col_object.object_index;
+		var _direction = _col_object.collision_direction;
+		var _elasticity = _col_object.elasticity;
+		var _one_way = _col_object.one_way;
 		
-			if (_bounce) {
-				xspeed = -(xspeed / 4);
-			} else {
-				xspeed = 0;
+		// Horizontal Collisions
+		if (_direction == Direction.horizontal || _direction == Direction.omnidirectional) {
+			var _inst = instance_place(x + xspeed, y, _id);
+			if (place_meeting(x + xspeed, y, _id)
+			and (!_one_way or (_inst != noone and _inst.image_xscale > 0 ? x > _inst.x : x < _inst.x))) {
+				while (!place_meeting(x + sign(xspeed), y, _id)) {
+					x += sign(xspeed);
+				
+					// Check if we are past the other object already, to avoid infinite loops
+					if (sign(x - _inst.x) == sign(xspeed)) {
+						break;
+					}
+				}
+		
+				xspeed = -1 * (xspeed * _elasticity);
+				break;
 			}
-			break;
+		}
+		
+		// Vertical Collisions
+		if (_direction == Direction.vertical || _direction == Direction.omnidirectional) {
+			var _inst = instance_place(x, y + yspeed, _id);
+			if (place_meeting(x, y + yspeed, _id)
+			and (!_one_way or (_inst != noone and _inst.image_yscale < 0 ? y > _inst.y : y < _inst.y))) {
+				while (!place_meeting(x, y + sign(yspeed), _id)) {
+					y += sign(yspeed);
+				
+					// Check if we are past the other object already, to avoid infinite loops
+					if (sign(y - _id.y) == sign(yspeed)) {
+						break;
+					}
+				}
+		
+				yspeed = -1 * (yspeed * _elasticity);
+				break;
+			}
 		}
 	}
-	
 	x += xspeed;
-	
-	// Vertical Collisions
-	for (var i = 0; i < array_length(vCollisionObjects); i++) {
-		var collisionObject = vCollisionObjects[i];
-		if (place_meeting(x, y + yspeed, collisionObject)) {
-			while (!place_meeting(x, y + sign(yspeed), collisionObject)) {
-				y += sign(yspeed);
-				
-				// Check if we are past the other object already, to avoid infinite loops
-				if (sign(y - collisionObject.y) == sign(yspeed)) {
-					break;
-				}
-			}
-		
-			if (_bounce) {
-				yspeed = -(yspeed / 4);
-				if (abs(yspeed) < 2) {
-					yspeed = 0;
-				}
-			} else {
-				yspeed = 0;
-			}
-			break;
-		}
-	}
-	
 	y += yspeed;
 }
 

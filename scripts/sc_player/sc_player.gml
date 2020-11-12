@@ -99,7 +99,10 @@ function handle_player_state_moving()
 	
 	// Check if we are about to land on a solid collision Object
 	if ((place_meeting(x, y + yspeed + 1, o_solid) || place_meeting(x, y + yspeed + 1, otherPlayerObjId)) && yspeed > 0) {
-		audio_play_sound(a_step, 6, false);
+		if (dedupe_step_sound == 0) {
+			audio_play_sound(a_step, 6, false);
+			dedupe_step_sound = 5;
+		}
 	}
 	#endregion
 	
@@ -200,19 +203,22 @@ function handle_player_state_moving()
 	}
 	#endregion
 	
-	#region Bumpers
-	var hitYBumper = instance_place(x, y, o_y_bumper);
-	if (hitYBumper != noone && (y - hitYBumper.y) * hitYBumper.image_yscale <= 0) {
-		yspeed = -1 * (yspeed + sign(yspeed) * hitYBumper.bumper_strength);
-	}
-	
-	var hitXBumper = instance_place(x, y, o_x_bumper);
-	if (hitXBumper != noone && (x - hitXBumper.x) * hitXBumper.image_xscale >= 0) {
-		xspeed = -1 * (xspeed + sign(xspeed) * hitXBumper.bumper_strength);
-	}
-	#endregion
-	
-	direction_move_bounce(o_solid, false);
+	direction_move_bounce_specific([{ 
+		object_index: o_solid,
+		collision_direction: Direction.omnidirectional,
+		elasticity: 0,
+		one_way: false
+	}, {
+		object_index: o_x_bumper,
+		collision_direction: Direction.horizontal,
+		elasticity: 1,
+		one_way: true
+	}, {
+		object_index: o_y_bumper,
+		collision_direction: Direction.vertical,
+		elasticity: 1,
+		one_way: true
+	}]);
 	
 	#region Ledge grabbing
 	// Check for ledge grab state
@@ -311,7 +317,22 @@ function handle_player_state_hurt()
 		apply_friction(acceleration);
 	}
 	
-	direction_move_bounce(o_solid, true);
+	direction_move_bounce_specific([{ 
+		object_index: o_solid,
+		collision_direction: Direction.omnidirectional,
+		elasticity: 0.25,
+		one_way: false
+	}, {
+		object_index: o_x_bumper,
+		collision_direction: Direction.horizontal,
+		elasticity: 1,
+		one_way: true
+	}, {
+		object_index: o_y_bumper,
+		collision_direction: Direction.vertical,
+		elasticity: 1,
+		one_way: true
+	}]);
 	
 	// Change back to the default state once they stop moving
 	if (xspeed == 0 && yspeed == 0) {
@@ -324,9 +345,7 @@ function handle_player_state_hurt()
 /// @description 
 function handle_player_state_death()
 {
-	/*with (o_controller_main_menu) {
-	
-	room_restart();*/
+	//room_restart();
 }
 
 /// @function handle_player_take_damage(damage);
@@ -336,14 +355,32 @@ function handle_player_take_damage(damage)
 	if (state != PlayerState.hurt) {
 		state = PlayerState.hurt;
 		
-		audio_play_sound(a_ouch, 5, false);
+		if (dedupe_hurt_sound == 0) {
+			audio_play_sound(a_ouch, 5, false);
+			dedupe_hurt_sound = 5;
+		}
 		
 		image_blend = make_color_rgb(220, 150, 150);
 		
 		yspeed = -6;
 		xspeed = (sign(x - other.x) * 8);
 		
-		direction_move_bounce(o_solid, false);
+		direction_move_bounce_specific([{ 
+			object_index: o_solid,
+			collision_direction: Direction.omnidirectional,
+			elasticity: 0,
+			one_way: false
+		}, {
+			object_index: o_x_bumper,
+			collision_direction: Direction.horizontal,
+			elasticity: 1,
+			one_way: true
+		}, {
+			object_index: o_y_bumper,
+			collision_direction: Direction.vertical,
+			elasticity: 1,
+			one_way: true
+		}]);
 		
 		global.player_hp[this_player_num] -= damage;
 	}

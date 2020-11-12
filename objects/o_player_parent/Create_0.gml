@@ -38,3 +38,7 @@ dash_speed = 5;
 dash_acceleration = 1.5;
 dash_cooldown = 30;
 dash_duration = 20;
+
+// Sound de-dupers, to prevent sounds from spamming every frame.
+dedupe_step_sound = 0;
+dedupe_hurt_sound = 0;
