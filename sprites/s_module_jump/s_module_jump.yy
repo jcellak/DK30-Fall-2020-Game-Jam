@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Modules",
-    "path": "folders/Sprites/Modules.yy",
+    "path": "folders/Sprites/Level/Collectables/Modules.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_module_jump",

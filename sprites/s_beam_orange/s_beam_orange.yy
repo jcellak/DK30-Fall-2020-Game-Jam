@@ -76,8 +76,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7f3f9f2d-87cd-4ca6-9c70-784d88a9e74a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Level",
-    "path": "folders/Sprites/Level.yy",
+    "name": "Obstacles",
+    "path": "folders/Sprites/Level/Obstacles.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_beam_orange",

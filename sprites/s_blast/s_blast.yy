@@ -38,7 +38,7 @@
     "spriteId": {"name":"s_blast","path":"sprites/s_blast/s_blast.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 8.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

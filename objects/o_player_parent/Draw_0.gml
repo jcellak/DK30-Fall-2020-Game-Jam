@@ -1,3 +1,4 @@
+draw_sprite_shadow();
 /// @description Draws the player and any additional effects
 draw_self();
 if (blast_charge > 0) {

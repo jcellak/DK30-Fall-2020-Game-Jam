@@ -72,8 +72,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ab69a634-0408-42b5-8617-ce224320731d","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Level",
-    "path": "folders/Sprites/Level.yy",
+    "name": "Obstacles",
+    "path": "folders/Sprites/Level/Obstacles.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_lava",

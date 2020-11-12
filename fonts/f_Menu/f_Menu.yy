@@ -13,8 +13,8 @@
   "first": 0,
   "last": 0,
   "sampleText": "abcdef ABCDEF\n0123456789 .,<>\"'&!?\nthe quick brown fox jumps over the lazy dog\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\nDefault character: ▯ (9647)",
-  "includeTTF": false,
-  "TTFName": "",
+  "includeTTF": true,
+  "TTFName": "${project_dir}\\fonts\\f_menu\\f_menu.png",
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -116,7 +116,7 @@
     "124": {"x":215,"y":2,"w":1,"h":16,"character":124,"shift":10,"offset":4,},
     "125": {"x":207,"y":2,"w":6,"h":16,"character":125,"shift":10,"offset":2,},
     "126": {"x":236,"y":38,"w":7,"h":16,"character":126,"shift":10,"offset":1,},
-    "9647": {"x":245,"y":38,"w":2,"h":16,"character":9647,"shift":8,"offset":3,},
+    "9647": {"x":245,"y":38,"w":7,"h":16,"character":9647,"shift":13,"offset":3,},
   },
   "kerningPairs": [],
   "ranges": [
@@ -131,7 +131,7 @@
     "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "f_Menu",
+  "name": "f_menu",
   "tags": [],
   "resourceType": "GMFont",
 }

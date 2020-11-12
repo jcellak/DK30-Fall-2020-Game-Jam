@@ -22,21 +22,21 @@ for (var i = 0; i < array_length(current_menu); i ++)
 		if i == cursor{
 			draw_set_color(c_lime);
 			draw_rectangle(l_screen+(margin*4),t_screen+(margin*2)+(margin*i)+5,l_screen+(margin*7)-5,t_screen+(margin*3)+(margin*i)-5,false);
-			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_two[i]));
+			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_two[i]));
 			draw_set_color(_col);
-			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_one[i]));
+			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_one[i]));
 		}
 		else if i == cursor - array_length(key){
 			draw_set_color(c_lime);
 			draw_rectangle(l_screen+(margin*7)+5,t_screen+(margin*2)+(margin*i)+5,l_screen+(margin*10),t_screen+(margin*3)+(margin*i)-5,false);
-			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_one[i]));
+			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_one[i]));
 			draw_set_color(_col);
-			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_two[i]));
+			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_two[i]));
 		}
 		else{
 			draw_set_color(c_lime);
-			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_one[i]));
-			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_main_controller.key_two[i]));
+			draw_text(t_screen+(margin*7),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_one[i]));
+			draw_text((r_screen-(margin*2)),t_screen+(margin*3)+(margin*i)-5,KeyInputDisplay(o_controller_main_menu.key_two[i]));
 		}
 		draw_set_color(c_lime);
 	}
@@ -44,7 +44,7 @@ for (var i = 0; i < array_length(current_menu); i ++)
 		if current_menu == opt and i != menu_items-1 {
 			draw_rectangle(l_screen+(margin*6),t_screen+(margin)+(margin*i)+10,l_screen+(margin*6)+v_dist+7,t_screen+(margin*2)+(margin*i),true);
 			var _volchk = cursor != i? false : true;
-			draw_rectangle(l_screen+(margin*6)+(v_dist*o_main_controller.vol[i]),t_screen+(margin)+(margin*i)+10,l_screen+(margin*6)+(v_dist*o_main_controller.vol[i])+7,t_screen+(margin*2)+(margin*i),_volchk);
+			draw_rectangle(l_screen+(margin*6)+(v_dist*o_controller_main_menu.vol[i]),t_screen+(margin)+(margin*i)+10,l_screen+(margin*6)+(v_dist*o_controller_main_menu.vol[i])+7,t_screen+(margin*2)+(margin*i),_volchk);
 			var _txt = current_menu[i];
 		}
 		else var _txt = cursor == i? string_insert(_flk,current_menu[i],1) : current_menu[i];
