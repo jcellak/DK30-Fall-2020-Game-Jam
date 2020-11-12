@@ -9,6 +9,6 @@
 	}
 }*/
 
-show_debug_message(vol[1]);
-audio_sound_gain(a_title,vol[0]*vol[2],0);
-audio_sound_gain(a_cave_loop,vol[0]*vol[2],0);
+
+audio_sound_gain(a_title,global.vol[0]*global.vol[2],0);
+audio_sound_gain(a_cave_loop,global.vol[0]*global.vol[2],0);

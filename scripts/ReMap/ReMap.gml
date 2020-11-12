@@ -11,11 +11,11 @@ function ReMap(argument0) {
 		{
 			if new_map >= array_length(key) 
 			{
-				o_controller_main_menu.key_two[new_map-array_length(key)] = _last_key
+				global.key_two[new_map-array_length(key)] = _last_key
 			}
 			else if new_map >= 0 and new_map < array_length(key) 
 			{
-				o_controller_main_menu.key_one[new_map] = _last_key;	
+				global.key_one[new_map] = _last_key;	
 			}
 			
 			//check for other maps
@@ -25,13 +25,13 @@ function ReMap(argument0) {
 				{
 					if new_map < array_length(key)  
 					{
-						if o_controller_main_menu.key_one[new_map] == o_controller_main_menu.key_one[w] and w != new_map o_controller_main_menu.key_one[w] = noone;
-						if o_controller_main_menu.key_one[new_map] == o_controller_main_menu.key_two[w] o_controller_main_menu.key_two[w] = noone;
+						if global.key_one[new_map] == global.key_one[w] and w != new_map global.key_one[w] = noone;
+						if global.key_one[new_map] == global.key_two[w] global.key_two[w] = noone;
 					}
 					else  
 					{
-						if o_controller_main_menu.key_two[new_map - array_length(key)] == o_controller_main_menu.key_two[w] and w != new_map  - array_length(key) o_controller_main_menu.key_two[w] = noone;
-						if o_controller_main_menu.key_two[new_map - array_length(key)] == o_controller_main_menu.key_one[w] o_controller_main_menu.key_one[w] = noone;
+						if global.key_two[new_map - array_length(key)] == global.key_two[w] and w != new_map  - array_length(key) global.key_two[w] = noone;
+						if global.key_two[new_map - array_length(key)] == global.key_one[w] global.key_one[w] = noone;
 					}
 				}
 			}

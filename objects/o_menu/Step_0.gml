@@ -17,10 +17,10 @@ if flikr_time == room_speed*0.5 {
 	flikr = !flikr;
 }
 
-left = keyboard_check_pressed(o_controller_main_menu.key_one[0]) or keyboard_check_pressed(o_controller_main_menu.key_two[0]);
-right = keyboard_check_pressed(o_controller_main_menu.key_one[1]) or keyboard_check_pressed(o_controller_main_menu.key_two[1]);
-down = keyboard_check_pressed(o_controller_main_menu.key_one[2]) or keyboard_check_pressed(o_controller_main_menu.key_two[2]);
-up = keyboard_check_pressed(o_controller_main_menu.key_one[3]) or keyboard_check_pressed(o_controller_main_menu.key_two[3]);
+left = keyboard_check_pressed(global.key_one[0]) or keyboard_check_pressed(global.key_two[0]);
+right = keyboard_check_pressed(global.key_one[1]) or keyboard_check_pressed(global.key_two[1]);
+down = keyboard_check_pressed(global.key_one[2]) or keyboard_check_pressed(global.key_two[2]);
+up = keyboard_check_pressed(global.key_one[3]) or keyboard_check_pressed(global.key_two[3]);
 menu_items = current_menu == key? 1+(array_length(current_menu)*2) : array_length(current_menu);
 back = menu_items;
 options = menu_items+1;
@@ -124,13 +124,13 @@ if new_key {
 }
 
 if sliding != cur_null {
-	o_controller_main_menu.vol[sliding] = (point_distance(l_screen+(margin*6),t_screen+(margin*2)+(margin*sliding)+5,mouse_x_gui,t_screen+(margin*2)+(margin*sliding)+5)/v_dist);
+	global.vol[sliding] = (point_distance(l_screen+(margin*6),t_screen+(margin*2)+(margin*sliding)+5,mouse_x_gui,t_screen+(margin*2)+(margin*sliding)+5)/v_dist);
 	if mouse_x_gui < l_screen+(margin*6) {
-		o_controller_main_menu.vol[sliding] = 0;
+		global.vol[sliding] = 0;
 		sliding = cur_null;
 	}
 	if mouse_x_gui > l_screen+(margin*6) + v_dist{
-		o_controller_main_menu.vol[sliding] = 1;
+		global.vol[sliding] = 1;
 		sliding = cur_null;
 	}
 	if mouse_check_button_released(mb_left) sliding = cur_null;
@@ -214,7 +214,7 @@ if cur_committed != cur_null{
 			}break;
 			case key:{
 				if cur_committed == back Menu_to(opt); 
-				else if cur_committed == restore_def with o_controller_main_menu event_user(0);
+				else if cur_committed == restore_def Default_key_map();
 				else{
 					if !new_key {
 						new_key = true;
