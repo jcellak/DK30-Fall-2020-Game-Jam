@@ -3,6 +3,12 @@
 function Menu_Function(pause){
 	/************************************************************************* Inputs ***************************************************************/
 
+	if pause {
+		main = noone;
+		multiplayer = noone;
+		play = noone;
+	}
+
 	left = keyboard_check_pressed(o_main_controller.key_one[0]) or keyboard_check_pressed(o_main_controller.key_two[0]);
 	right = keyboard_check_pressed(o_main_controller.key_one[1]) or keyboard_check_pressed(o_main_controller.key_two[1]);
 	down = keyboard_check_pressed(o_main_controller.key_one[2]) or keyboard_check_pressed(o_main_controller.key_two[2]);
@@ -100,7 +106,7 @@ function Menu_Function(pause){
 
 		/************************** Select *******************************************/
 		if keyboard_check_pressed(vk_enter) or mouse_check_button_pressed(mb_left) cur_committed = cursor;
-		if keyboard_check_pressed(vk_backspace) and current_menu != main cur_committed = menu_items;
+		if keyboard_check_pressed(vk_backspace) and current_menu != main cur_committed = back;
 	}
 
 	// runs script for recieving new key map
@@ -131,6 +137,7 @@ function Menu_Function(pause){
 		}
 		else if cur_committed == quit game_end();
 		else{
+			
 
 			switch current_menu{
 				case main: {
@@ -192,7 +199,10 @@ function Menu_Function(pause){
 				}break;
 				case opt: {
 					if cur_committed == menu_items - 1 Menu_to(key);
-					else if cur_committed == back Menu_to(prev_menu);
+					else if cur_committed == back {
+						if pause global.pause = false;
+						else Menu_to(prev_menu);
+					}
 					else if key_input == false sliding = cur_committed;
 				}break;
 				case key:{
