@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_y_bumper",
-    "path": "sprites/s_y_bumper/s_y_bumper.yy",
+    "name": "s_lava",
+    "path": "sprites/s_lava/s_lava.yy",
   },
   "solid": false,
   "visible": true,
@@ -11,7 +11,7 @@
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
-  "physicsGroup": 1,
+  "physicsGroup": 0,
   "physicsDensity": 0.5,
   "physicsRestitution": 0.1,
   "physicsLinearDamping": 0.1,
@@ -21,16 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_y_bumper","path":"objects/o_y_bumper/o_y_bumper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_lava","path":"objects/o_lava/o_lava.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_lava","path":"objects/o_lava/o_lava.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Obstacles",
-    "path": "folders/Objects/Level/Obstacles.yy",
+    "name": "Level",
+    "path": "folders/Objects/Level.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_y_bumper",
+  "name": "o_lava",
   "tags": [],
   "resourceType": "GMObject",
 }
