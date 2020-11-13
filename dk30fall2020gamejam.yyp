@@ -101,6 +101,7 @@
     {"id":{"name":"a_jump_2","path":"sounds/a_jump_2/a_jump_2.yy",},"order":11,},
     {"id":{"name":"s_beam_orange","path":"sprites/s_beam_orange/s_beam_orange.yy",},"order":2,},
     {"id":{"name":"o_x_bumper","path":"objects/o_x_bumper/o_x_bumper.yy",},"order":8,},
+    {"id":{"name":"o_controller_victory_screen","path":"objects/o_controller_victory_screen/o_controller_victory_screen.yy",},"order":5,},
     {"id":{"name":"s_player_cyclops_idle","path":"sprites/s_player_cyclops_idle/s_player_cyclops_idle.yy",},"order":10,},
     {"id":{"name":"o_player_2","path":"objects/o_player_2/o_player_2.yy",},"order":2,},
     {"id":{"name":"r_stage_2","path":"rooms/r_stage_2/r_stage_2.yy",},"order":2,},
@@ -112,6 +113,7 @@
     {"id":{"name":"s_standalone_grate","path":"sprites/s_standalone_grate/s_standalone_grate.yy",},"order":8,},
     {"id":{"name":"NineSliceBox_ext","path":"scripts/NineSliceBox_ext/NineSliceBox_ext.yy",},"order":1,},
     {"id":{"name":"s_platform","path":"sprites/s_platform/s_platform.yy",},"order":1,},
+    {"id":{"name":"r_victory_screen","path":"rooms/r_victory_screen/r_victory_screen.yy",},"order":8,},
     {"id":{"name":"s_player_catbot_ledge_grab","path":"sprites/s_player_catbot_ledge_grab/s_player_catbot_ledge_grab.yy",},"order":9,},
     {"id":{"name":"a_boss_track_edit","path":"sounds/a_boss_track_edit/a_boss_track_edit.yy",},"order":6,},
     {"id":{"name":"o_reactor_core","path":"objects/o_reactor_core/o_reactor_core.yy",},"order":11,},
@@ -175,6 +177,7 @@
     {"name":"r_bumpers_1","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"r_bumpers_2","path":"rooms/r_bumpers_2/r_bumpers_2.yy",},
     {"name":"r_final_room","path":"rooms/r_final_room/r_final_room.yy",},
+    {"name":"r_victory_screen","path":"rooms/r_victory_screen/r_victory_screen.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
