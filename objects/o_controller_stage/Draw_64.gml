@@ -12,6 +12,7 @@ draw_set_halign(fa_left);
 draw_text(5, 25, "Score: " + string(sapphires));*/
 
 if global.pause {
+	draw_sprite_ext(screenshot,0,0,0,(1/3),(1/3),0,c_white,1);
 	draw_sprite(s_main_screen,0,40,5);
 	DrawSetText(c_lime,m_font,fa_left,fa_bottom,1)
 	draw_line(l_screen+10,t_screen+(margin),r_screen-10,t_screen+(margin));
@@ -48,7 +49,7 @@ if global.pause {
 			draw_set_color(c_lime);
 		}
 		else {
-			if current_menu == opt and i < menu_items-2 {
+			if current_menu == opt and i < 3 {
 				draw_rectangle(l_screen+(margin*6),t_screen+(margin)+(margin*i)+10,l_screen+(margin*6)+v_dist+7,t_screen+(margin*2)+(margin*i),true);
 				var _volchk = cursor != i? false : true;
 				draw_rectangle(l_screen+(margin*6)+(v_dist*global.vol[i]),t_screen+(margin)+(margin*i)+10,l_screen+(margin*6)+(v_dist*global.vol[i])+7,t_screen+(margin*2)+(margin*i),_volchk);

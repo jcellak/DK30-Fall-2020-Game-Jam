@@ -1,20 +1,20 @@
 /// @desc 
 /******************************************************************** Audio ************************************************************/
-audio_sound_gain(a_coop_track,global.vol[0]*global.vol[2],0);
-audio_sound_gain(a_charging,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_exit,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_falling,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_item_pickup,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_jump,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_jump_1,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_jump_2,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_ouch,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_step,global.vol[0]*global.vol[1],0);
-audio_sound_gain(a_tink,global.vol[0]*global.vol[1],0);
+for (var k = 0; k < array_length(sounds); k++){
+	if audio_is_playing(sounds[k]) audio_sound_gain(sounds[k],global.vol[0]*global.vol[1],0);
+}
+for (var a = 0; a < array_length(music); a++){
+	if audio_is_playing(music[a]) audio_sound_gain(music[a],global.vol[0]*global.vol[2],0);
+}
 
 /******************************************************************** Pause Brains ******************************************************/
-if keyboard_check_pressed(vk_escape) global.pause = !global.pause;
+if keyboard_check_pressed(vk_escape) {
+	global.pause = !global.pause;
+	if !sprite_exists(screenshot) screenshot = sprite_create_from_surface(application_surface,0,0,view_wport,view_hport,0,0,0,0);  
+}
+
 if global.pause {
+	instance_deactivate_all(1);
 	left = keyboard_check_pressed(global.key_one[0]) or keyboard_check_pressed(global.key_two[0]);
 	right = keyboard_check_pressed(global.key_one[1]) or keyboard_check_pressed(global.key_two[1]);
 	down = keyboard_check_pressed(global.key_one[2]) or keyboard_check_pressed(global.key_two[2]);
@@ -43,7 +43,7 @@ if global.pause {
 			if cursor == exempt cursor++;
 		}
 		if right{
-			if current_menu == opt and cursor != menu_items-1 and cursor < menu_items{
+			if current_menu == opt and cursor < 3 and cursor >=0 {
 				global.vol[cursor] = global.vol[cursor] + vol_inc >= 1? 1 : global.vol[cursor] + vol_inc;
 			}
 			else if current_menu == key and cursor < menu_items{
@@ -58,7 +58,7 @@ if global.pause {
 			}
 		}
 		if left {
-			if current_menu == opt and cursor != menu_items-1 and cursor < menu_items{
+			if current_menu == opt and cursor < 3 and cursor >=0 {
 				global.vol[cursor] = global.vol[cursor] - vol_inc <= 0? 0 : global.vol[cursor] - vol_inc;
 			}
 			else if current_menu == key and cursor < menu_items{
@@ -88,7 +88,7 @@ if global.pause {
 			var _mouse_two = point_in_rectangle(mouse_x_gui,mouse_y_gui,l_screen+(margin*7),t_screen+(margin*2)+(margin*(i-array_length(key)))+5,l_screen+(margin*10),t_screen+(margin*3)+(margin*(i-array_length(key)))-5);
 			var _mouse_all = point_in_rectangle(mouse_x_gui,mouse_y_gui,l_screen+margin,t_screen+(margin)+(margin*i),l_screen+(margin*6),t_screen+(margin*2)+(margin*i));
 
-			if current_menu == opt and i < menu_items - 2 var _mouse = _mouse_vol;
+			if current_menu == opt and i < 3 var _mouse = _mouse_vol;
 			else if current_menu == key {
 				if i == restore_def _mouse = point_in_rectangle(mouse_x_gui,mouse_y_gui,r_screen,t_screen+(screen_h*0.5)-item_height-10,r_screen+(item_height*3),t_screen+(item_height*7)+(screen_h*0.5)-10)
 				else var _mouse = i < array_length(key)? _mouse_one : _mouse_two;
@@ -139,8 +139,8 @@ if global.pause {
 		else{
 			switch current_menu{
 				case opt: {
-					if cur_committed == menu_items - 2 Menu_to(key);
-					else if cur_committed == menu_items - 1 {
+					if cur_committed == 3 Menu_to(key);
+					else if cur_committed == 4 {
 						if (audio_is_playing(a_coop_track)) {
 							audio_stop_sound(a_coop_track);
 						}
@@ -156,6 +156,10 @@ if global.pause {
 						room_goto(r_title);
 						send_event_goto_room(r_title);
 						global.pause = false;
+					}
+					else if cur_committed == 5 {
+						global.pause = false;
+						room_restart();
 					}
 					else if cur_committed == back global.pause = false;
 					else if key_input == false sliding = cur_committed;
@@ -177,4 +181,8 @@ if global.pause {
 		} 
 		cur_committed = cur_null;
 	}	
+}
+else {
+	if sprite_exists(screenshot) sprite_delete(screenshot);
+	instance_activate_all();
 }

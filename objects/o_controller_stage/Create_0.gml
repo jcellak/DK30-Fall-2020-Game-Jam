@@ -1,6 +1,9 @@
 /// @description Stage Init
 instance_create_layer(0, 0, "Transitions", o_transition_fade_in);
 
+Sound_list();
+Music_list();
+
 if (audio_is_playing(a_two_robots)) {
 	audio_stop_sound(a_two_robots);
 }
@@ -20,6 +23,7 @@ opt[1] = "SFX VOLUME";
 opt[2] = "MUSIC VOLUME";
 opt[3] = con_key;
 opt[4] = "MAIN MENU";
+opt[5] = "RESTART LEVEL";
 
 key[0] = "LEFT";
 key[1] = "RIGHT";
@@ -60,3 +64,5 @@ new_map = cur_null;
 restore_def = array_length(key) * 2;
 
 vol_inc = 0.05; 
+
+screenshot = noone;

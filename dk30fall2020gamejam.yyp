@@ -28,6 +28,7 @@
     {"id":{"name":"a_boss_loop","path":"sounds/a_boss_loop/a_boss_loop.yy",},"order":0,},
     {"id":{"name":"o_platform_moving","path":"objects/o_platform_moving/o_platform_moving.yy",},"order":6,},
     {"id":{"name":"s_blast","path":"sprites/s_blast/s_blast.yy",},"order":14,},
+    {"id":{"name":"Audio_Lists","path":"scripts/Audio_Lists/Audio_Lists.yy",},"order":11,},
     {"id":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"order":1,},
     {"id":{"name":"a_cave_loop","path":"sounds/a_cave_loop/a_cave_loop.yy",},"order":1,},
     {"id":{"name":"s_x_bumper","path":"sprites/s_x_bumper/s_x_bumper.yy",},"order":11,},
