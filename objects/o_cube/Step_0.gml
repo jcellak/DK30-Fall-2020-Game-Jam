@@ -22,5 +22,7 @@ direction_move_bounce_specific([{
 	one_way: true
 }]);
 
+if (_on_solid) apply_friction(1);
+
 // Round to avoid sub-pixel calculations (avoid floating point values)
 y = round(y);

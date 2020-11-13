@@ -126,7 +126,7 @@ function handle_player_state_moving()
 	} else { // Normal Walking Speed
 		// Check for moving left or right
 		if (right xor left) {
-			if ((left and xspeed > -1 * max_speed) or right and xspeed < max_speed) {
+			if ((left and xspeed > -1 * max_speed) or (right and xspeed < max_speed)) {
 				xspeed += (right - left) * acceleration;
 			}
 			//xspeed = clamp(xspeed, -max_speed, max_speed);

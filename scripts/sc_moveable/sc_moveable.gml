@@ -47,6 +47,7 @@ function direction_move_bounce_specific(_collision_objects)
 {
 	var _col_objects = typeof(_collision_objects) == "array" ? _collision_objects : [_collision_objects];
 	
+	// Horizontal Collisions (had to loop these separately to fix literal *corner* cases)
 	for (var i = 0; i < array_length(_col_objects); i++) {
 		var _col_object = _col_objects[i];
 		var _id = _col_object.object_index;
@@ -54,7 +55,6 @@ function direction_move_bounce_specific(_collision_objects)
 		var _elasticity = _col_object.elasticity;
 		var _one_way = _col_object.one_way;
 		
-		// Horizontal Collisions
 		if (_direction == Direction.horizontal || _direction == Direction.omnidirectional) {
 			var _inst = instance_place(x + xspeed, y, _id);
 			if (place_meeting(x + xspeed, y, _id)
@@ -72,6 +72,17 @@ function direction_move_bounce_specific(_collision_objects)
 				break;
 			}
 		}
+	}
+	
+	x += xspeed;
+	
+	// Vertical Collisions (had to loop these separately to fix literal *corner* cases)
+	for (var i = 0; i < array_length(_col_objects); i++) {
+		var _col_object = _col_objects[i];
+		var _id = _col_object.object_index;
+		var _direction = _col_object.collision_direction;
+		var _elasticity = _col_object.elasticity;
+		var _one_way = _col_object.one_way;
 		
 		// Vertical Collisions
 		if (_direction == Direction.vertical || _direction == Direction.omnidirectional) {
@@ -92,7 +103,7 @@ function direction_move_bounce_specific(_collision_objects)
 			}
 		}
 	}
-	x += xspeed;
+	
 	y += yspeed;
 }
 
@@ -118,11 +129,16 @@ function handle_push_object(_target_object)
 {
 	// Horizontal Push
 	var _source_half_xspeed = xspeed / 2;
+	
 	// If source object will collide with target object
-	if (place_meeting(x + _source_half_xspeed, y, _target_object)) {
+	if (place_meeting(x + _source_half_xspeed, y, _target_object) or ((left xor right) and place_meeting(x + (right - left), y, _target_object))) {
 		// Retrieve exact target object that will be "pushed"
 		var _instance = instance_place(x + _source_half_xspeed, y, _target_object);
-		_instance.x += _source_half_xspeed; // Pushable object moves half of source speed
+		if (_instance == noone) {
+			_instance = instance_place(x + (right - left), y, _target_object);
+			_source_half_xspeed = (right - left) * max_speed;
+		}
+		_instance.xspeed = _source_half_xspeed; // Pushable object moves half of source speed
 		xspeed = _source_half_xspeed; // Half the pushing source's speed
 	}
 	
