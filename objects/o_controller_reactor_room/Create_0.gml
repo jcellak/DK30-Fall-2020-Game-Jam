@@ -1,4 +1,7 @@
 /// @description Stage Init
+game_ended = false;
+dead_player = noone;
+
 alarm_set(0, 120);
 
 alarm_1_timer = 180;

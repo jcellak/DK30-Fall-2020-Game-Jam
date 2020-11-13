@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "a_bat.mp3",
-  "duration": 0.446179,
+  "soundFile": "a_wilhelm.mp3",
+  "duration": 1.1837,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "a_bat",
+  "name": "a_wilhelm",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_beam_blue",
-    "path": "sprites/s_beam_blue/s_beam_blue.yy",
+    "name": "s_player_catbot_idle",
+    "path": "sprites/s_player_catbot_idle/s_player_catbot_idle.yy",
   },
   "solid": false,
   "visible": true,
@@ -20,17 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"parent":{"name":"o_reactor_beam","path":"objects/o_reactor_beam/o_reactor_beam.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Obstacles",
-    "path": "folders/Objects/Level/Obstacles.yy",
+    "name": "Player",
+    "path": "folders/Objects/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_reactor_beam",
+  "name": "o_catbot_dummy",
   "tags": [],
   "resourceType": "GMObject",
 }
