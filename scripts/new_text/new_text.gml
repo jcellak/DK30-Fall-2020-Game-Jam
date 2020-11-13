@@ -3,6 +3,7 @@
 
 //box is the frame in the text box sprite
 //currently only one frame so use 0 till that changes
+//speed should be somewhere around 0-2, 0.75 is a good number
 
 function new_text_box(message_input,text_sp,box){
 	var _obj;

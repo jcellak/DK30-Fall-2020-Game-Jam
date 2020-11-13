@@ -187,3 +187,8 @@ else {
 	instance_activate_all();
 }
 
+if keyboard_check_pressed(vk_tab) {
+	new_text_box("hello!",0.75,0);
+	new_text_box("how are you?",0.05,0);
+	new_text_box("hope things are going well, insert name here.",1.5,0);
+}
