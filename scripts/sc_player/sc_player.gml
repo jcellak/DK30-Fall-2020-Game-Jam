@@ -61,7 +61,7 @@ function handle_player_state_moving()
 		// Jumping off of solid ground
 		if (modules.jump && up) {
 			yspeed = jump_height;
-			audio_play_sound(a_jump, 5, false);
+			audio_play_sound(this_player_num == 0 ? a_jump_1 : a_jump_2, 5, false);
 		}
 		
 		// Dropping down from platform ONLY (no solid ground overlap)
@@ -81,7 +81,7 @@ function handle_player_state_moving()
 		
 		if (modules.double && up_pressed && !jump_disabled) {
 			yspeed = jump_height;
-			audio_play_sound(a_jump, 5, false);
+			audio_play_sound(this_player_num == 0 ? a_jump_1 : a_jump_2, 5, false);
 			jump_disabled = true;
 			var _double_particle_l = instance_create_layer(x - 4, y + sprite_height / 2, "Particles", o_particle);
 			var _double_particle_r = instance_create_layer(x + 4, y + sprite_height / 2, "Particles", o_particle);
@@ -286,6 +286,18 @@ function handle_player_state_door()
 				room_goto_next();
 				send_event_goto_room(room_next(room));
 			} else {
+				if (audio_is_playing(a_coop_track)) {
+					audio_stop_sound(a_coop_track);
+				}
+
+				if (audio_is_playing(a_boss_track_edit)) {
+					audio_stop_sound(a_boss_track_edit);
+				}
+
+				if (!audio_is_playing(a_two_robots)) {
+					audio_play_sound(a_two_robots, 10, true);
+					audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
+				}
 				room_goto(r_title);
 				send_event_goto_room(r_title);
 			}

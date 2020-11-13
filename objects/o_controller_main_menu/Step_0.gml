@@ -10,5 +10,9 @@
 }*/
 
 
-audio_sound_gain(a_title,global.vol[0]*global.vol[2],0);
-audio_sound_gain(a_cave_loop,global.vol[0]*global.vol[2],0);
+audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
+audio_sound_gain(a_item_pickup,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump_1,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump_2,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_ouch,global.vol[0]*global.vol[1],0);

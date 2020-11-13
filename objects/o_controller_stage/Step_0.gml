@@ -1,10 +1,16 @@
 /// @desc 
 /******************************************************************** Audio ************************************************************/
-audio_sound_gain(a_title,global.vol[0]*global.vol[2],0);
-audio_sound_gain(a_cave_loop,global.vol[0]*global.vol[2],0);
-audio_sound_gain(a_boss_loop,global.vol[0]*global.vol[2],0);
-
-
+audio_sound_gain(a_coop_track,global.vol[0]*global.vol[2],0);
+audio_sound_gain(a_charging,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_exit,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_falling,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_item_pickup,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump_1,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_jump_2,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_ouch,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_step,global.vol[0]*global.vol[1],0);
+audio_sound_gain(a_tink,global.vol[0]*global.vol[1],0);
 
 /******************************************************************** Pause Brains ******************************************************/
 if keyboard_check_pressed(vk_escape) global.pause = !global.pause;
@@ -135,7 +141,20 @@ if global.pause {
 				case opt: {
 					if cur_committed == menu_items - 2 Menu_to(key);
 					else if cur_committed == menu_items - 1 {
+						if (audio_is_playing(a_coop_track)) {
+							audio_stop_sound(a_coop_track);
+						}
+
+						if (audio_is_playing(a_boss_track_edit)) {
+							audio_stop_sound(a_boss_track_edit);
+						}
+
+						if (!audio_is_playing(a_two_robots)) {
+							audio_play_sound(a_two_robots, 10, true);
+							audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
+						}
 						room_goto(r_title);
+						send_event_goto_room(r_title);
 						global.pause = false;
 					}
 					else if cur_committed == back global.pause = false;

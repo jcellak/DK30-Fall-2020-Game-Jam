@@ -10,7 +10,7 @@ PlayerModules = function() constructor
 }
 
 event_user(0);
-global.vol[0] = 0; //main
+global.vol[0] = 0.25; //main
 global.vol[1] = 0.5; //sfx
 global.vol[2] = 0.5; //music
 
@@ -32,8 +32,9 @@ global.pause = false;
 
 // Start the music
 
-if (!audio_is_playing(a_cave_loop)) {
-	audio_play_sound(a_cave_loop, 10, true);
+if (!audio_is_playing(a_two_robots)) {
+	audio_play_sound(a_two_robots, 10, true);
+	audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
 }
 
 // Get rid of Cursor

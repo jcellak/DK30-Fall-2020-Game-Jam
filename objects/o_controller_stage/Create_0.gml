@@ -1,6 +1,14 @@
 /// @description Stage Init
 instance_create_layer(0, 0, "Transitions", o_transition_fade_in);
 
+if (audio_is_playing(a_two_robots)) {
+	audio_stop_sound(a_two_robots);
+}
+
+if (!audio_is_playing(a_coop_track)) {
+	audio_play_sound(a_coop_track, 10, true);
+}
+
 con_options = "OPTIONS";
 con_key = "CONTROLS";
 con[1] = con_options;
