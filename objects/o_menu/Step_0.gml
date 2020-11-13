@@ -155,11 +155,10 @@ if cur_committed != cur_null{
 					global.local_play = true;
 					global.all_players_connected = true;
 						
-					global.multiplayer = false;
 					Menu_to(play);
 				}
 				else {
-					global.multiplayer = true;
+					global.local_play = false;
 					Menu_to(multiplayer);
 				}
 			}break;
@@ -200,7 +199,7 @@ if cur_committed != cur_null{
 					}break; //story mode
 					case 1: break; //arcade mode
 					case back:{
-						var _multi = global.multiplayer? multiplayer : main; 
+						var _multi = global.local_play? main : multiplayer; 
 						Menu_to(_multi)
 					}break;
 				}				

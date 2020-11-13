@@ -4,4 +4,5 @@ function Menu_to(menu){
 	current_menu = menu;
 	cursor = 0;
 	menu_items = array_length(menu)
+	cur_committed = cur_null;
 }

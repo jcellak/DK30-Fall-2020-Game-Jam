@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"f_primary","path":"fonts/f_primary/f_primary.yy",},"order":1,},
+    {"id":{"name":"o_Text","path":"objects/o_Text/o_Text.yy",},"order":4,},
     {"id":{"name":"o_module_description_text","path":"objects/o_module_description_text/o_module_description_text.yy",},"order":1,},
     {"id":{"name":"o_module_hang","path":"objects/o_module_hang/o_module_hang.yy",},"order":3,},
     {"id":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"order":0,},

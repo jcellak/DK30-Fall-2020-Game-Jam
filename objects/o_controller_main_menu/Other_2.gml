@@ -22,7 +22,6 @@ global.max_charge = 180;
 global.player_hp = [global.max_hp, global.max_hp];
 global.player_charge = [60,60];
 
-global.multiplayer = false;
 global.all_players_connected = false;
 global.my_player_num = -1;
 global.is_server = false;
