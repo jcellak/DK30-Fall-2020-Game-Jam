@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_module_dash",
-    "path": "sprites/s_module_dash/s_module_dash.yy",
+    "name": "s_module_blast",
+    "path": "sprites/s_module_blast/s_module_blast.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,7 +24,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_module_dash","path":"objects/o_module_dash/o_module_dash.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_module_blast","path":"objects/o_module_blast/o_module_blast.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,7 +33,7 @@
     "path": "folders/Objects/Level/Collectables/Modules.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_module_dash",
+  "name": "o_module_blast",
   "tags": [],
   "resourceType": "GMObject",
 }

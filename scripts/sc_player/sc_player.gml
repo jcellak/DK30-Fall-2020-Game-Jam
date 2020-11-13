@@ -194,7 +194,7 @@ function handle_player_state_moving()
 	var enemyBlast = instance_place(x, y, o_blast_hitbox);
 	if (enemyBlast != noone and enemyBlast.owner_num != this_player_num and ds_list_find_index(enemyBlast.struck_targets, self) == -1) {
 		ds_list_add(enemyBlast.struck_targets, self);
-		var blastAngle = point_direction(enemyBlast.playerX, enemyBlast.playerY, x, y);
+		var blastAngle = degtorad(point_direction(enemyBlast.playerX, enemyBlast.playerY, x, y));
 		// The following code guarantees that there is at least 30% x movement, and at *most* 30% y movement.
 		var xPortion = clamp(abs(cos(blastAngle)), 0.3, 1);
 		var yPortion = clamp(sin(blastAngle), -0.3, 0.3);

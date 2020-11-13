@@ -6,7 +6,7 @@ PlayerModules = function() constructor
 	hang = false;
 	dash = false;
 	double = false;
-	blast = true;
+	blast = false;
 }
 
 Default_key_map();
