@@ -2,10 +2,10 @@
 
 PlayerModules = function() constructor
 {
-	jump = true;
-	hang = true;
+	jump = false;
+	hang = false;
 	dash = false;
-	double = true;
+	double = false;
 	blast = true;
 }
 
@@ -28,6 +28,7 @@ global.is_server = false;
 global.local_play = true;
 
 global.pause = false;
+global.winner = noone;
 
 // Start the music
 
