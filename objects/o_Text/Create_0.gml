@@ -9,3 +9,12 @@ x2_target = display_get_gui_width()-10;
 
 lerp_progress = 0;
 text_progress = 0;
+time = 0;
+
+next_bounce = 0;
+next_bounce_var = 8;
+next_plus = true;
+bounce_sp = 0.3;
+
+next = "press enter to proceed>>";
+next_length = string_length(next);
