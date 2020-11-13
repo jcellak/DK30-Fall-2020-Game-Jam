@@ -9,7 +9,8 @@ PlayerModules = function() constructor
 	blast = true;
 }
 
-event_user(0);
+Default_key_map();
+
 global.vol[0] = 0.25; //main
 global.vol[1] = 0.5; //sfx
 global.vol[2] = 0.5; //music
