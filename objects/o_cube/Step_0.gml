@@ -13,12 +13,12 @@ direction_move_bounce_specific([{
 }, {
 	object_index: o_x_bumper,
 	collision_direction: Direction.horizontal,
-	elasticity: 1,
+	elasticity: 0.95,
 	one_way: true
 }, {
 	object_index: o_y_bumper,
 	collision_direction: Direction.vertical,
-	elasticity: 1,
+	elasticity: 0.95,
 	one_way: true
 }]);
 

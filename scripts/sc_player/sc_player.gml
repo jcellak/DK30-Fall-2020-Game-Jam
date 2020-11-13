@@ -211,12 +211,12 @@ function handle_player_state_moving()
 	}, {
 		object_index: o_x_bumper,
 		collision_direction: Direction.horizontal,
-		elasticity: 1,
+		elasticity: 0.95,
 		one_way: true
 	}, {
 		object_index: o_y_bumper,
 		collision_direction: Direction.vertical,
-		elasticity: 1,
+		elasticity: 0.95,
 		one_way: true
 	}]);
 	
@@ -325,12 +325,12 @@ function handle_player_state_hurt()
 	}, {
 		object_index: o_x_bumper,
 		collision_direction: Direction.horizontal,
-		elasticity: 1,
+		elasticity: 0.95,
 		one_way: true
 	}, {
 		object_index: o_y_bumper,
 		collision_direction: Direction.vertical,
-		elasticity: 1,
+		elasticity: 0.95,
 		one_way: true
 	}]);
 	
@@ -373,12 +373,12 @@ function handle_player_take_damage(damage)
 		}, {
 			object_index: o_x_bumper,
 			collision_direction: Direction.horizontal,
-			elasticity: 1,
+			elasticity: 0.95,
 			one_way: true
 		}, {
 			object_index: o_y_bumper,
 			collision_direction: Direction.vertical,
-			elasticity: 1,
+			elasticity: 0.95,
 			one_way: true
 		}]);
 		
