@@ -3,11 +3,11 @@
 
 PlayerModules = function() constructor
 {
-	jump = true;
-	hang = true;
-	dash = true;
-	double = true;
-	blast = true;
+	jump = false;
+	hang = false;
+	dash = false;
+	double = false;
+	blast = false;
 }
 
 global.player_1_modules = new PlayerModules();
