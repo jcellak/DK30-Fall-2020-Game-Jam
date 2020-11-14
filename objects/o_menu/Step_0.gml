@@ -49,7 +49,7 @@ if menu_control{
 	}
 	if right{
 		if current_menu == opt and cursor != menu_items-1 and cursor < menu_items{
-			o_controller_main_menu.vol[cursor] = o_controller_main_menu.vol[cursor] + vol_inc >= 1? 1 : o_controller_main_menu.vol[cursor] + vol_inc;
+			global.vol[cursor] = global.vol[cursor] + vol_inc >= 1? 1 : global.vol[cursor] + vol_inc;
 		}
 		else if current_menu == key and cursor < menu_items{
 			if cursor == restore_def cursor = 0;
@@ -64,7 +64,7 @@ if menu_control{
 	}
 	if left {
 		if current_menu == opt and cursor != menu_items-1 and cursor < menu_items{
-			o_controller_main_menu.vol[cursor] = o_controller_main_menu.vol[cursor] - vol_inc <= 0? 0 : o_controller_main_menu.vol[cursor] - vol_inc;
+			global.vol[cursor] = global.vol[cursor] - vol_inc <= 0? 0 : global.vol[cursor] - vol_inc;
 		}
 		else if current_menu == key and cursor < menu_items{
 			if cursor < array_length(key) cursor = restore_def;

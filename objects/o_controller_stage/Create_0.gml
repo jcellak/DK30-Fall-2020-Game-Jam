@@ -27,8 +27,8 @@ opt[5] = "RESTART LEVEL";
 
 key[0] = "LEFT";
 key[1] = "RIGHT";
-key[2] = "UP";
-key[3] = "DOWN";
+key[2] = "DOWN";
+key[3] = "UP";
 key[4] = "USE";
 
 m_font = f_menu;
