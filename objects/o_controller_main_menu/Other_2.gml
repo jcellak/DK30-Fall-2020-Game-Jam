@@ -2,7 +2,7 @@
 
 PlayerModules = function() constructor
 {
-	jump = true;
+	jump = false;
 	hang = false;
 	dash = false;
 	double = false;
