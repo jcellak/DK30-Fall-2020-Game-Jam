@@ -23,8 +23,6 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_door_open","path":"objects/o_door_open/o_door_open.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_lava","path":"objects/o_lava/o_lava.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_enemy_parent","path":"objects/o_enemy_parent/o_enemy_parent.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_boss","path":"objects/o_boss/o_boss.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_beam","path":"objects/o_beam/o_beam.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_module_jump","path":"objects/o_module_jump/o_module_jump.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_module_hang","path":"objects/o_module_hang/o_module_hang.yy",},"parent":{"name":"o_player_parent","path":"objects/o_player_parent/o_player_parent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
@@ -53,6 +51,8 @@
     {"varType":4,"value":"s_player_catbot_jump","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_jump","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"s_player_catbot_ledge_grab","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_ledge_grab","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"s_player_catbot_walk","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite_walk","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":2,"value":"\"\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"name","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":2,"value":"\"\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"partner","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

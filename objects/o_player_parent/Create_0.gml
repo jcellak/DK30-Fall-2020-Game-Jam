@@ -14,7 +14,8 @@ pushed = false;
 blast_charge = 0;
 flash_timer = 0;
 hurt_timer = 0;
-
+name = "";
+partner = "";
 #region Controls
 right = false;
 right_pressed = false;
@@ -39,6 +40,7 @@ double_tap_timer = 10; // Timer (in milliseconds) until considered a "double tap
 // Jump-specific Variables
 jump_height = -3.5;
 jump_disabled = false;
+jump_timer = 0;
 
 // Dash-specific Variables
 dash_speed = 5;

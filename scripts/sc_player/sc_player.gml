@@ -24,6 +24,8 @@ function handle_player_state_moving()
 		myBlast.playerX = x;
 		myBlast.playerY = y;
 		blast_charge = 0;
+		audio_stop_sound(a_charging);
+		audio_play_sound(a_blast, 10, false);
 		send_event_blast_created(myBlast);
 	}
 	#endregion
@@ -62,9 +64,10 @@ function handle_player_state_moving()
 		jump_disabled = false;
 		
 		// Jumping off of solid ground
-		if (modules.jump && up) {
+		if (modules.jump and up and jump_timer <= 0) {
 			yspeed = jump_height;
 			audio_play_sound(this_player_num == 0 ? a_jump_1 : a_jump_2, 5, false);
+			jump_timer = 3;
 		}
 		
 		// Dropping down from platform ONLY (no solid ground overlap)
@@ -103,7 +106,7 @@ function handle_player_state_moving()
 	// Check if we are about to land on a solid collision Object
 	if ((place_meeting(x, y + yspeed + 1, o_solid) || place_meeting(x, y + yspeed + 1, otherPlayerObjId)) && yspeed > 0) {
 		if (dedupe_step_sound == 0) {
-			audio_play_sound(a_step, 6, false);
+			audio_play_sound(a_falling, 6, false);
 			dedupe_step_sound = 5;
 		}
 	}
@@ -256,7 +259,7 @@ function handle_player_state_moving()
 		sprite_index = sprite_ledge_grab;
 		state = PlayerState.ledge_grab;
 		
-		audio_play_sound(a_step, 6, false);
+		audio_play_sound(a_falling, 6, false);
 	}
 	
 	// Round to avoid sub-pixel calculations (avoid floating point values)

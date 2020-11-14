@@ -23,7 +23,7 @@ if (!is_opponent or global.local_play) {
 	
 		// Bounce off the enemy
 		yspeed = -(16 / 3)
-		audio_play_sound(a_step, 6, false);
+		audio_play_sound(a_falling, 6, false);
 	} else {
 		handle_player_take_damage(0);
 		send_event_player_damaged(0);

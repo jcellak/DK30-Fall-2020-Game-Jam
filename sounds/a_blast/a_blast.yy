@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.05,
+  "volume": 0.85,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "a_charging.mp3",
-  "duration": 5.960918,
+  "soundFile": "a_blast.mp3",
+  "duration": 0.422959,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "a_charging",
+  "name": "a_blast",
   "tags": [],
   "resourceType": "GMSound",
 }

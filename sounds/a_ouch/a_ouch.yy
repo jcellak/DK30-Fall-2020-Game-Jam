@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "a_ouch.mp3",
-  "duration": 0.275023,
+  "duration": 1.755167,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
