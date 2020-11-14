@@ -44,7 +44,8 @@ screen_w = r_screen-l_screen;
 screen_h = b_screen - t_screen;
 screen_split = (screen_w - (margin*2) - string_width(con[2]))*0.5;
 v_dist = screen_w*0.35;
-gui_split = room_width*.5
+gui_split = room_width*.5;
+gui_height = -48;
 
 flikr = true;
 flikr_time = 0;

@@ -48,6 +48,9 @@
             {"properties":[],"isDnd":false,"objectId":{"name":"o_beam","path":"objects/o_beam/o_beam.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":104.0,"y":24.0,"resourceVersion":"1.0","name":"inst_5D49A1CA","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_solid_disappearing","path":"objects/o_solid_disappearing/o_solid_disappearing.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":360.0,"y":136.0,"resourceVersion":"1.0","name":"inst_52D95E32","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_solid_disappearing","path":"objects/o_solid_disappearing/o_solid_disappearing.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":360.0,"y":152.0,"resourceVersion":"1.0","name":"inst_58F52284","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[
+                {"propertyId":{"name":"target_instances","path":"objects/o_toggleable_parent/o_toggleable_parent.yy",},"objectId":{"name":"o_toggleable_parent","path":"objects/o_toggleable_parent/o_toggleable_parent.yy",},"value":"[inst_313AB7BA, inst_3B5CA4DC]","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+              ],"isDnd":false,"objectId":{"name":"o_button","path":"objects/o_button/o_button.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":208.0,"y":240.0,"resourceVersion":"1.0","name":"inst_71177D82","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Obstacles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":96.0,"y":240.0,"resourceVersion":"1.0","name":"inst_29E9D704","tags":[],"resourceType":"GMRInstance",},
@@ -175,6 +178,7 @@
     {"name":"inst_D72C92","path":"rooms/r_coop_1/r_coop_1.yy",},
     {"name":"inst_55F2F07D","path":"rooms/r_coop_1/r_coop_1.yy",},
     {"name":"inst_4811CBF8","path":"rooms/r_coop_1/r_coop_1.yy",},
+    {"name":"inst_71177D82","path":"rooms/r_coop_1/r_coop_1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
