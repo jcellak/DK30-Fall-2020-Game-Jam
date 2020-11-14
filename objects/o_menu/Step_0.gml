@@ -25,13 +25,26 @@ menu_items = current_menu == key? 1+(array_length(current_menu)*2) : array_lengt
 back = menu_items;
 options = menu_items+1;
 quit = menu_items+2;
+title = -1;
 //if current_menu == main exempt = back;
 if current_menu == multiplayer exempt = back;
 else if current_menu == opt or current_menu == key exempt = options;
+//else if current_menu == title cursor = 1;
 else exempt = noone;
 con[1] = current_menu == key? con_key : con_options;
 
-if menu_control{
+//current_menu = title
+
+//if current_menu == title{
+//	show_debug_message("aaaaaaaah")
+//	if (keyboard_check_pressed(vk_anykey) or mouse_check_button_pressed(mb_any)) {
+//		Menu_to(multiplayer);
+//		m_font = f_menu;
+//		menu_control = true;
+//	}
+//}
+
+if menu_control {//and current_menu != title{
 	
 	/********************************** Key Inputs **********************************/
 	if mouse_check_button_pressed(mb_any) key_input = false;
@@ -114,6 +127,7 @@ if menu_control{
 	}
 
 	/************************** Select *******************************************/
+	
 	if keyboard_check_pressed(vk_enter) or mouse_check_button_pressed(mb_left) cur_committed = cursor;
 	if keyboard_check_pressed(vk_backspace) and current_menu != main cur_committed = back;
 }

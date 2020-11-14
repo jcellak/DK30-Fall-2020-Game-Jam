@@ -9,7 +9,7 @@
   "bold": false,
   "italic": false,
   "charset": 0,
-  "AntiAlias": 1,
+  "AntiAlias": 0,
   "first": 0,
   "last": 0,
   "sampleText": "abcdef ABCDEF\n0123456789 .,<>\"'&!?\nthe quick brown fox jumps over the lazy dog\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\nDefault character: ▯ (9647)",
@@ -123,7 +123,7 @@
     {"lower":32,"upper":127,},
     {"lower":9647,"upper":9647,},
   ],
-  "regenerateBitmap": false,
+  "regenerateBitmap": true,
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
@@ -131,7 +131,7 @@
     "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Font4",
+  "name": "f_title_small",
   "tags": [],
   "resourceType": "GMFont",
 }

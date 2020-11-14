@@ -23,11 +23,11 @@ function NineSliceBox_Stretch(argument0, argument1, argument2, argument3, argume
 	//top left
 	draw_sprite_part(argument0,frame,0,0,_size,_size,_x1,_y1);
 	//top right
-	draw_sprite_part(argument0,frame,_size*2,0,_size,_size,_x1+(_columns*_size),_y1);
+	draw_sprite_part(argument0,frame,_size*2,0,_size,_size,_x1+(_columns*_size)-4,_y1);
 	//bottom left
-	draw_sprite_part(argument0,frame,0,_size*2,_size,_size,_x1,_y1+(_rows*_size));
+	draw_sprite_part(argument0,frame,0,_size*2,_size,_size,_x1,_y1+(_rows*_size)-4);
 	//bottom right
-	draw_sprite_part(argument0,frame,_size*2,_size*2,_size,_size,_x1+(_columns*_size),_y1+(_rows*_size));
+	draw_sprite_part(argument0,frame,_size*2,_size*2,_size,_size,_x1+(_columns*_size)-4,_y1+(_rows*_size)-4);
 
 	//Edges
 	//left edge
