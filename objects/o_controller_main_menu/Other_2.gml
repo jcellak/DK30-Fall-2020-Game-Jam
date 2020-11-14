@@ -9,7 +9,7 @@ global.vol[2] = 0.5; //music
 global.max_hp = 100;
 global.max_charge = 120;
 global.player_hp = [global.max_hp, global.max_hp];
-global.player_charge = [40,40];
+global.player_charge = [40,120];
 
 reset_network_state();
 
