@@ -390,14 +390,15 @@ function handle_player_take_damage(damage)
 		hurt_timer = 20;
 		
 		if (dedupe_hurt_sound == 0) {
-			audio_play_sound(a_ouch, 5, false);
+			audio_play_sound(this_player_num == 0 ? a_ouch : a_ouch_2, 5, false);
 			dedupe_hurt_sound = 5;
 		}
 		
 		image_blend = make_color_rgb(220, 150, 150);
 		
-		yspeed = -6;
-		xspeed = (sign(x - other.x) * 8);
+		var _knockback_factor = 1 - (global.player_charge[this_player_num] / global.max_charge);
+		yspeed = -2 - 6 * _knockback_factor;
+		xspeed = (sign(x - other.x) * (2 + 9 * _knockback_factor));
 		
 		direction_move_bounce_specific([{ 
 			object_index: o_solid,

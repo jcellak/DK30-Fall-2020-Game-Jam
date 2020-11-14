@@ -278,6 +278,18 @@ function send_event_blast_created(instanceId) {
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }
 
+function send_event_beam_created(_beam_pos) {
+	if (global.local_play) {
+		return;
+	}
+	
+	buffer_seek(global.buffer, buffer_seek_start, 0); //Checks the beginning of the buffer
+	buffer_write(global.buffer, buffer_u8, EventType.beam_created); //Writes our ID to an unsigned positive 8-Bit integer (0-256) to our buffer.
+	buffer_write(global.buffer, buffer_s16, _beam_pos);
+	
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
+}
+
 function send_event_restart_room() {
 	if (global.local_play) {
 		return;
