@@ -9,6 +9,7 @@ switch (type_event){
             global.socket = async_load[? "socket"]; //Returns the socket from async_load using an accessor. Then store it in the socket.
 			global.all_players_connected = true;
 			audio_play_sound(a_item_pickup, 6, false);
+			with (o_menu) Menu_to(menu_start_multiplayer);
         }
         break; //Break out of the switch event.
        
@@ -17,6 +18,7 @@ switch (type_event){
 		audio_play_sound(a_ouch, 6, false);
         global.socket = noone
 		global.all_players_connected = false;
+		with (o_menu) Menu_to(menu_waiting);
         break;
        
     case network_type_data: //If we are receiving data

@@ -39,6 +39,8 @@ key[4] = "USE";
 menu_waiting = [];
 menu_connect = [];
 
+menu_start_multiplayer[0] = "START GAME";
+
 m_font = f_menu;
 def_key = "RESTORE DEFAULT";
 item_height = font_get_size(m_font)+2;

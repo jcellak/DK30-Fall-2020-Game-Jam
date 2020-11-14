@@ -21,6 +21,7 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_client","path":"objects/o_client/o_client.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":3,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_client","path":"objects/o_client/o_client.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":68,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_client","path":"objects/o_client/o_client.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":63,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_client","path":"objects/o_client/o_client.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

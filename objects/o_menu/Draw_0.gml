@@ -72,7 +72,16 @@ if (current_menu == menu_waiting) {
 }
 
 if (current_menu == menu_connect) {
-	draw_text(l_screen + margin, t_screen + margin * 2, "ATTEMPTING CONNECTION TO HOST");
+	var _connection_text = "CONNECTING...";
+	
+	if (global.connection != noone) {
+		if (global.connection >= 0) {
+			_connection_text = "WAITING FOR HOST";
+		} else {
+			_connection_text = "CONNECTION FAILED";
+		}
+	}
+	draw_text(l_screen + margin, t_screen + margin * 2, _connection_text);
 }
 
 for (var j = 0; j < array_length(con); j++)

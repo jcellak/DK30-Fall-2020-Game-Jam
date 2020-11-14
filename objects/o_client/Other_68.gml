@@ -17,6 +17,7 @@ switch (type_event){
 		audio_play_sound(a_ouch, 6, false);
         global.socket = noone
 		global.all_players_connected = false;
+		with (o_menu) Menu_to(multiplayer);
         break;
        
     case network_type_data: //If we are receiving data

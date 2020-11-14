@@ -23,10 +23,7 @@ global.max_charge = 180;
 global.player_hp = [global.max_hp, global.max_hp];
 global.player_charge = [60,60];
 
-global.all_players_connected = false;
-global.my_player_num = -1;
-global.is_server = false;
-global.local_play = true;
+reset_network_state();
 
 global.pause = false;
 global.winner = noone;
@@ -48,3 +45,6 @@ var _game_height = camera_get_view_height(view_camera[0]);
 	
 // Scale "Draw GUI" Events to camera/game width/height
 display_set_gui_size(_game_width, _game_height);
+
+instance_destroy(o_client);
+instance_destroy(o_server);

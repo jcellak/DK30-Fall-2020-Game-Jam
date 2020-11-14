@@ -8,7 +8,17 @@ enum EventType {
 	player_pickup,
 	instance_destroyed,
 	player_death,
-	blast_created
+	blast_created,
+	beam_created
+}
+
+/// @description Just resets all the global variables back to unconnected state.
+function reset_network_state() {
+	global.all_players_connected = false;
+	global.my_player_num = -1;
+	global.is_server = false;
+	global.local_play = true;
+	global.connection = noone;
 }
 
 function network_received_packet(buffer) {
@@ -32,10 +42,16 @@ function network_received_packet(buffer) {
 			var pHp = buffer_read(buffer, buffer_u8);
 			var pCharge = buffer_read(buffer, buffer_u8);
 			var pRight = buffer_read(buffer, buffer_bool);
+			var pRightPressed = buffer_read(buffer, buffer_bool);
+			var pRightReleased = buffer_read(buffer, buffer_bool);
 			var pLeft = buffer_read(buffer, buffer_bool);
+			var pLeftPressed = buffer_read(buffer, buffer_bool);
+			var pLeftReleased = buffer_read(buffer, buffer_bool);
 			var pUp = buffer_read(buffer, buffer_bool);
-			var pDown = buffer_read(buffer, buffer_bool);
+			var pUpPressed = buffer_read(buffer, buffer_bool);
 			var pUpRelease = buffer_read(buffer, buffer_bool);
+			var pDown = buffer_read(buffer, buffer_bool);
+			var pDownPressed = buffer_read(buffer, buffer_bool);
 			var pPushed = buffer_read(buffer, buffer_bool);
 			var pBlastHeld = buffer_read(buffer, buffer_bool);
 			var pBlastReleased = buffer_read(buffer, buffer_bool);
@@ -51,10 +67,16 @@ function network_received_packet(buffer) {
 						yspeed: pYSpeed,
 						acceleration: pAcceleration,
 						right: pRight,
+						right_pressed: pRightPressed,
+						right_released: pRightReleased,
 						left: pLeft,
+						left_pressed: pLeftPressed,
+						left_released: pLeftReleased,
 						up: pUp,
-						down: pDown,
+						up_pressed: pUpPressed,
 						up_release: pUpRelease,
+						down: pDown,
+						down_pressed: pDownPressed,
 						pushed: pPushed,
 						hp: pHp,
 						charge: pCharge,
@@ -120,6 +142,15 @@ function network_received_packet(buffer) {
 			newShove.playerX = pX;
 			newShove.playerY = pY;
 			break;
+		case EventType.beam_created:
+			var _beam_pos = buffer_read(buffer, buffer_s16);
+			
+			var _new_beam = instance_create_layer(-24, _beam_pos, "Obstacles", o_beam);
+			_new_beam.xspeed = 1;
+			var _new_beam_2 = instance_create_layer(-24, _beam_pos + 16, "Obstacles", o_beam);
+			_new_beam_2.xspeed = 1;
+			
+			break;
 	}
 }
 
@@ -154,10 +185,16 @@ function send_event_player_state() {
 	buffer_write(global.buffer, buffer_u8, global.player_hp[global.my_player_num]);
 	buffer_write(global.buffer, buffer_u8, global.player_charge[global.my_player_num]);
 	buffer_write(global.buffer, buffer_bool, right);
+	buffer_write(global.buffer, buffer_bool, right_pressed);
+	buffer_write(global.buffer, buffer_bool, right_released);
 	buffer_write(global.buffer, buffer_bool, left);
+	buffer_write(global.buffer, buffer_bool, left_pressed);
+	buffer_write(global.buffer, buffer_bool, left_released);
 	buffer_write(global.buffer, buffer_bool, up);
-	buffer_write(global.buffer, buffer_bool, down);
+	buffer_write(global.buffer, buffer_bool, up_pressed);
 	buffer_write(global.buffer, buffer_bool, up_release);
+	buffer_write(global.buffer, buffer_bool, down);
+	buffer_write(global.buffer, buffer_bool, down_pressed);
 	buffer_write(global.buffer, buffer_bool, pushed);
 	buffer_write(global.buffer, buffer_bool, blast_held);
 	buffer_write(global.buffer, buffer_bool, blast_released);
@@ -233,5 +270,17 @@ function send_event_blast_created(instanceId) {
 	buffer_write(global.buffer, buffer_s16, instanceId.playerX);
 	buffer_write(global.buffer, buffer_s16, instanceId.playerY);
 	
-	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)) //Buffer_tell is going to return the size of the buffer.
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
+}
+
+function send_event_beam_created(_beam_pos) {
+	if (global.local_play) {
+		return;
+	}
+	
+	buffer_seek(global.buffer, buffer_seek_start, 0);
+	buffer_write(global.buffer, buffer_u8, EventType.beam_created);
+	buffer_write(global.buffer, buffer_s16, _beam_pos);
+	
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }

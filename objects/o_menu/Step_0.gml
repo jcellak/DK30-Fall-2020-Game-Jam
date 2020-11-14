@@ -179,7 +179,7 @@ if cur_committed != cur_null{
 						global.my_player_num = 1;
 						global.is_server = false;
 						global.local_play = false;
-
+						
 						Menu_to(menu_connect);
 					}break; //join
 					case 2: {
@@ -229,10 +229,7 @@ if cur_committed != cur_null{
 			case menu_waiting:
 				if (cur_committed == back) {
 					instance_destroy(o_server);
-					global.all_players_connected = false;
-					global.my_player_num = -1;
-					global.is_server = false;
-					global.local_play = true;
+					reset_network_state();
 					
 					Menu_to(multiplayer);
 				}
@@ -240,12 +237,21 @@ if cur_committed != cur_null{
 			case menu_connect:
 				if (cur_committed == back) {
 					instance_destroy(o_client);
-					global.all_players_connected = false;
-					global.my_player_num = -1;
-					global.is_server = false;
-					global.local_play = true;
+					reset_network_state();
 					
 					Menu_to(multiplayer);
+				}
+				break;
+			case menu_start_multiplayer:
+				if (cur_committed == back) {
+					instance_destroy(o_server);
+					reset_network_state();
+					
+					Menu_to(multiplayer);
+				} else if (cur_committed == menu_items - 1) {
+					instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
+					room_goto_next();
+					send_event_goto_room(room_next(room));
 				}
 				break;
 		}
