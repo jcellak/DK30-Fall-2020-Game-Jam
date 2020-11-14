@@ -28,4 +28,3 @@ if time >= room_speed * 4 {
 		if instance_exists(o_text_queued) with o_text_queued ticket--;
 		instance_destroy();
 }
-show_debug_message(text_progress)
