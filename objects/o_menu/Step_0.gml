@@ -145,8 +145,6 @@ if cur_committed != cur_null{
 	}
 	else if cur_committed == quit game_end();
 	else{
-			
-
 		switch current_menu{
 			case main: {
 				if cur_committed == 0{
@@ -178,15 +176,15 @@ if cur_committed != cur_null{
 						global.is_server = false;
 						global.local_play = false;
 
-						//Menu_to(play); 
+						Menu_to(menu_connect);
 					}break; //join
 					case 2: {
 						instance_create_layer(0, 0, "Instances", o_server);
 						global.my_player_num = 0;
 						global.is_server = true;
-						global.local_play = false;	
-							
-						Menu_to(play)
+						global.local_play = false;
+						
+						Menu_to(menu_waiting);
 					}break; //host
 					case back: Menu_to(main); break;
 				}
@@ -222,8 +220,30 @@ if cur_committed != cur_null{
 						new_map = cur_committed;
 						menu_control = false;
 					}
-				}				
+				}
 			}break;
+			case menu_waiting:
+				if (cur_committed == back) {
+					instance_destroy(o_server);
+					global.all_players_connected = false;
+					global.my_player_num = -1;
+					global.is_server = false;
+					global.local_play = true;
+					
+					Menu_to(multiplayer);
+				}
+				break;
+			case menu_connect:
+				if (cur_committed == back) {
+					instance_destroy(o_client);
+					global.all_players_connected = false;
+					global.my_player_num = -1;
+					global.is_server = false;
+					global.local_play = true;
+					
+					Menu_to(multiplayer);
+				}
+				break;
 		}
 	} 
 	cur_committed = cur_null;

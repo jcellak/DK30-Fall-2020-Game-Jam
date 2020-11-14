@@ -1,4 +1,4 @@
-/// @description ???
+/// @description Initialize globals
 
 global.all_players_connected = false;
 global.my_player_num = -1;

@@ -13,8 +13,8 @@ main[0] = "SINGLE PLAYER";
 main[1] = "MULTIPLAYER";
 
 multiplayer[0] = "LOCAL";
-multiplayer[1] = "HOST";
-multiplayer[2] = "JOIN";
+multiplayer[1] = "JOIN";
+multiplayer[2] = "HOST";
 
 con_options = "OPTIONS";
 con_key = "CONTROLS";
@@ -35,6 +35,9 @@ key[1] = "RIGHT";
 key[2] = "UP";
 key[3] = "DOWN";
 key[4] = "USE";
+
+menu_waiting = [];
+menu_connect = [];
 
 m_font = f_menu;
 def_key = "RESTORE DEFAULT";
