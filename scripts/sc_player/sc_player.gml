@@ -390,7 +390,7 @@ function handle_player_take_damage(damage)
 		hurt_timer = 20;
 		
 		if (dedupe_hurt_sound == 0) {
-			audio_play_sound(a_ouch, 5, false);
+			audio_play_sound(this_player_num == 0 ? a_ouch : a_ouch_2, 5, false);
 			dedupe_hurt_sound = 5;
 		}
 		
