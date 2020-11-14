@@ -18,5 +18,3 @@ bounce_sp = 0.3;
 
 next = "press enter to proceed>>";
 next_length = string_length(next);
-
-if (!audio_is_playing(a_text_box)) audio_play_sound(a_text_box, 6, false);

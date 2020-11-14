@@ -11,7 +11,6 @@ function Sound_list() {
 	sounds[7] = a_ouch;
 	sounds[8] = a_step;
 	sounds[9] = a_tink;
-	sounds[10] = a_ouch_2;
 }
 
 function Music_list() {
