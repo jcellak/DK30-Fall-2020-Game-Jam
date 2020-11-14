@@ -23,8 +23,9 @@ if keyboard_check_pressed(vk_enter) or mouse_check_button_pressed(mb_left) {
 	}
 }
 
-if (text_progress >= _message_length) time++;
-if time >= room_speed * 2 {
-		if instance_exists(o_text_queued) with o_text_queued ticket--;
-		instance_destroy();
-}
+//if (text_progress >= _message_length) time++;
+//if time >= room_speed * 2 {
+//		if instance_exists(o_text_queued) with o_text_queued ticket--;
+//		instance_destroy();
+//}
+show_debug_message(text_progress)

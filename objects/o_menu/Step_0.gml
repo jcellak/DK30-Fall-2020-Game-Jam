@@ -25,7 +25,8 @@ menu_items = current_menu == key? 1+(array_length(current_menu)*2) : array_lengt
 back = menu_items;
 options = menu_items+1;
 quit = menu_items+2;
-if current_menu == main exempt = back;
+//if current_menu == main exempt = back;
+if current_menu == multiplayer exempt = back;
 else if current_menu == opt or current_menu == key exempt = options;
 else exempt = noone;
 con[1] = current_menu == key? con_key : con_options;
@@ -146,7 +147,7 @@ if cur_committed != cur_null{
 	else if cur_committed == quit game_end();
 	else{
 		switch current_menu{
-			case main: {
+			case main: { //obselete
 				if cur_committed == 0{
 					global.my_player_num = 2;
 					global.is_server = true;
@@ -160,15 +161,18 @@ if cur_committed != cur_null{
 					Menu_to(multiplayer);
 				}
 			}break;
-			case multiplayer: {
+			case multiplayer: { //now main
 				switch cur_committed{
 					case 0: {
 						global.my_player_num = 2;
 						global.is_server = true;
 						global.local_play = true;
 						global.all_players_connected = true;
-							
-						Menu_to(play);
+						
+						instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
+						room_goto_next();
+						
+						//Menu_to(play);
 					}break; //local
 					case 1: {
 						instance_create_layer(0, 0, "Instances", o_client);
@@ -186,7 +190,7 @@ if cur_committed != cur_null{
 						
 						Menu_to(menu_waiting);
 					}break; //host
-					case back: Menu_to(main); break;
+					case back:/* Menu_to(main); */break;
 				}
 			}break;
 			case play:{
