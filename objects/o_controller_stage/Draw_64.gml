@@ -11,10 +11,12 @@ draw_set_font(f_main);
 draw_set_halign(fa_left);
 draw_text(5, 25, "Score: " + string(sapphires));*/
 
+DrawSetText(c_lime,m_font,fa_left,fa_bottom,1)
+
 if global.pause {
 	draw_sprite_ext(screenshot,0,0,0,(1/3),(1/3),0,c_white,1);
 	draw_sprite(s_main_screen,0,40,5);
-	DrawSetText(c_lime,m_font,fa_left,fa_bottom,1)
+	
 	draw_line(l_screen+10,t_screen+(margin),r_screen-10,t_screen+(margin));
 	var _col = make_color_rgb(0,15,2);
 	var _flk = flikr? "_" : " ";
@@ -91,3 +93,5 @@ if global.pause {
 	}
 	draw_sprite(s_screen_crack,0,40,5)
 } 
+
+
