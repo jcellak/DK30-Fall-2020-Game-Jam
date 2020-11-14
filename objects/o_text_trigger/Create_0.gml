@@ -25,7 +25,7 @@ mess[10] = "Congratulations %NAME, you are now an objectively superior robot to 
 mess[11] = "..."
 mess[12] = "Don't feel bad %PNAME. Your personality will make up for your lack of jumping ability."
 
-mess[13] = "A second JUMP MODULE. I hope the brief moment of superiorty did not go to your head."
+mess[13] = "A second JUMP MODULE. I hope the brief moment of superiority did not go to your head."
 
 mess[15] = "Having mastered jumping means you are now within the top 20 percent of remote service droids \n out in the field. This also means that you, CATBOT, are the most effective droid on the ship."
 mess[16] = "Oh, and you're doing satisfactory, CYCLOPS."
