@@ -159,16 +159,6 @@ if global.pause {
 					}
 					else if cur_committed == 5 {
 						global.pause = false;
-						for (var i = 0; i < 2; i++) {
-							global.player_hp[i] = initial_player_state[i].hp;
-							global.player_charge[i] = initial_player_state[i].charge;
-							var _mods = (i == 0 ? global.player_1_modules : global.player_2_modules);
-							_mods.jump = initial_player_state[i].modules.jump;
-							_mods.hang = initial_player_state[i].modules.hang;
-							_mods.dash = initial_player_state[i].modules.dash;
-							_mods.double = initial_player_state[i].modules.double;
-							_mods.blast = initial_player_state[i].modules.blast;
-						}
 						room_restart();
 					}
 					else if cur_committed == back global.pause = false;
@@ -196,7 +186,7 @@ else {
 	if sprite_exists(screenshot) sprite_delete(screenshot);
 	instance_activate_all();
 }
-
+show_debug_message(global.key_one[0])
 if keyboard_check_pressed(vk_tab) {
 	new_text_box("hello!",0.75,0);
 	new_text_box("how are you?",0.05,0);

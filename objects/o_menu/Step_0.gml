@@ -193,7 +193,7 @@ if cur_committed != cur_null{
 					case back:/* Menu_to(main); */break;
 				}
 			}break;
-			case play:{
+			case play:{ //obselete
 				switch cur_committed{
 					case 0: {
 						instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
@@ -258,5 +258,5 @@ if cur_committed != cur_null{
 	} 
 	cur_committed = cur_null;
 }
-	
+	show_debug_message(global.key_one[0])
 
