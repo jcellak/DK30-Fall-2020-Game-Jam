@@ -175,10 +175,10 @@
   },
   "RoomOrder": [
     {"name":"r_title","path":"rooms/r_title/r_title.yy",},
+    {"name":"r_blast_1","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"r_stage_1","path":"rooms/r_stage_1/r_stage_1.yy",},
     {"name":"r_stage_2","path":"rooms/r_stage_2/r_stage_2.yy",},
     {"name":"r_stage_3","path":"rooms/r_stage_3/r_stage_3.yy",},
-    {"name":"r_blast_1","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"r_coop_1","path":"rooms/r_coop_1/r_coop_1.yy",},
     {"name":"r_bumpers_1","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"r_bumpers_2","path":"rooms/r_bumpers_2/r_bumpers_2.yy",},

@@ -138,7 +138,8 @@ function network_received_packet(buffer) {
 			var newShove = instance_create_layer(blastX, blastY, "Particles", o_blast_hitbox);
 			newShove.owner_num = oNum;
 			newShove.blast_value = blastVal;
-			newShove.image_xscale = blastXScale;
+			newShove.image_xscale = blastXScale * (0.8 + 1.2 * (blastVal / global.max_charge));
+			newShove.image_yscale = 0.8 + 1.2 * (blastVal / global.max_charge);
 			newShove.playerX = pX;
 			newShove.playerY = pY;
 			break;

@@ -1,7 +1,7 @@
-/// @description Go up in score
+/// @description Increase Charge
 
-if (!is_opponent or global.local_play) {
-	global.player_charge[this_player_num] += 20;
+if ((!is_opponent or global.local_play) and global.player_charge[this_player_num] < global.max_charge) {
+	global.player_charge[this_player_num] += 10;
 	if (global.player_charge[this_player_num] >= global.max_charge) {
 		global.player_charge[this_player_num] = global.max_charge;
 		// TODO: Overload the player?

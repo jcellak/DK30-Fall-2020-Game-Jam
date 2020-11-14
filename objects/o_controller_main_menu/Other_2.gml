@@ -2,7 +2,7 @@
 
 PlayerModules = function() constructor
 {
-	jump = false;
+	jump = true;
 	hang = false;
 	dash = false;
 	double = false;
@@ -19,9 +19,9 @@ global.player_1_modules = new PlayerModules();
 global.player_2_modules = new PlayerModules();
 
 global.max_hp = 100;
-global.max_charge = 180;
+global.max_charge = 120;
 global.player_hp = [global.max_hp, global.max_hp];
-global.player_charge = [60,60];
+global.player_charge = [40,40];
 
 reset_network_state();
 

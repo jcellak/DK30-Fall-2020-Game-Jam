@@ -15,10 +15,11 @@ function handle_player_state_moving()
 	
 	#region Using Blast
 	if (blast_released && blast_charge > 0) {
-		xspeed -= image_xscale * blast_charge / 10;
+		xspeed -= clamp(image_xscale * blast_charge / 10, max_speed * -3, max_speed * 3);
 		var myBlast = instance_create_layer(x + sprite_width, y, "Particles", o_blast_hitbox);
 		myBlast.owner_num = this_player_num;
-		myBlast.image_xscale = image_xscale;
+		myBlast.image_xscale = image_xscale * (0.8 + 1.2 * (blast_charge / global.max_charge));
+		myBlast.image_yscale = 0.8 + 1.2 * (blast_charge / global.max_charge);
 		myBlast.blast_value = blast_charge;
 		myBlast.playerX = x;
 		myBlast.playerY = y;
@@ -154,6 +155,10 @@ function handle_player_state_moving()
 		if (abs(xShift) <= abs(yShift)) {
 			// Shift them both apart
 			while (place_meeting(x, y, otherPlayerObjId)) {
+				if (place_meeting(x + xDirection, y, o_solid) and place_meeting(otherPlayerObjId.x - xDirection, otherPlayerObjId.y, o_solid)) {
+					break;
+				}
+				
 				if (!place_meeting(x + xDirection, y, o_solid)) {
 					x += xDirection;
 				}
@@ -165,6 +170,10 @@ function handle_player_state_moving()
 			}
 		} else {
 			while (place_meeting(x, y, otherPlayerObjId)) {
+				if (place_meeting(x, y + yDirection, o_solid) and place_meeting(otherPlayerObjId.x, otherPlayerObjId.y - yDirection, o_solid)) {
+					break;
+				}
+				
 				if (!place_meeting(x, y + yDirection, o_solid)) {
 					y += yDirection;
 				}
@@ -198,12 +207,12 @@ function handle_player_state_moving()
 		// The following code guarantees that there is at least 30% x movement, and at *most* 30% y movement.
 		var xPortion = clamp(abs(cos(blastAngle)), 0.3, 1);
 		var yPortion = clamp(sin(blastAngle), -0.3, 0.3);
-		xspeed += xPortion * enemyBlast.image_xscale * enemyBlast.blast_value / 5;
-		yspeed += yPortion * enemyBlast.blast_value / 5;
+		xspeed += xPortion * sign(enemyBlast.image_xscale) * enemyBlast.blast_value / 5;
+		yspeed -= yPortion * enemyBlast.blast_value / 5;
 	}
 	#endregion
 	
-	direction_move_bounce_specific([{ 
+	direction_move_bounce_specific([{
 		object_index: o_solid,
 		collision_direction: Direction.omnidirectional,
 		elasticity: 0,
