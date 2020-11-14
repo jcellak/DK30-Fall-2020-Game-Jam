@@ -40,3 +40,14 @@ if (is_vertical) {
 	
 	x += xspeed;
 }
+
+// Toggler enables speed (TODO: more robust)
+if (is_toggled && !is_toggled_previous) {
+	xspeed = 1;
+	yspeed = 1;
+	is_toggled_previous = is_toggled;
+} else if (!is_toggled && is_toggled_previous) {
+	xspeed = 1;
+	yspeed = 1;
+	is_toggled_previous = is_toggled;
+}
