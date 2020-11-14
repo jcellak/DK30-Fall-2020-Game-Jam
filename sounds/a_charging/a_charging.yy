@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.05,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "a_charging.mp3",
-  "duration": 1.755167,
+  "duration": 5.960918,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

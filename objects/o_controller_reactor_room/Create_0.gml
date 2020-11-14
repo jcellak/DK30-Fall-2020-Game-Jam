@@ -6,12 +6,10 @@ alarm_set(0, 120);
 
 alarm_1_timer = 180;
 
-if (audio_is_playing(a_two_robots)) {
-	audio_stop_sound(a_two_robots);
-}
+Music_list();
 
-if (audio_is_playing(a_coop_track)) {
-	audio_stop_sound(a_coop_track);
+for (var i = 0; i < array_length(music); i++) {
+	audio_stop_sound(music[i]);
 }
 
 if (!audio_is_playing(a_boss_track_edit)) {

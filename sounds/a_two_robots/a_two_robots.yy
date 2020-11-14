@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "a_two_robots.mp3",
-  "duration": 159.452423,
+  "duration": 159.5161,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

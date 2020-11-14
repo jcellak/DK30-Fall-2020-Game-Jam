@@ -9,6 +9,8 @@ left_two = true;
 flikr = true;
 flikr_time = 0;
 
+//title[0] = [];
+
 main[0] = "SINGLE PLAYER";
 main[1] = "MULTIPLAYER";
 

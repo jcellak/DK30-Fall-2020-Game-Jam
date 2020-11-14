@@ -9,7 +9,8 @@ enum EventType {
 	instance_destroyed,
 	player_death,
 	blast_created,
-	beam_created
+	beam_created,
+	restart_room
 }
 
 /// @description Just resets all the global variables back to unconnected state.
@@ -152,6 +153,9 @@ function network_received_packet(buffer) {
 			_new_beam_2.xspeed = 1;
 			
 			break;
+		case EventType.restart_room:
+			room_restart();
+			break;
 	}
 }
 
@@ -274,14 +278,13 @@ function send_event_blast_created(instanceId) {
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }
 
-function send_event_beam_created(_beam_pos) {
+function send_event_restart_room() {
 	if (global.local_play) {
 		return;
 	}
 	
 	buffer_seek(global.buffer, buffer_seek_start, 0);
-	buffer_write(global.buffer, buffer_u8, EventType.beam_created);
-	buffer_write(global.buffer, buffer_s16, _beam_pos);
+	buffer_write(global.buffer, buffer_u8, EventType.restart_room);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }
