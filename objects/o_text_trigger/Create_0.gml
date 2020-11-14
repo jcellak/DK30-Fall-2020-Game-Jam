@@ -35,3 +35,14 @@ mess[20] = "No pressure, of course, but the REACTOR is now running at 74%. As a 
 mess[18] = "You were able to figure out how moving platforms work without additional instruction. Incredible. \n Most droids would simply sit there confused and hyptonized by the motion of the platform until \n I explained how it worked to them. They also had trouble with this next part."
 mess[19] = "Your resolve and ability to cooperate has been marked down. Of course, nobody will have the \n opportunity to read it if we all die. Which it's looking like we will."
 mess[21] = "Again, no pressure."
+
+//Room4
+mess[22] = "This room is simple enough for you to figure it out on your own. Be sure to grab those \n batteries. You'll need to be fully charged to deal with the REACTOR."
+mess[23] = "I'd love to help you out with it, but I have to go see to something."
+
+mess[24] = "The automated coolant systems have been set to drain power shipwide. The first on the list \n seems to be all of my non-critical functions. Like my propreity core."
+mess[25] = "Fuck."
+
+mess[26] = "You two are taking quite a leisurely pace given the circumstances. I'm very glad that %PNAME \n has decided that stopping to smell the roses is a critical part of the mission."
+mess[27] = "As a reward for staying on task, %NAME, I'll be giving you a medal once this is all over. \n It'll be a golden star that says \'Hardest Worker\'."
+mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are still fully functional, though it seems the wit sector has taken some damage."
