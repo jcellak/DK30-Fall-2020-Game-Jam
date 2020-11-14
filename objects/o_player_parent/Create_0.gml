@@ -14,7 +14,8 @@ pushed = false;
 blast_charge = 0;
 flash_timer = 0;
 hurt_timer = 0;
-
+name = "";
+partner = "";
 #region Controls
 right = false;
 right_pressed = false;

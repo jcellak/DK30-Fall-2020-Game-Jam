@@ -17,3 +17,13 @@ mess[6] = "3. A robot must protect it's own existence, as long as such protectio
 mess[7] = "This first diagnostic test measures your proprioception as well as basic cooperation. \n Please make your way to the exit."
 mess[8] = "Wonderful. You are state of the art repair droids and are able to press buttons. \n The shareholders have already popped the champagne."
 //Room2
+mess[9] = "The second test is designed to test your ability to cooperate with inferior robots. \n Make your way over to the JUMP MODULE."
+//
+mess[10] = "Congratulations %NAME, you are now an objectively superior robot to %PNAME."
+mess[11] = "..."
+mess[12] = "Don't feel bad %PNAME. Your personality will make up for your lack of jumping ability."
+
+mess[13] = "A second JUMP MODULE. I hope the brief moment of superiorty did not go to your head."
+
+mess[15] = "Having mastered jumping you are now within the top 20 percent of remote service droids \n out in the field. This also means that you, CATBOT, \n Are the most effective droid on the ship."
+mess[16] = "Oh, and you're doing satisfactory, CYCLOPS."

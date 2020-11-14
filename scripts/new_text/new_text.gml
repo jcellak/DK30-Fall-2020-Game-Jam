@@ -5,13 +5,14 @@
 //currently only one frame so use 0 till that changes
 //speed should be somewhere around 0-2, 0.75 is a good number
 
-function new_text_box(message_input,text_sp,box){
+function new_text_box(message_input,text_sp,box,bot){
 	var _obj;
 	if instance_exists(o_Text) _obj = o_text_queued;
 	else _obj = o_Text;
 	
 	with instance_create_layer(0,0,"Controllers",_obj){
-		mess = message_input;
+		mess = string_replace(message_input,"%NAME",bot.name);
+		mess = string_replace(mess,"%PNAME",bot.partner);
 		if instance_exists(other) origin_inst = other.id 
 		else origin_inst = noone;
 		background = box;
