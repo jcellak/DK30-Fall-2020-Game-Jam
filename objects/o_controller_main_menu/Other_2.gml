@@ -1,22 +1,10 @@
 /// @description Initialize Global Variables and Game Setup
 
-PlayerModules = function() constructor
-{
-	jump = false;
-	hang = false;
-	dash = false;
-	double = false;
-	blast = false;
-}
-
 Default_key_map();
 
 global.vol[0] = 0.25; //main
 global.vol[1] = 0.5; //sfx
 global.vol[2] = 0.5; //music
-
-global.player_1_modules = new PlayerModules();
-global.player_2_modules = new PlayerModules();
 
 global.max_hp = 100;
 global.max_charge = 120;
@@ -27,6 +15,12 @@ reset_network_state();
 
 global.pause = false;
 global.winner = noone;
+
+Music_list();
+
+for (var i = 0; i < array_length(music); i++) {
+	audio_stop_sound(music[i]);
+}
 
 // Start the music
 

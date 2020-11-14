@@ -160,6 +160,7 @@ if global.pause {
 					else if cur_committed == 5 {
 						global.pause = false;
 						room_restart();
+						send_event_restart_room();
 					}
 					else if cur_committed == back global.pause = false;
 					else if key_input == false sliding = cur_committed;

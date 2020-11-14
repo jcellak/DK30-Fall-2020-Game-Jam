@@ -49,13 +49,15 @@ function handle_player_state_moving()
 	var _on_cube  = place_meeting(x, y + 1, o_cube);
 	var _on_platform = false;
 	var _on_other_player = place_meeting(x, y + 1, otherPlayerObjId) && bbox_bottom < otherPlayerObjId.bbox_top + 2;
+	var _standing_on_bouncer = place_meeting(x, y + 1, o_y_bumper) and yspeed < 1;
+	
 	with (o_platform) {
 		if (place_meeting(x, y - 1, other) && !place_meeting(x, y, other)) {
 			_on_platform = true;	
 		}
 	}
 	
-	if (_on_solid || _on_cube || _on_platform || _on_other_player) { // Player is on a type of solid ground
+	if (_on_solid || _on_cube || _on_platform || _on_other_player || _standing_on_bouncer) { // Player is on a type of solid ground
 		yspeed = 0;
 		jump_disabled = false;
 		
