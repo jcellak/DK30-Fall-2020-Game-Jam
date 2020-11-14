@@ -67,6 +67,23 @@ if current_menu == key {
 	draw_set_color(c_lime);
 }
 
+if (current_menu == menu_waiting) {
+	draw_text(l_screen + margin, t_screen + margin * 2, "WAITING FOR PLAYER 2");
+}
+
+if (current_menu == menu_connect) {
+	var _connection_text = "CONNECTING...";
+	
+	if (global.connection != noone) {
+		if (global.connection >= 0) {
+			_connection_text = "WAITING FOR HOST";
+		} else {
+			_connection_text = "CONNECTION FAILED";
+		}
+	}
+	draw_text(l_screen + margin, t_screen + margin * 2, _connection_text);
+}
+
 for (var j = 0; j < array_length(con); j++)
 {
 	var _con = cursor == j+menu_items? string_insert(_flk,con[j],1) : con[j];

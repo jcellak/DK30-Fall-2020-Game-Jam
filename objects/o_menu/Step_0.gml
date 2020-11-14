@@ -146,8 +146,6 @@ if cur_committed != cur_null{
 	}
 	else if cur_committed == quit game_end();
 	else{
-			
-
 		switch current_menu{
 			case main: { //obselete
 				if cur_committed == 0{
@@ -181,16 +179,16 @@ if cur_committed != cur_null{
 						global.my_player_num = 1;
 						global.is_server = false;
 						global.local_play = false;
-
-						//Menu_to(play); 
+						
+						Menu_to(menu_connect);
 					}break; //join
 					case 2: {
 						instance_create_layer(0, 0, "Instances", o_server);
 						global.my_player_num = 0;
 						global.is_server = true;
-						global.local_play = false;	
-							
-						Menu_to(play)
+						global.local_play = false;
+						
+						Menu_to(menu_waiting);
 					}break; //host
 					case back:/* Menu_to(main); */break;
 				}
@@ -226,8 +224,36 @@ if cur_committed != cur_null{
 						new_map = cur_committed;
 						menu_control = false;
 					}
-				}				
+				}
 			}break;
+			case menu_waiting:
+				if (cur_committed == back) {
+					instance_destroy(o_server);
+					reset_network_state();
+					
+					Menu_to(multiplayer);
+				}
+				break;
+			case menu_connect:
+				if (cur_committed == back) {
+					instance_destroy(o_client);
+					reset_network_state();
+					
+					Menu_to(multiplayer);
+				}
+				break;
+			case menu_start_multiplayer:
+				if (cur_committed == back) {
+					instance_destroy(o_server);
+					reset_network_state();
+					
+					Menu_to(multiplayer);
+				} else if (cur_committed == menu_items - 1) {
+					instance_create_layer(0, 0, "Transitions", o_transition_fade_out);
+					room_goto_next();
+					send_event_goto_room(room_next(room));
+				}
+				break;
 		}
 	} 
 	cur_committed = cur_null;

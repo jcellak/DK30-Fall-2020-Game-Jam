@@ -67,7 +67,6 @@
     {"id":{"name":"s_solid","path":"sprites/s_solid/s_solid.yy",},"order":0,},
     {"id":{"name":"o_module_double","path":"objects/o_module_double/o_module_double.yy",},"order":5,},
     {"id":{"name":"o_client","path":"objects/o_client/o_client.yy",},"order":1,},
-    {"id":{"name":"o_clienttype_controller","path":"objects/o_clienttype_controller/o_clienttype_controller.yy",},"order":3,},
     {"id":{"name":"r_title","path":"rooms/r_title/r_title.yy",},"order":0,},
     {"id":{"name":"a_bat","path":"sounds/a_bat/a_bat.yy",},"order":0,},
     {"id":{"name":"sc_debug","path":"scripts/sc_debug/sc_debug.yy",},"order":6,},

@@ -17,10 +17,16 @@ hurt_timer = 0;
 
 #region Controls
 right = false;
+right_pressed = false;
+right_released = false;
 left = false;
+left_pressed = false;
+left_released = false;
 up = false;
-down = false;
+up_pressed = false;
 up_release = false;
+down = false;
+down_pressed = false;
 blast_held = false;
 blast_released = false;
 #endregion
