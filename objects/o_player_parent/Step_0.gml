@@ -20,6 +20,11 @@ if (!is_opponent or global.local_play) {
 
 #region Charging blast
 if (blast_held && modules.blast) {
+	if (!audio_is_playing(a_charging) and blast_charge < global.player_charge[this_player_num]) audio_play_sound(a_charging, 10, false);
+	if (blast_charge + 1 == global.player_charge[this_player_num]) {
+		if (!audio_is_playing(a_tink)) audio_play_sound(a_tink, 10, false);
+		audio_stop_sound(a_charging);
+	}
 	blast_charge = clamp(blast_charge + 1, 0, global.player_charge[this_player_num]);
 }
 #endregion
@@ -47,4 +52,5 @@ switch (state) {
 #region Dedupers
 if (dedupe_step_sound > 0) dedupe_step_sound--;
 if (dedupe_hurt_sound > 0) dedupe_hurt_sound--;
+if (jump_timer > 0) jump_timer--;
 #endregion
