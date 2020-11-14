@@ -258,5 +258,5 @@ if cur_committed != cur_null{
 	} 
 	cur_committed = cur_null;
 }
-	show_debug_message(global.key_one[0])
+
 

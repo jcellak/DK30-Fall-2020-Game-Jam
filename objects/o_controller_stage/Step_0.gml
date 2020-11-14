@@ -186,9 +186,9 @@ else {
 	if sprite_exists(screenshot) sprite_delete(screenshot);
 	instance_activate_all();
 }
-show_debug_message(global.key_one[0])
-if keyboard_check_pressed(vk_tab) {
+
+if keyboard_check_pressed(vk_tab) and !instance_exists(o_Text) {
 	new_text_box("hello!",0.75,0);
 	new_text_box("how are you?",0.05,0);
-	new_text_box("hope things are going well, insert name here.",1.5,0);
+	new_text_box("hope things are going well, \"insert name here\".",1.5,0);
 }
