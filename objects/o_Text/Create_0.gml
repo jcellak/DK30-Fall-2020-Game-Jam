@@ -18,4 +18,3 @@ bounce_sp = 0.3;
 
 next = "press enter to proceed>>";
 next_length = string_length(next);
-line = 0;

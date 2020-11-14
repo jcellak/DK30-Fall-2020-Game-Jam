@@ -36,6 +36,7 @@
     {"id":{"name":"a_cave_loop","path":"sounds/a_cave_loop/a_cave_loop.yy",},"order":1,},
     {"id":{"name":"s_x_bumper","path":"sprites/s_x_bumper/s_x_bumper.yy",},"order":11,},
     {"id":{"name":"o_transition_parent","path":"objects/o_transition_parent/o_transition_parent.yy",},"order":0,},
+    {"id":{"name":"Font4","path":"fonts/Font4/Font4.yy",},"order":4,},
     {"id":{"name":"s_player_catbot_idle","path":"sprites/s_player_catbot_idle/s_player_catbot_idle.yy",},"order":6,},
     {"id":{"name":"t_robot_background_tileset_16x16","path":"tilesets/t_robot_background_tileset_16x16/t_robot_background_tileset_16x16.yy",},"order":2,},
     {"id":{"name":"o_reactor_beam","path":"objects/o_reactor_beam/o_reactor_beam.yy",},"order":10,},
