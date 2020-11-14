@@ -185,11 +185,11 @@
   },
   "RoomOrder": [
     {"name":"r_title","path":"rooms/r_title/r_title.yy",},
-    {"name":"r_blast_1","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"r_stage_1_training_down","path":"rooms/r_stage_1_training_down/r_stage_1_training_down.yy",},
     {"name":"r_stage_2_training_jump","path":"rooms/r_stage_2_training_jump/r_stage_2_training_jump.yy",},
     {"name":"r_stage_3_training_grab","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
     {"name":"r_coop_1","path":"rooms/r_coop_1/r_coop_1.yy",},
+    {"name":"r_blast_1","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"r_bumpers_1","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"r_bumpers_2","path":"rooms/r_bumpers_2/r_bumpers_2.yy",},
     {"name":"r_final_room","path":"rooms/r_final_room/r_final_room.yy",},
