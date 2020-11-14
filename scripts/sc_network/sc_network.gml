@@ -288,3 +288,15 @@ function send_event_restart_room() {
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }
+
+function send_event_beam_created(_beam_pos) { 
+	if (global.local_play) { 
+		return; 
+	} 
+	 
+	buffer_seek(global.buffer, buffer_seek_start, 0); 
+	buffer_write(global.buffer, buffer_u8, EventType.beam_created); 
+	buffer_write(global.buffer, buffer_s16, _beam_pos); 
+	 
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer)); 
+} 
