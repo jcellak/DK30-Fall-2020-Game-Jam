@@ -7,7 +7,8 @@ event_inherited();
 modules = global.player_2_modules;
 is_opponent = global.is_server;
 this_player_num = 1;
-
+name="CYCLOPS";
+partner="CATBOT";
 if (global.local_play) {
 	controls_left = global.key_two[0];
 	controls_right = global.key_two[1];
