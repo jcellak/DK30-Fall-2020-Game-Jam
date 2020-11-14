@@ -329,7 +329,7 @@ function handle_player_state_hurt()
 		apply_friction(acceleration);
 	}
 	
-	direction_move_bounce_specific([{ 
+	direction_move_bounce_specific([{
 		object_index: o_solid,
 		collision_direction: Direction.omnidirectional,
 		elasticity: 0.25,
@@ -344,12 +344,19 @@ function handle_player_state_hurt()
 		collision_direction: Direction.vertical,
 		elasticity: 0.95,
 		one_way: true
+	}, {
+		object_index: o_beam,
+		collision_direction: Direction.omnidirectional,
+		elasticity: 1,
+		one_way: false
 	}]);
 	
-	// Change back to the default state once they stop moving
-	if (xspeed == 0 && yspeed == 0) {
+	// Change back to the default state once the timer ends
+	if (hurt_timer <= 0) {
 		image_blend = c_white;
 		state = PlayerState.moving;
+	} else {
+		hurt_timer--;
 	}
 }
 
@@ -366,6 +373,7 @@ function handle_player_take_damage(damage)
 {
 	if (state != PlayerState.hurt) {
 		state = PlayerState.hurt;
+		hurt_timer = 20;
 		
 		if (dedupe_hurt_sound == 0) {
 			audio_play_sound(a_ouch, 5, false);

@@ -13,6 +13,7 @@ is_opponent = false;
 pushed = false;
 blast_charge = 0;
 flash_timer = 0;
+hurt_timer = 0;
 
 #region Controls
 right = false;

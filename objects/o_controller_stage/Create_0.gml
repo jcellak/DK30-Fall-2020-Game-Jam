@@ -66,3 +66,18 @@ restore_def = array_length(key) * 2;
 vol_inc = 0.05; 
 
 screenshot = noone;
+
+initial_player_state = [{}, {}];
+
+for (var i = 0; i < 2; i++) {
+	initial_player_state[i].hp = global.player_hp[i];
+	initial_player_state[i].charge = global.player_charge[i];
+	var _mods = (i == 0 ? global.player_1_modules : global.player_2_modules);
+	initial_player_state[i].modules = {
+		jump: _mods.jump,
+		hang: _mods.hang,
+		dash: _mods.dash,
+		double: _mods.double,
+		blast: _mods.blast
+	};
+}
