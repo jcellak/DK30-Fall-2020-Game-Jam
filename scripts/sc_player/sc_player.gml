@@ -295,26 +295,24 @@ function handle_player_state_door()
 		instance_destroy();
 		send_event_instance_destroyed();
 		
-		if (instance_number(o_player_parent) == 0) {
-			if (room_exists(room_next(room))) {
-				room_goto_next();
-				send_event_goto_room(room_next(room));
-			} else {
-				if (audio_is_playing(a_coop_track)) {
-					audio_stop_sound(a_coop_track);
-				}
-
-				if (audio_is_playing(a_boss_track_edit)) {
-					audio_stop_sound(a_boss_track_edit);
-				}
-
-				if (!audio_is_playing(a_two_robots)) {
-					audio_play_sound(a_two_robots, 10, true);
-					audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
-				}
-				room_goto(r_title);
-				send_event_goto_room(r_title);
+		if (room_exists(room_next(room))) {
+			room_goto_next();
+			send_event_goto_room(room_next(room));
+		} else {
+			if (audio_is_playing(a_coop_track)) {
+				audio_stop_sound(a_coop_track);
 			}
+
+			if (audio_is_playing(a_boss_track_edit)) {
+				audio_stop_sound(a_boss_track_edit);
+			}
+
+			if (!audio_is_playing(a_two_robots)) {
+				audio_play_sound(a_two_robots, 10, true);
+				audio_sound_gain(a_two_robots,global.vol[0]*global.vol[2],0);
+			}
+			room_goto(r_title);
+			send_event_goto_room(r_title);
 		}
 	}
 }
