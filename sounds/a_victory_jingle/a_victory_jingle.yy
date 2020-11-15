@@ -13,8 +13,8 @@
   "soundFile": "a_victory_jingle.wav",
   "duration": 9.025839,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "a_victory_jingle",

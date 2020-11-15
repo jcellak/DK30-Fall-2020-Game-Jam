@@ -12,6 +12,11 @@ function Sound_list() {
 	sounds[8] = a_step;
 	sounds[9] = a_tink;
 	sounds[10] = a_ouch_2;
+	sounds[11] = a_explosion;
+	sounds[12] = a_reactor_failure;
+	sounds[13] = a_wilhelm;
+	sounds[14] = a_blast;
+	sounds[15] = a_text_box;
 }
 
 function Music_list() {
@@ -23,4 +28,5 @@ function Music_list() {
 	music[5] = a_two_robots;
 	music[6] = a_coop_track;
 	music[7] = a_ending;
+	music[8] = a_victory_jingle;
 }
