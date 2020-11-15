@@ -11,7 +11,8 @@ enum EventType {
 	blast_created,
 	beam_created,
 	restart_room,
-	battery_lost
+	battery_lost,
+	button_toggled
 }
 
 /// @description Just resets all the global variables back to unconnected state.
@@ -176,6 +177,14 @@ function network_received_packet(buffer) {
 			
 			instance_create_layer(_x, _y, "Particles", o_battery_dummy);
 			break;
+		case EventType.button_toggled:
+			var _id = buffer_read(buffer, buffer_u32);
+			var _toggled = buffer_read(buffer, buffer_bool);
+			
+			if (instance_exists(_id)) {
+				_id.is_toggled = _toggled;
+			}
+			break;
 	}
 }
 
@@ -330,6 +339,19 @@ function send_event_battery_lost(_x, _y) {
 	buffer_write(global.buffer, buffer_u8, EventType.battery_lost);
 	buffer_write(global.buffer, buffer_s16, _x);
 	buffer_write(global.buffer, buffer_s16, _y);
+	
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
+}
+
+function send_event_toggle_button(_button) {
+	if (global.local_play) {
+		return;
+	}
+	
+	buffer_seek(global.buffer, buffer_seek_start, 0);
+	buffer_write(global.buffer, buffer_u8, EventType.button_toggled);
+	buffer_write(global.buffer, buffer_u32, _button.id);
+	buffer_write(global.buffer, buffer_bool, _button.is_toggled);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }
