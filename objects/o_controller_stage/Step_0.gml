@@ -159,6 +159,7 @@ if global.pause {
 					}
 					else if cur_committed == 5 {
 						global.pause = false;
+						instance_activate_all();
 						for (var i = 0; i < 2; i++) {
 							global.player_hp[i] = initial_player_state[i].hp;
 							global.player_charge[i] = initial_player_state[i].charge;

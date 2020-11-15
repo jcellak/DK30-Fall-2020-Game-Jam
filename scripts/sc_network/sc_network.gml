@@ -157,6 +157,7 @@ function network_received_packet(buffer) {
 			break;
 		case EventType.restart_room:
 			global.pause = false;
+			instance_activate_all();
 			for (var i = 0; i < 2; i++) {
 				with (o_controller_stage) {
 					global.player_hp[i] = initial_player_state[i].hp;
