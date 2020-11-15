@@ -140,6 +140,8 @@ function handle_push_object(_target_object)
 		}
 		_instance.xspeed = _source_half_xspeed; // Pushable object moves half of source speed
 		xspeed = _source_half_xspeed; // Half the pushing source's speed
+		
+		if (!global.local_play and !is_opponent) _instance.i_pushed = true;
 	}
 	
 	// Vertical Collisions

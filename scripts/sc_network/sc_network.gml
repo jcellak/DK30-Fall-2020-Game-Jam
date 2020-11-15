@@ -12,7 +12,8 @@ enum EventType {
 	beam_created,
 	restart_room,
 	battery_lost,
-	button_toggled
+	button_toggled,
+	cube_updated
 }
 
 /// @description Just resets all the global variables back to unconnected state.
@@ -186,6 +187,23 @@ function network_received_packet(buffer) {
 				_id.is_toggled = _toggled;
 			}
 			break;
+		case EventType.cube_updated:
+			var _cube = buffer_read(buffer, buffer_u32);
+			var _x = buffer_read(buffer, buffer_s16);
+			var _y = buffer_read(buffer, buffer_s16);
+			var _xspeed = buffer_read(buffer, buffer_s16);
+			var _yspeed = buffer_read(buffer, buffer_s16);
+		
+			if (instance_exists(_cube)) {
+				_cube.network_update = {
+					x: _x,
+					y: _y,
+					xspeed: _xspeed,
+					yspeed: _yspeed
+				};
+			}
+	
+			break;
 	}
 }
 
@@ -353,6 +371,22 @@ function send_event_toggle_button(_button) {
 	buffer_write(global.buffer, buffer_u8, EventType.button_toggled);
 	buffer_write(global.buffer, buffer_u32, _button.id);
 	buffer_write(global.buffer, buffer_bool, _button.is_toggled);
+	
+	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
+}
+
+function send_event_cube_position() {
+	if (global.local_play) {
+		return;
+	}
+	
+	buffer_seek(global.buffer, buffer_seek_start, 0);
+	buffer_write(global.buffer, buffer_u8, EventType.cube_updated);
+	buffer_write(global.buffer, buffer_u32, id);
+	buffer_write(global.buffer, buffer_s16, x);
+	buffer_write(global.buffer, buffer_s16, y);
+	buffer_write(global.buffer, buffer_s16, xspeed);
+	buffer_write(global.buffer, buffer_s16, yspeed);
 	
 	network_send_packet(global.socket, global.buffer, buffer_tell(global.buffer));
 }

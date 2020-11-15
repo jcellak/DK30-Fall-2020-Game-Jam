@@ -135,6 +135,7 @@
             {"properties":[],"isDnd":false,"objectId":{"name":"o_platform","path":"objects/o_platform/o_platform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":528.0,"y":64.0,"resourceVersion":"1.0","name":"inst_A361D17","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_platform","path":"objects/o_platform/o_platform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":592.0,"y":32.0,"resourceVersion":"1.0","name":"inst_39C9CCBB","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_platform","path":"objects/o_platform/o_platform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":368.0,"y":48.0,"resourceVersion":"1.0","name":"inst_BB2BB6","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_cube_blocker","path":"objects/o_cube_blocker/o_cube_blocker.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":208.0,"y":272.0,"resourceVersion":"1.0","name":"inst_48991A3A","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":800,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Solids","tags":[],"resourceType":"GMRInstanceLayer",},
       ],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"t_robot_solid_tileset_16x16","path":"tilesets/t_robot_solid_tileset_16x16/t_robot_solid_tileset_16x16.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":45,"SerialiseHeight":26,"TileSerialiseData":[
@@ -267,6 +268,7 @@
     {"name":"inst_135884F2","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
     {"name":"inst_266EBB3F","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
     {"name":"inst_69150EEC","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
+    {"name":"inst_48991A3A","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
