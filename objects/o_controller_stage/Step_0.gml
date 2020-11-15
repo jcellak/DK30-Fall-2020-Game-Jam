@@ -169,8 +169,8 @@ if global.pause {
 							_mods.double = initial_player_state[i].modules.double;
 							_mods.blast = initial_player_state[i].modules.blast;
 						}
-						room_restart();
 						send_event_restart_room();
+						room_restart();
 					}
 					else if cur_committed == back global.pause = false;
 					else if key_input == false sliding = cur_committed;
