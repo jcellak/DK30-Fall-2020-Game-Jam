@@ -415,6 +415,12 @@ function handle_player_take_damage(damage)
 			one_way: true
 		}]);
 		
-		global.player_hp[this_player_num] -= damage;
+		//global.player_hp[this_player_num] -= damage;
+		
+		if (room == r_final_room and global.player_charge[this_player_num] > 40) {
+			global.player_charge[this_player_num] -= 10;
+			instance_create_layer(x, y, "Particles", o_battery_dummy);
+			send_event_battery_lost(x, y);
+		}
 	}
 }

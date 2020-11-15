@@ -3,8 +3,7 @@
 audio_sound_gain(a_boss_track_edit,global.vol[0]*global.vol[2],0);
 
 if (game_ended and dead_player != noone) {
-	var _death_particle = instance_create_layer(dead_player.x, dead_player.y, "Particles", o_particle);
-	_death_particle.direction = random_range(0, 360);
+	instance_create_layer(dead_player.x, dead_player.y, "Particles", o_particle);
 	
 	//(607, 205) is the center of the beams
 	dead_player.x = lerp(dead_player.x, 607, 0.02);
