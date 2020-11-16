@@ -21,6 +21,10 @@
         {"properties":[
             {"propertyId":{"name":"text_message","path":"objects/o_text_trigger/o_text_trigger.yy",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"36","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.75,"scaleY":1.75,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":184.0,"y":136.0,"resourceVersion":"1.0","name":"inst_7A6BE44C","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_tutorial_trigger_p1","path":"objects/o_tutorial_trigger_p1/o_tutorial_trigger_p1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":5.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":16.0,"resourceVersion":"1.0","name":"inst_3D879480","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_tutorial_trigger_p2","path":"objects/o_tutorial_trigger_p2/o_tutorial_trigger_p2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":5.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":16.0,"resourceVersion":"1.0","name":"inst_1573D9A1","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_tutorial_trigger_p2","path":"objects/o_tutorial_trigger_p2/o_tutorial_trigger_p2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":4.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":144.0,"y":144.0,"resourceVersion":"1.0","name":"inst_23848B2E","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_tutorial_trigger_p1","path":"objects/o_tutorial_trigger_p1/o_tutorial_trigger_p1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":4.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":144.0,"y":144.0,"resourceVersion":"1.0","name":"inst_1E1BF04E","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_controller_stage","path":"objects/o_controller_stage/o_controller_stage.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_52DEE2B1","tags":[],"resourceType":"GMRInstance",},
@@ -201,6 +205,10 @@
     {"name":"inst_2549369C","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"inst_51EBF95B","path":"rooms/r_blast_1/r_blast_1.yy",},
     {"name":"inst_7A6BE44C","path":"rooms/r_blast_1/r_blast_1.yy",},
+    {"name":"inst_3D879480","path":"rooms/r_blast_1/r_blast_1.yy",},
+    {"name":"inst_1573D9A1","path":"rooms/r_blast_1/r_blast_1.yy",},
+    {"name":"inst_23848B2E","path":"rooms/r_blast_1/r_blast_1.yy",},
+    {"name":"inst_1E1BF04E","path":"rooms/r_blast_1/r_blast_1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
