@@ -47,7 +47,7 @@ if (is_toggled && !is_toggled_previous) {
 	yspeed = 1;
 	is_toggled_previous = is_toggled;
 } else if (!is_toggled && is_toggled_previous) {
-	xspeed = 1;
-	yspeed = 1;
+	xspeed = 0;
+	yspeed = 0;
 	is_toggled_previous = is_toggled;
 }
