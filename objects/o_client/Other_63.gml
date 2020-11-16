@@ -11,6 +11,6 @@ if (_id == ip_input) {
             global.connection = network_connect(global.socket,_ip,port); //Creates a connection to our socket, server, and port.
         }
     } else {
-		Menu_to(multiplayer);
+		with (o_menu) Menu_to(multiplayer);
 	}
 }
