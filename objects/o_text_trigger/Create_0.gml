@@ -70,5 +70,6 @@ mess[40] = "Not that you're alive, mind you."
 mess[41] = "Beyond this doorway is the REACTOR. Judging by the energy readings, there is an uncontrolled arc burst. \n in order to fix it, one of you will need to COMPLETE THE CIRCUIT."
 
 //room9
-mess[42] = "Do you remember the first room where I told you your laws? The Third Law was \'protect your own existence\'. That does not extend to your fellow droids."
+mess[42] = "Do you remember the first room where I told you your laws?"
+mess[46] = "The Third Law was \'protect your own existence\'. That does not extend to your fellow droids."
 mess[43] = "Whoever COMPLETES THE CIRCUIT will die horribly. It will be painful, if droids can in fact feel pain. \n But at least you'll die having sacrificed yourself for me. And the Crew."

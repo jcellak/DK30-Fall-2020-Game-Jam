@@ -16,6 +16,7 @@
     {"instances":[
         {"properties":[
             {"propertyId":{"name":"","path":"",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"38","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"text_message","path":"objects/o_text_trigger/o_text_trigger.yy",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"38","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":448.0,"resourceVersion":"1.0","name":"inst_666C90C4","tags":[],"resourceType":"GMRInstance",},
         {"properties":[
             {"propertyId":{"name":"","path":"",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"39","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
@@ -24,10 +25,12 @@
           ],"isDnd":false,"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":432.0,"y":400.0,"resourceVersion":"1.0","name":"inst_741A5705","tags":[],"resourceType":"GMRInstance",},
         {"properties":[
             {"propertyId":{"name":"","path":"",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"41","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"text_message","path":"objects/o_text_trigger/o_text_trigger.yy",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"41","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":496.0,"y":80.0,"resourceVersion":"1.0","name":"inst_21FC6B08","tags":[],"resourceType":"GMRInstance",},
         {"properties":[
             {"propertyId":{"name":"","path":"",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"0","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"","path":"",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"40","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"text_message","path":"objects/o_text_trigger/o_text_trigger.yy",},"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"value":"40","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"o_text_trigger","path":"objects/o_text_trigger/o_text_trigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":192.0,"resourceVersion":"1.0","name":"inst_2573E7B5","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[
         {"instances":[
