@@ -165,6 +165,7 @@
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_dash","path":"objects/o_module_dash/o_module_dash.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":512.0,"y":224.0,"resourceVersion":"1.0","name":"inst_778BC086","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_double","path":"objects/o_module_double/o_module_double.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":688.0,"y":368.0,"resourceVersion":"1.0","name":"inst_F338286","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":360.0,"y":304.0,"resourceVersion":"1.0","name":"inst_77B15614","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collectables","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Particles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
@@ -389,6 +390,7 @@
     {"name":"inst_4A484D1A","path":"rooms/r_stage_4_training_dash_double/r_stage_4_training_dash_double.yy",},
     {"name":"inst_3F9E5D46","path":"rooms/r_stage_4_training_dash_double/r_stage_4_training_dash_double.yy",},
     {"name":"inst_45924434","path":"rooms/r_stage_4_training_dash_double/r_stage_4_training_dash_double.yy",},
+    {"name":"inst_77B15614","path":"rooms/r_stage_4_training_dash_double/r_stage_4_training_dash_double.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

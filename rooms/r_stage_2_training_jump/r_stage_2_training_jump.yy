@@ -82,6 +82,7 @@
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_jump","path":"objects/o_module_jump/o_module_jump.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":368.0,"y":112.0,"resourceVersion":"1.0","name":"inst_5FA8BCF0","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_jump","path":"objects/o_module_jump/o_module_jump.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":176.0,"resourceVersion":"1.0","name":"inst_29ABD866","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":72.0,"y":144.0,"resourceVersion":"1.0","name":"inst_2517E224","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collectables","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Particles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
@@ -192,6 +193,7 @@
     {"name":"inst_5C8FB218","path":"rooms/r_stage_2_training_jump/r_stage_2_training_jump.yy",},
     {"name":"inst_634050B4","path":"rooms/r_stage_2_training_jump/r_stage_2_training_jump.yy",},
     {"name":"inst_71AF2A67","path":"rooms/r_stage_2_training_jump/r_stage_2_training_jump.yy",},
+    {"name":"inst_2517E224","path":"rooms/r_stage_2_training_jump/r_stage_2_training_jump.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

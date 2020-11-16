@@ -28,7 +28,7 @@ if (t_screen + margin * 7 - _timer > _top and t_screen + margin * 7 - _timer < b
 if (t_screen + margin * 9 - _timer > _top and t_screen + margin * 9 - _timer < b_screen)
 	draw_text(l_screen + margin, t_screen + margin * 9 - _timer, "Music by:");
 if (t_screen + margin * 10 - _timer > _top and t_screen + margin * 10 - _timer < b_screen)
-	draw_text(l_screen + margin, t_screen + margin * 10 - _timer, "Abou");
+	draw_text(l_screen + margin, t_screen + margin * 10 - _timer, "Pierre \"Abou\"");
 if (t_screen + margin * 11 - _timer > _top and t_screen + margin * 11 - _timer < b_screen)
 	draw_text(l_screen + margin, t_screen + margin * 11 - _timer, "Jake \"Jakeapus\"");
 if (t_screen + margin * 13 - _timer > _top and t_screen + margin * 13 - _timer < b_screen)

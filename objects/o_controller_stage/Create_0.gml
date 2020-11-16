@@ -4,12 +4,14 @@ instance_create_layer(0, 0, "Transitions", o_transition_fade_in);
 Sound_list();
 Music_list();
 
-if (audio_is_playing(a_two_robots)) {
-	audio_stop_sound(a_two_robots);
-}
+if (room != r_stage_1_training_down and room != r_stage_2_training_jump) {
+	if (audio_is_playing(a_two_robots)) {
+		audio_stop_sound(a_two_robots);
+	}
 
-if (!audio_is_playing(a_coop_track)) {
-	audio_play_sound(a_coop_track, 10, true);
+	if (!audio_is_playing(a_coop_track)) {
+		audio_play_sound(a_coop_track, 10, true);
+	}
 }
 
 con_options = "OPTIONS";

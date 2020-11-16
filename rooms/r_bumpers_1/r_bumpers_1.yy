@@ -47,7 +47,9 @@
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_1","path":"objects/o_player_1/o_player_1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":48.0,"y":112.0,"resourceVersion":"1.0","name":"inst_29E9D704","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_player_2","path":"objects/o_player_2/o_player_2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":96.0,"y":112.0,"resourceVersion":"1.0","name":"inst_599B09DD","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMRInstanceLayer",},
-        {"instances":[],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collectables","tags":[],"resourceType":"GMRInstanceLayer",},
+        {"instances":[
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":256.0,"y":112.0,"resourceVersion":"1.0","name":"inst_180F8076","tags":[],"resourceType":"GMRInstance",},
+          ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collectables","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Particles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_door_open","path":"objects/o_door_open/o_door_open.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":416.0,"y":112.0,"resourceVersion":"1.0","name":"inst_2B5F2E16","tags":[],"resourceType":"GMRInstance",},
@@ -167,6 +169,7 @@
     {"name":"inst_5E84F97C","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"inst_1DD163CB","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
     {"name":"inst_75584819","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
+    {"name":"inst_180F8076","path":"rooms/r_bumpers_1/r_bumpers_1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

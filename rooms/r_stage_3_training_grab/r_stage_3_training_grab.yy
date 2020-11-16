@@ -90,6 +90,8 @@
         {"instances":[
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_hang","path":"objects/o_module_hang/o_module_hang.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":48.0,"y":352.0,"resourceVersion":"1.0","name":"inst_3FCB39A9","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"o_module_hang","path":"objects/o_module_hang/o_module_hang.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":432.0,"y":352.0,"resourceVersion":"1.0","name":"inst_5C7B3416","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":112.0,"resourceVersion":"1.0","name":"inst_606045E","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[],"isDnd":false,"objectId":{"name":"o_battery","path":"objects/o_battery/o_battery.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":304.0,"y":48.0,"resourceVersion":"1.0","name":"inst_23EE855F","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collectables","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Particles","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
@@ -269,6 +271,8 @@
     {"name":"inst_266EBB3F","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
     {"name":"inst_69150EEC","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
     {"name":"inst_48991A3A","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
+    {"name":"inst_606045E","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
+    {"name":"inst_23EE855F","path":"rooms/r_stage_3_training_grab/r_stage_3_training_grab.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
