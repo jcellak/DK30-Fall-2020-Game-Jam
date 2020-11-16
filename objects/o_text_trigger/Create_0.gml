@@ -45,11 +45,11 @@ mess[25] = "You're going to fail and we're all going to die horribly, aren't we?
 
 mess[26] = "You two are taking quite a leisurely pace given the circumstances. I'm very glad that %PNAME \n has decided that stopping to smell the roses is a critical part of the mission."
 mess[27] = "As a reward for staying on task, %NAME, I'll be giving you a medal once this is all over. \n It'll be a golden star that says \'Hardest Worker\'."
-mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are still operational.
+mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are still operational."
 
 //room5
 mess[29] = "This diagnostic test was originally developed to study greed in repair droids. \n There are two different MODULES available here. Inside the pit is the EXTRA JUMP.\n Above is the DASH."
-mess[30] = "I'm quite sorry that you had to take the short end of the stick, %NAME. %PNAME will be punished \n most severely for such slovenly greed once this is all over. To DASH, simply \n double tap LEFT or RIGHT.
+mess[30] = "I'm quite sorry that you had to take the short end of the stick, %NAME. %PNAME will be punished \n most severely for such slovenly greed once this is all over. To DASH, simply \n double tap LEFT or RIGHT."
 mess[31] = "The oxygen generators and heaters in the aft of the ship have been completely disabled. \n At this rate, I'm not sure if they'll suffocate, or freeze, or melt to death."
 mess[32] = "Sorry, were you looking for good news?"
 mess[33] = "You're not dead yet." 
