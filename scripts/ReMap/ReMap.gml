@@ -37,7 +37,8 @@ function ReMap(argument0) {
 			}
 			new_key = false;
 			menu_control = true;
-			show_debug_message("new key off")
+			show_debug_message("new key off");
+			global.any_remap = true;
 		}
 	}
 
