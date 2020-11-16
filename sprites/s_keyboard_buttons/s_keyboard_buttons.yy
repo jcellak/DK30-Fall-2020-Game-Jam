@@ -7,14 +7,14 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 15,
+  "bbox_left": 12,
+  "bbox_right": 27,
   "bbox_top": 1,
   "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 16,
+  "width": 40,
   "height": 16,
   "textureGroupId": {
     "name": "Default",
@@ -26,28 +26,44 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"fd3357bb-5f86-4baa-9a34-0bfa0032fbf2","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"fd3357bb-5f86-4baa-9a34-0bfa0032fbf2","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"fd3357bb-5f86-4baa-9a34-0bfa0032fbf2","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"fd3357bb-5f86-4baa-9a34-0bfa0032fbf2","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"1c30fd65-ee37-4f1e-a1ec-be08b70a8ff9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"1c30fd65-ee37-4f1e-a1ec-be08b70a8ff9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"1c30fd65-ee37-4f1e-a1ec-be08b70a8ff9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"1c30fd65-ee37-4f1e-a1ec-be08b70a8ff9","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"1afb5156-ee91-40bf-8c6f-6c5235433181","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"1afb5156-ee91-40bf-8c6f-6c5235433181","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"1afb5156-ee91-40bf-8c6f-6c5235433181","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"1afb5156-ee91-40bf-8c6f-6c5235433181","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"09186fdf-d5ad-45c8-8b86-156152e0e6a8","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"09186fdf-d5ad-45c8-8b86-156152e0e6a8","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"09186fdf-d5ad-45c8-8b86-156152e0e6a8","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"09186fdf-d5ad-45c8-8b86-156152e0e6a8","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"a36f42fb-cdbd-4f71-a327-96bfacb50e51","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"a36f42fb-cdbd-4f71-a327-96bfacb50e51","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"a36f42fb-cdbd-4f71-a327-96bfacb50e51","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"a36f42fb-cdbd-4f71-a327-96bfacb50e51","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"93be53da-3f0f-426d-b4ba-7c22fe6149d9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"93be53da-3f0f-426d-b4ba-7c22fe6149d9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"93be53da-3f0f-426d-b4ba-7c22fe6149d9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"93be53da-3f0f-426d-b4ba-7c22fe6149d9","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"5d6d93dc-daf2-4359-86ad-1ef218102830","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"5d6d93dc-daf2-4359-86ad-1ef218102830","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"5d6d93dc-daf2-4359-86ad-1ef218102830","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"5d6d93dc-daf2-4359-86ad-1ef218102830","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"e4aadcac-7413-417a-8728-c9aec85e59fb","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"e4aadcac-7413-417a-8728-c9aec85e59fb","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"e4aadcac-7413-417a-8728-c9aec85e59fb","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"e4aadcac-7413-417a-8728-c9aec85e59fb","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"438d15e5-23b1-4073-8690-7351b1e28f4e","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"438d15e5-23b1-4073-8690-7351b1e28f4e","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"438d15e5-23b1-4073-8690-7351b1e28f4e","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"438d15e5-23b1-4073-8690-7351b1e28f4e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1a2aa6a6-7983-4d02-a768-c07c2ad915ed","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1a2aa6a6-7983-4d02-a768-c07c2ad915ed","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"1a2aa6a6-7983-4d02-a768-c07c2ad915ed","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"LayerId":{"name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","name":"1a2aa6a6-7983-4d02-a768-c07c2ad915ed","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"s_keyboard_buttons","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},
@@ -57,7 +73,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 8.0,
+    "length": 10.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -70,6 +86,8 @@
             {"id":"10e31aa2-f6ba-4c9a-85f2-850d223c1d14","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"93be53da-3f0f-426d-b4ba-7c22fe6149d9","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"48110766-5f7c-4bf0-9402-ffd4a4770c46","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5d6d93dc-daf2-4359-86ad-1ef218102830","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"33754960-15bc-457b-803c-d6df67300e6b","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e4aadcac-7413-417a-8728-c9aec85e59fb","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5bb78e37-d162-4aff-a4d4-e97a04bbfabf","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"438d15e5-23b1-4073-8690-7351b1e28f4e","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fd9765aa-bb1b-48eb-871f-99eae2df9744","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1a2aa6a6-7983-4d02-a768-c07c2ad915ed","path":"sprites/s_keyboard_buttons/s_keyboard_buttons.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -82,7 +100,7 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 8,
+    "xorigin": 20,
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
@@ -93,6 +111,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"3ef1d9a9-5b58-415d-bd5c-794b1d32fa59","tags":[],"resourceType":"GMImageLayer",},
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e7015ca3-81cc-4a4e-9f77-6a753cfe8459","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
