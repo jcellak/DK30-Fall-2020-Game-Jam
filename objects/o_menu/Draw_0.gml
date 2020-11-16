@@ -76,7 +76,11 @@ var _flk = flikr? "_" : " ";
 
 
 	if (current_menu == menu_waiting) {
-		draw_text(l_screen + margin, t_screen + margin * 2, "WAITING FOR PLAYER 2");
+		draw_text(l_screen + margin, t_screen + margin * 3, "WAITING FOR PLAYER 2...");
+		
+		draw_set_font(f_menu_small);
+		draw_text(l_screen + margin, b_screen, "PORT 25653 MUST BE FORWARDED");
+		draw_set_font(m_font);
 	}
 
 	if (current_menu == menu_connect) {

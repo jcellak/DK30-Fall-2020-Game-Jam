@@ -26,6 +26,8 @@ if (blast_held && modules.blast) {
 		audio_stop_sound(a_charging);
 	}
 	blast_charge = clamp(blast_charge + 1, 0, global.player_charge[this_player_num]);
+} else {
+	audio_stop_sound(a_charging);
 }
 #endregion
 

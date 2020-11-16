@@ -1,7 +1,7 @@
 /// @description Inherit parent, then draw Tutorial sprite if need be
 event_inherited();
 
-if (!global.any_remap) {
+if (!global.any_remap and (global.local_play or !is_opponent)) {
 	var _tutorial_trigger = instance_place(x, y, o_tutorial_trigger_p1);
 	if (_tutorial_trigger != noone) {
 		if (_tutorial_trigger.sprite_tutorial_image_index == 0 && !modules.jump) {
