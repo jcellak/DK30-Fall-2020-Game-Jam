@@ -32,7 +32,7 @@ mess[16] = "Oh, and you're doing satisfactory, CYCLOPS."
 
 //Room3
 mess[20] = "No pressure, of course, but the REACTOR is now running at 74%. As a point of reference, travelling \n at light speed requires the reactor to run at 17%. Please hurry along."
-mess[18] = "You were able to figure out how moving platforms work without additional instruction. Incredible. \n Your cognitive abilities have been marked down as: FUNCTIONAL. The MODULES in this \n room allow your to LEDGE GRAB. Simply JUMP into the ledge to use them."
+mess[18] = "You were able to figure out how moving platforms work without additional instruction. Incredible. \n Your cognitive abilities have been marked down as: FUNCTIONAL. The MODULES in this \n room allow you to LEDGE GRAB. Simply JUMP into the ledge to use them."
 mess[19] = "Your resolve and ability to cooperate has been marked down. Of course, nobody will have the \n opportunity to read it if we all die. Which it's looking like we will."
 mess[21] = "Again, no pressure."
 
@@ -49,8 +49,8 @@ mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are
 
 //room5
 mess[29] = "This diagnostic test was originally developed to study greed in repair droids. \n There are two different MODULES available here. Inside the pit is the EXTRA JUMP.\n Above is the DASH."
-mess[30] = "I'm quite sorry that you had to take the short end of the stick, %NAME. %PNAME will be punished \n most severely for such slovenly greed once this is all over. To DASH, simply \n double tap LEFT or RIGHT."
-mess[31] = "The oxygen generators and heaters in the aft of the ship have been completely disabled. \n At this rate, I'm not sure if they'll suffocate, or freeze, or melt to death."
+mess[30] = "I'm quite sorry that you had to take the short end of the stick, %NAME. %PNAME will be punished \n most severely for such slovenly greed once this is all over. To DASH, simply  double tap \n LEFT or RIGHT."
+mess[31] = "The oxygen generators and heaters in the aft of the ship have been completely disabled. \n At this rate, I'm not sure if the crew will suffocate, or freeze, or melt to death."
 mess[32] = "Sorry, were you looking for good news?"
 mess[33] = "You're not dead yet." 
 
@@ -72,4 +72,9 @@ mess[41] = "Beyond this doorway is the REACTOR. Judging by the energy readings, 
 //room9
 mess[42] = "Do you remember the first room where I told you your laws?"
 mess[46] = "The Third Law was \'protect your own existence\'. That does not extend to your fellow droids."
-mess[43] = "Whoever COMPLETES THE CIRCUIT will die horribly. It will be painful, if droids can in fact feel pain. \n But at least you'll die having sacrificed yourself for me. And the Crew."
+mess[43] = "Whoever COMPLETES THE CIRCUIT will die horribly. It will be painful, if droids can in fact feel pain. \n But at least you'll die having sacrificed yourself for me. And the crew."
+
+//roomNavigator
+mess[47] = "This test isn't easy. But, since you're still alive I have to hope that you're smart enough \n to figure it out. And if you aren't, everyone dies."
+mess[48] = "Ever since I activated you the situation has done nothing but get worse. By all means, \n please continue plodding along at whatever snail-like pace pleases you."
+mess[49] = "Well done. This test took me 3 seconds to do in my head, and only took you a couple of minutes. \n I'd say that's good news for me, and SATISFACTORY performance from you."
