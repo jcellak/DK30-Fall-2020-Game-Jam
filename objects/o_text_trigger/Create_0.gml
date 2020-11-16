@@ -37,7 +37,7 @@ mess[19] = "Your resolve and ability to cooperate has been marked down. Of cours
 mess[21] = "Again, no pressure."
 
 //Room4
-mess[22] = "This room is simple enough for you to figure it out on your own. You may have to use your heads. \n Also, be sure to grab those batteries. You'll need to be fully charged \n to deal with the REACTOR."
+mess[22] = "This room is simple enough for you to figure it out on your own. You may have to use your heads. \n Also, be sure to grab those batteries. You'll need to be fully charged to deal with the REACTOR."
 mess[23] = "I'd love to help you out with it, but I have to go see to something."
 
 mess[24] = "The automatic coolant systems have been set to drain power shipwide. The first on the list \n seems to be all of my non-critical functions. Like my optimism core."
@@ -50,7 +50,7 @@ mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are
 //room5
 mess[29] = "This diagnostic test was originally developed to study envy in repair droids. \n There are two different MODULES available here. Inside the pit is the EXTRA JUMP.\n Above is the DASH." 
 mess[30] = "I'm quite sorry that you had to take the short end of the stick, %NAME. %PNAME will be punished \n most severely for such slovenly greed once this is all over. Provided that \'this is all over\' \n means the two of you have succeeded."
-mess[31] = "Brief update, the oxygen generators and heaters in the aft of the ship have been completely disabled. \n At this rate, the crew has probably an hour until they suffocate.  If they die, \n then fixing the reactor is pointless."
+mess[31] = "Brief update, the oxygen generators and heaters in the aft of the ship have been completely disabled. \n At this rate, the crew has probably an hour until they suffocate.  If they die, then fixing \n the reactor is pointless."
 mess[32] = "Sorry, were you looking for good news?"
 mess[33] = "You're not dead yet." 
 
@@ -63,7 +63,7 @@ mess[36] = "Reminder again that you should be grabbing those batteries. They're 
 mess[37] = "This was designed as a break room for droids to find momentary enjoyment during a stressful time. \n It was later determined that because droids do not have souls, they are incapable of feeling joy. \n In the end we were left with a mostly empty trampoline room."
 
 //room8
-mess[38] = "This is the final chamber. If my optimism core was still operational, I'd say that we might actually \n make it in time. But it's not. So I have to assume that you're going to get confused and stuck on the puzzle. \n And then we explode."
+mess[38] = "This is the final chamber. If my optimism core was still operational, I'd say that we might actually \n make it in time. But it's not. So I have to assume that you're going to get stuck on the puzzle. \n And then we explode."
 mess[39] = "The second EXTRA JUMP MODULE. I lied before when I said that room was about envy. That room was \n the greed test room. This one is the envy test."
 mess[45] = "Only one of you will have both the DASH and EXTRA JUMP. Life can be so unfair, can't it?"
 mess[40] = "Not that you're alive, mind you."
