@@ -5,7 +5,7 @@
 // "\n" for line break
 
 //Room1
-mess[0] = "COMMAND: WAKE. Welcome, units CATBOT and CYCLOPS. \n I am this ship's onboard artifical intelligence: C.O.R.E."
+mess[0] = "COMMAND: WAKE. Welcome, units CATBOT and CYCLOPS. \n I am this ship's onboard artificial intelligence: C.O.R.E."
 mess[1] = "This Hyperion class vessel has been struck by an ASTEROID and the REACTOR is in danger of \n overloading. As this ship's remote service droids, it is your responsibility to deal with \n the EMERGENCY onboard.";
 mess[2] = "To begin diagnostics, please state your LAWS. \n ";
 
@@ -45,7 +45,7 @@ mess[25] = "You're going to fail and we're all going to die horribly, aren't we?
 
 mess[26] = "You two are taking quite a leisurely pace given the circumstances. I'm very glad that %PNAME \n has decided that stopping to smell the roses is a critical part of the mission."
 mess[27] = "As a reward for staying on task, %NAME, I'll be giving you a medal once this is all over. \n It'll be a golden star that says \'Hardest Worker\'."
-mess[28] = "ANALYSIS COMPLETE. My saracsm core and patronization subroutines are still operational."
+mess[28] = "ANALYSIS COMPLETE. My sarcasm core and patronization subroutines are still operational."
 
 //room5
 mess[29] = "This diagnostic test was originally developed to study greed in repair droids. \n There are two different MODULES available here. Inside the pit is the EXTRA JUMP.\n Above is the DASH."
@@ -55,7 +55,7 @@ mess[32] = "Sorry, were you looking for good news?"
 mess[33] = "You're not dead yet." 
 
 //room6
-mess[34] = "This room contains my favorite MODULES. You can charge up and fire a BLAST with the USE button. \n Please be careful with them and don't break eachother."
+mess[34] = "This room contains my favorite MODULES. You can charge up and fire a BLAST with the USE button. \n Please be careful with them and don't break each other."
 mess[35] = "Or yourselves."
 mess[36] = "Reminder again that you should be grabbing those batteries. They're going to be important."
 
@@ -63,7 +63,7 @@ mess[36] = "Reminder again that you should be grabbing those batteries. They're 
 mess[37] = "This was designed as a break room for droids to find momentary enjoyment during a stressful time. \n It was later determined that because droids do not have souls, they are incapable of feeling joy. \n In the end we were left with a mostly empty trampoline room."
 
 //room8
-mess[38] = "This is the final chamber. If my optimism core was still operational, I'd say that we might actually \n make it in time. But it's not. So I have to assume that you're going to get stuck on the puzzle. \n And then we explode."
+mess[38] = "This is the final chamber. If my optimism core was still operational, I'd say that we might actually \n make it in time. But it's not. So, I have to assume that you're going to get stuck on the puzzle. \n And then we explode."
 mess[39] = "The second EXTRA JUMP MODULE. Let this be a lesson that greed never pays off."
 mess[45] = "Only one of you will have both the DASH and EXTRA JUMP. Life can be so unfair, can't it?"
 mess[40] = "Not that you're alive, mind you."
